@@ -1,0 +1,3342 @@
+{
+  "index": "https://yandex.ru/support/tracker/ru/llms.txt?revision=r21880163",
+  "pages": [
+    {
+      "path": "api/about-api.md",
+      "title": "Справочник API",
+      "url": "https://yandex.ru/support/tracker/ru/api/about-api.md?revision=r21880163",
+      "sha256": "bb3a8a0246118b7a21cb082bebbc4ab7832d5d09682917f9ef690d72dab6cc28",
+      "signatures": [],
+      "operations": [],
+      "note": "Описание общего протокола, полей или формы данных; отдельных HTTP-операций нет.",
+      "content_sha256": "8791ee0b29c4b2e6f761f9193195853f0af56b484c95dd35e832022fce014c90"
+    },
+    {
+      "path": "api/access.md",
+      "title": "Доступ к API",
+      "url": "https://yandex.ru/support/tracker/ru/api/access.md?revision=r21880163",
+      "sha256": "cf76555c5b78946e6e86622c641e71ae8703607018a26128e45fe1bb90c83fb7",
+      "signatures": [],
+      "operations": [],
+      "note": "Описание общего протокола, полей или формы данных; отдельных HTTP-операций нет.",
+      "content_sha256": "5c510be899812336ac6da589d218b184f4397e9b5f8cf4242977411ae667d30e"
+    },
+    {
+      "path": "api/common-format.md",
+      "title": "Общий формат запросов",
+      "url": "https://yandex.ru/support/tracker/ru/api/common-format.md?revision=r21880163",
+      "sha256": "0a43d38eb2b6d2aceacccda24f2afdcef2cba5c51b578a4200424a6aa446bb8b",
+      "signatures": [],
+      "operations": [],
+      "note": "Описание общего протокола, полей или формы данных; отдельных HTTP-операций нет.",
+      "content_sha256": "9ca9eea6a774c0dd06ed381e81d0334ae9cdc4d196b23509d0cb825aa6b5f480",
+      "excluded_signatures": [
+        {
+          "signature": "PATCH /v3/issues/TEST-1",
+          "digest": "9ca9eea6a774c0dd06ed381e81d0334ae9cdc4d196b23509d0cb825aa6b5f480",
+          "reason": "Concrete request example for UpdateIssue; identifiers instantiate the documented route placeholders."
+        },
+        {
+          "signature": "GET /v3/issues/JUNE-3",
+          "digest": "9ca9eea6a774c0dd06ed381e81d0334ae9cdc4d196b23509d0cb825aa6b5f480",
+          "reason": "Concrete request example for GetIssue; identifiers instantiate the documented route placeholders."
+        },
+        {
+          "signature": "POST /v3/issues",
+          "digest": "9ca9eea6a774c0dd06ed381e81d0334ae9cdc4d196b23509d0cb825aa6b5f480",
+          "reason": "Reference to CreateIssue; its primary method is documented on api/issues/create-issue.md."
+        },
+        {
+          "signature": "POST /v3/issues/_search",
+          "digest": "9ca9eea6a774c0dd06ed381e81d0334ae9cdc4d196b23509d0cb825aa6b5f480",
+          "reason": "Reference to SearchIssues; its primary method is documented on api/issues/search-issues.md."
+        }
+      ]
+    },
+    {
+      "path": "api/issues/fields.md",
+      "title": "Доступные парамеры задач",
+      "url": "https://yandex.ru/support/tracker/ru/api/issues/fields.md?revision=r21880163",
+      "sha256": "2ee4ca885840aeb315f99ba1392cc5f34041ae31395bc6bdaedd0dfd3835ff2b",
+      "signatures": [],
+      "operations": [],
+      "note": "Описание общего протокола, полей или формы данных; отдельных HTTP-операций нет.",
+      "content_sha256": "7e6c23f20fa2361407bf8a5467911da61b52f02233fc84017ffd71bb58bff111"
+    },
+    {
+      "path": "api/issues/request-fields.md",
+      "title": "Запросы",
+      "url": "https://yandex.ru/support/tracker/ru/api/issues/request-fields.md?revision=r21880163",
+      "sha256": "0c2234d407997dbb0f5276261caefa9670c0bb5a67b19182acd73b19a3e41e4e",
+      "signatures": [],
+      "operations": [],
+      "note": "Описание общего протокола, полей или формы данных; отдельных HTTP-операций нет.",
+      "content_sha256": "3954a8a9feff0d1bc2c4512e7f1be68a80afd2e035dc3949a67d92cf805080e8"
+    },
+    {
+      "path": "api/issues/response-fields.md",
+      "title": "Ответы",
+      "url": "https://yandex.ru/support/tracker/ru/api/issues/response-fields.md?revision=r21880163",
+      "sha256": "c50365b6502309aed6d72a0d1dfc93844c81bb9f883fb51dd546de244dbe433d",
+      "signatures": [],
+      "operations": [],
+      "note": "Описание общего протокола, полей или формы данных; отдельных HTTP-операций нет.",
+      "content_sha256": "aa4364e05dd55e941a0325f937ad3a790a7d4516c1a6b3dfc3ba0f76a68e95c7"
+    },
+    {
+      "path": "api/issues/create-issue.md",
+      "title": "Создать задачу",
+      "url": "https://yandex.ru/support/tracker/ru/api/issues/create-issue.md?revision=r21880163",
+      "sha256": "f55230767ff21750616fd19a9ec558a5d84e7d315d5d972016dd09824832f17a",
+      "signatures": [
+        "POST /v3/issues"
+      ],
+      "operations": [
+        "CreateIssue"
+      ],
+      "content_sha256": "f1e412065f2d32dc75059e33a81169fdf17eb303673695e00b12db6037462b70"
+    },
+    {
+      "path": "api/issues/get-issue.md",
+      "title": "Получить параметры задачи",
+      "url": "https://yandex.ru/support/tracker/ru/api/issues/get-issue.md?revision=r21880163",
+      "sha256": "e311fedc7376642a76fc8671a592358e325f00edec42acec2e88ca69ba6ab5b7",
+      "signatures": [
+        "GET /v3/issues/{id_задачи}"
+      ],
+      "operations": [
+        "GetIssue"
+      ],
+      "content_sha256": "1111a32a93f8b4344258a486721ddda83876aa4eebfdf24630d0aae4f64789d8",
+      "excluded_signatures": [
+        {
+          "signature": "GET /v3/issues/JUNE-3",
+          "digest": "1111a32a93f8b4344258a486721ddda83876aa4eebfdf24630d0aae4f64789d8",
+          "reason": "Concrete request example for GetIssue; identifiers instantiate the documented route placeholders."
+        }
+      ]
+    },
+    {
+      "path": "api/issues/patch-issue.md",
+      "title": "Редактировать задачу",
+      "url": "https://yandex.ru/support/tracker/ru/api/issues/patch-issue.md?revision=r21880163",
+      "sha256": "b4473bde5af7ac82091d0ca6757e854feba11dff57eeb6005e53fce92860ae59",
+      "signatures": [
+        "PATCH /v3/issues/{id_задачи}"
+      ],
+      "operations": [
+        "UpdateIssue"
+      ],
+      "content_sha256": "c0ba1cf3b0cdbfb1c489ca57dbf714dbc385eb2cde403c99f8aa9822a2a3955d",
+      "excluded_signatures": [
+        {
+          "signature": "PATCH /v3/issues/TEST-1",
+          "digest": "c0ba1cf3b0cdbfb1c489ca57dbf714dbc385eb2cde403c99f8aa9822a2a3955d",
+          "reason": "Concrete request example for UpdateIssue; identifiers instantiate the documented route placeholders."
+        }
+      ]
+    },
+    {
+      "path": "api/issues/link-issue.md",
+      "title": "Создать связь с задачей",
+      "url": "https://yandex.ru/support/tracker/ru/api/issues/link-issue.md?revision=r21880163",
+      "sha256": "42c0a5f22c8daaeee842738005b532d2c1ff741d468e58dbc5fd04bc514b6eeb",
+      "signatures": [
+        "POST /v3/issues/{id_задачи}/links"
+      ],
+      "operations": [
+        "CreateIssueLink"
+      ],
+      "content_sha256": "4ceaac4f5bbd3804374b41c14da13cfb3a16b3b1b5fcab1c32df6a3bebe502d1",
+      "excluded_signatures": [
+        {
+          "signature": "POST /v3/issues/TEST-1/links",
+          "digest": "4ceaac4f5bbd3804374b41c14da13cfb3a16b3b1b5fcab1c32df6a3bebe502d1",
+          "reason": "Concrete request example for CreateIssueLink; identifiers instantiate the documented route placeholders."
+        }
+      ]
+    },
+    {
+      "path": "api/issues/get-links.md",
+      "title": "Получить связи задачи",
+      "url": "https://yandex.ru/support/tracker/ru/api/issues/get-links.md?revision=r21880163",
+      "sha256": "8d79318b5dffbd65c917d0dfa281e4404803166f8e78005e522536fbb7a96e33",
+      "signatures": [
+        "GET /v3/issues/{id_задачи}/links"
+      ],
+      "operations": [
+        "ListIssueLinks"
+      ],
+      "content_sha256": "bd97b7d9514c9cc6c535bc06a6bcd2d6ee64c75be39dd7386b10ad9a2650db15",
+      "excluded_signatures": [
+        {
+          "signature": "GET /v3/issues/JUNE-2/links",
+          "digest": "bd97b7d9514c9cc6c535bc06a6bcd2d6ee64c75be39dd7386b10ad9a2650db15",
+          "reason": "Concrete request example for ListIssueLinks; identifiers instantiate the documented route placeholders."
+        }
+      ]
+    },
+    {
+      "path": "api/issues/get-links-paginate.md",
+      "title": "Получить связи задачи с пагинацией",
+      "url": "https://yandex.ru/support/tracker/ru/api/issues/get-links-paginate.md?revision=r21880163",
+      "sha256": "44b96f1d0664385b6222e77079280500f90fc9e929364f5a9128b5b83a08d00c",
+      "signatures": [
+        "POST /v3/issues/{id_задачи}/links/_list"
+      ],
+      "operations": [
+        "ListIssueLinksPage"
+      ],
+      "content_sha256": "a696f473a894f122501d9c0d4591a35e57fc5b757c6fa0c4cda0b71e3ebbd734",
+      "excluded_signatures": [
+        {
+          "signature": "POST /v3/issues/JUNE-2/links/_list",
+          "digest": "a696f473a894f122501d9c0d4591a35e57fc5b757c6fa0c4cda0b71e3ebbd734",
+          "reason": "Concrete request example for ListIssueLinksPage; identifiers instantiate the documented route placeholders."
+        }
+      ]
+    },
+    {
+      "path": "api/issues/delete-link-issue.md",
+      "title": "Удалить связь с задачей",
+      "url": "https://yandex.ru/support/tracker/ru/api/issues/delete-link-issue.md?revision=r21880163",
+      "sha256": "56275925ba5f1484d3050b526524c31c3659a65a6775ee8d638b789493bf8f12",
+      "signatures": [
+        "DELETE /v3/issues/{id_задачи}/links/{id_связи}"
+      ],
+      "operations": [
+        "DeleteIssueLink"
+      ],
+      "content_sha256": "7bb6bf3b63dcc3f56c24c0d24fbcffc78d76eb9920f7453e05be9bfe25c0147f"
+    },
+    {
+      "path": "api/issues/move-issue.md",
+      "title": "Перенести задачу в другую очередь",
+      "url": "https://yandex.ru/support/tracker/ru/api/issues/move-issue.md?revision=r21880163",
+      "sha256": "7966283b3cbdec2f8f6f4afcb640aa336ed35ef48547f0b3ada21385cd9dc4d2",
+      "signatures": [
+        "POST /v3/issues/{id_задачи}/_move"
+      ],
+      "operations": [
+        "MoveIssue"
+      ],
+      "content_sha256": "b212300caf1483d852e6420224046fb61834e26fe1ee0e87561b435f57d2e717",
+      "excluded_signatures": [
+        {
+          "signature": "POST /v3/issues/TEST-1/_move",
+          "digest": "b212300caf1483d852e6420224046fb61834e26fe1ee0e87561b435f57d2e717",
+          "reason": "Concrete request example for MoveIssue; identifiers instantiate the documented route placeholders."
+        }
+      ]
+    },
+    {
+      "path": "api/issues/get-transitions.md",
+      "title": "Получить переходы",
+      "url": "https://yandex.ru/support/tracker/ru/api/issues/get-transitions.md?revision=r21880163",
+      "sha256": "c9a50b811a88bd85eb911fd9c7fe0847db6c20a22578736f00a83fad52b1a71c",
+      "signatures": [
+        "GET /v3/issues/{id_задачи}/transitions"
+      ],
+      "operations": [
+        "ListIssueTransitions"
+      ],
+      "content_sha256": "4f12acd4afdcdfda9c3f4ef81414bdb574fc168d9e10c4ffe490e9b7b78a1de2"
+    },
+    {
+      "path": "api/issues/new-transition.md",
+      "title": "Выполнить переход в статус",
+      "url": "https://yandex.ru/support/tracker/ru/api/issues/new-transition.md?revision=r21880163",
+      "sha256": "c9ac9ca9f87494e31f050ad51170eeaa675c16a25e03f91bab038da297e36155",
+      "signatures": [
+        "POST /v3/issues/{id_задачи}/transitions/{id_перехода}/_execute"
+      ],
+      "operations": [
+        "ExecuteIssueTransition"
+      ],
+      "content_sha256": "881dd5ba03ca8cfc77fcd1142f6c07848c7f2dd8682f74e604ecafe07f07d1c0"
+    },
+    {
+      "path": "api/issues/create-report.md",
+      "title": "Создать отчет по задачам",
+      "url": "https://yandex.ru/support/tracker/ru/api/issues/create-report.md?revision=r21880163",
+      "sha256": "0977191c56e55ca0f781258a4ae0a4e9a31b7953e30b5f5d3847fb2410b4ca46",
+      "signatures": [
+        "POST /v3/entities/report"
+      ],
+      "operations": [
+        "CreateIssueReport"
+      ],
+      "content_sha256": "31edd30c15a70d5a2a0b48a2d3221f458b1c8afa86c5c31ecf7e51a4e83cb570"
+    },
+    {
+      "path": "api/issues/search-reports.md",
+      "title": "Найти отчеты по задачам",
+      "url": "https://yandex.ru/support/tracker/ru/api/issues/search-reports.md?revision=r21880163",
+      "sha256": "c5a97773b5453999d2960e3550b365b50a4bbe5371a6face0a05c00ac127f279",
+      "signatures": [
+        "POST /v3/entities/report/_search"
+      ],
+      "operations": [
+        "SearchIssueReports"
+      ],
+      "content_sha256": "1cb1d8a0c95122a6f89622bd0b07caf0d8e9885e86d59736090b8f21fe00ddd1"
+    },
+    {
+      "path": "api/issues/get-changelog.md",
+      "title": "Получить историю изменений задачи",
+      "url": "https://yandex.ru/support/tracker/ru/api/issues/get-changelog.md?revision=r21880163",
+      "sha256": "12131fb93ba9ab059cc476f483923f41b3a1b40dd156498f57efacafd2982052",
+      "signatures": [
+        "GET /v3/issues/{id_задачи}/changelog"
+      ],
+      "operations": [
+        "GetIssueChangelog"
+      ],
+      "content_sha256": "7ec912314579d84c14ec2520d73a8dc3a29bb48e40b8de0ef7d8c4454c7c2589"
+    },
+    {
+      "path": "api/issues/search-issues.md",
+      "title": "Найти задачи",
+      "url": "https://yandex.ru/support/tracker/ru/api/issues/search-issues.md?revision=r21880163",
+      "sha256": "31528196b0a2de86053b66edbb2a0b195af70ddc2990772d6f7af1a8f0b2bd2d",
+      "signatures": [
+        "POST /v3/issues/_search"
+      ],
+      "operations": [
+        "SearchIssues"
+      ],
+      "content_sha256": "37d624d24570fed99be770e8410be1749082278faf32050dcfe122b9c26a290a"
+    },
+    {
+      "path": "api/issues/query2.md",
+      "title": "Язык запросов 2.0 в API",
+      "url": "https://yandex.ru/support/tracker/ru/api/issues/query2.md?revision=r21880163",
+      "sha256": "0850f1a2c3c0b5573686cc43f10b2f21fb6f9f55a524933b44f7da4fe0425f55",
+      "signatures": [],
+      "operations": [
+        "SearchIssues"
+      ],
+      "note": "Язык запросов 2.0 использует SearchIssues; это не отдельный endpoint.",
+      "content_sha256": "2de6be87b3051f0ef5c1f9a8ef3a483be3a2c9601ad3759c97d7b304491cae5b",
+      "excluded_signatures": [
+        {
+          "signature": "POST /v3/issues/_search",
+          "digest": "2de6be87b3051f0ef5c1f9a8ef3a483be3a2c9601ad3759c97d7b304491cae5b",
+          "reason": "Reference to SearchIssues; its primary method is documented on api/issues/search-issues.md."
+        }
+      ]
+    },
+    {
+      "path": "api/issues/count-issues.md",
+      "title": "Узнать количество задач",
+      "url": "https://yandex.ru/support/tracker/ru/api/issues/count-issues.md?revision=r21880163",
+      "sha256": "ff73975b10e7186e6c0466205819af2817fb8ed39e88ff6f74bae18b13bd8349",
+      "signatures": [
+        "POST /v3/issues/_count"
+      ],
+      "operations": [
+        "CountIssues"
+      ],
+      "content_sha256": "bebd86dba1b92ca29d49949ccc8e4ae69364c9da888bfe840ec6e0c75a9ffb3b"
+    },
+    {
+      "path": "api/issues/get-suggest.md",
+      "title": "Сформировать подсказки (suggest) при поиске задач",
+      "url": "https://yandex.ru/support/tracker/ru/api/issues/get-suggest.md?revision=r21880163",
+      "sha256": "1e2152ef2de935b86b58d1f5869d2d90344d03f74074bb1f5e3bab181b10235e",
+      "signatures": [
+        "GET /v3/issues/_suggest"
+      ],
+      "operations": [
+        "SuggestIssues"
+      ],
+      "content_sha256": "ff180683f3eb1d09dc11c78ec5a1c4f2b3eacf30883e860c9453ee2deda04734"
+    },
+    {
+      "path": "api/issues/search-release.md",
+      "title": "Освободить ресурсы просмотра прокрутки",
+      "url": "https://yandex.ru/support/tracker/ru/api/issues/search-release.md?revision=r21880163",
+      "sha256": "4fadacf9c716e9a88e9f6190955897a093e58a2c243aafdd56fccdbc96ba38e6",
+      "signatures": [
+        "POST /v3/system/search/scroll/_clear"
+      ],
+      "operations": [
+        "ClearIssueScroll"
+      ],
+      "content_sha256": "87fed955075c932af1bba389c0829a80df1ecfa01446967bf80c95d04dd61d28"
+    },
+    {
+      "path": "api/filters/create-filter.md",
+      "title": "Создать фильтр",
+      "url": "https://yandex.ru/support/tracker/ru/api/filters/create-filter.md?revision=r21880163",
+      "sha256": "c26633b347673d66a47f8ab45b56725c6598e925d387506f9cdbf5d518ead630",
+      "signatures": [
+        "POST /v3/filters"
+      ],
+      "operations": [
+        "CreateFilter"
+      ],
+      "content_sha256": "3be5914d08365bead9501d18069a143980dccb80509378d3c8d5f5378766c35f"
+    },
+    {
+      "path": "api/filters/get-filter.md",
+      "title": "Получить параметры фильтра",
+      "url": "https://yandex.ru/support/tracker/ru/api/filters/get-filter.md?revision=r21880163",
+      "sha256": "bad6b38d517671269c0674a90dead81b41011abeb83f92760e9afb000f98579e",
+      "signatures": [
+        "GET /v3/filters/{id_фильтра}"
+      ],
+      "operations": [
+        "GetFilter"
+      ],
+      "content_sha256": "c1327114b283d6467cc304276d03062286b70f87594ec113a3f7eb7f383a7ecb",
+      "excluded_signatures": [
+        {
+          "signature": "GET /v3/filters/12345",
+          "digest": "c1327114b283d6467cc304276d03062286b70f87594ec113a3f7eb7f383a7ecb",
+          "reason": "Concrete request example for GetFilter; identifiers instantiate the documented route placeholders."
+        }
+      ]
+    },
+    {
+      "path": "api/filters/update-filter.md",
+      "title": "Редактировать фильтр",
+      "url": "https://yandex.ru/support/tracker/ru/api/filters/update-filter.md?revision=r21880163",
+      "sha256": "08febd56df7b736467f3c07d2e3c398ba11f5fcbbcfd13b226fc7058d9cfecd8",
+      "signatures": [
+        "PATCH /v3/filters/{id_фильтра}"
+      ],
+      "operations": [
+        "UpdateFilter"
+      ],
+      "content_sha256": "b16fb852aa8eec23c10faf85481fcc1d6e3dc1cf2fcd46f0e932c691b0d16cc7",
+      "excluded_signatures": [
+        {
+          "signature": "PATCH /v3/filters/12345",
+          "digest": "b16fb852aa8eec23c10faf85481fcc1d6e3dc1cf2fcd46f0e932c691b0d16cc7",
+          "reason": "Concrete request example for UpdateFilter; identifiers instantiate the documented route placeholders."
+        }
+      ]
+    },
+    {
+      "path": "api/filters/delete-filter.md",
+      "title": "Удалить фильтр",
+      "url": "https://yandex.ru/support/tracker/ru/api/filters/delete-filter.md?revision=r21880163",
+      "sha256": "cb1cfca7ab543703df3b9be90001f851a9083c67153ed41514856680968fad72",
+      "signatures": [
+        "DELETE /v2/filters/{id_фильтра}"
+      ],
+      "operations": [
+        "DeleteFilter"
+      ],
+      "content_sha256": "820c7fbca380c999cb6d47a6e50ba3631f81ecfffe01616700ca9cd0a7be572d",
+      "excluded_signatures": [
+        {
+          "signature": "DELETE /v2/filters/12345",
+          "digest": "820c7fbca380c999cb6d47a6e50ba3631f81ecfffe01616700ca9cd0a7be572d",
+          "reason": "Concrete request example for DeleteFilter; identifiers instantiate the documented route placeholders."
+        }
+      ]
+    },
+    {
+      "path": "api/issues/add-checklist-item.md",
+      "title": "Создать чеклист или добавить в него пункты",
+      "url": "https://yandex.ru/support/tracker/ru/api/issues/add-checklist-item.md?revision=r21880163",
+      "sha256": "d502022bc6907bcdc936eb699fad5f44c811f823e0645350b7d5c3e2b70aa721",
+      "signatures": [
+        "POST /v3/issues/{id_задачи}/checklistItems"
+      ],
+      "operations": [
+        "AddIssueChecklistItems"
+      ],
+      "content_sha256": "b33c3a88eb57df0db402f89c1d513ce74575b1a71045a2464e2835f4c6528613"
+    },
+    {
+      "path": "api/issues/get-checklist.md",
+      "title": "Получить параметры чеклиста",
+      "url": "https://yandex.ru/support/tracker/ru/api/issues/get-checklist.md?revision=r21880163",
+      "sha256": "45a2f81957978214fe38ee6f316099547d1d3f4fc2e2113b01e01e7d14e38cc9",
+      "signatures": [
+        "GET /v3/issues/{id_задачи}/checklistItems"
+      ],
+      "operations": [
+        "GetIssueChecklist"
+      ],
+      "content_sha256": "adf57cdb86bd0c8b87e2ebc2504d21d726747cffcb905a3752c2a6c6318b3e83"
+    },
+    {
+      "path": "api/issues/edit-checklist.md",
+      "title": "Редактировать чеклист",
+      "url": "https://yandex.ru/support/tracker/ru/api/issues/edit-checklist.md?revision=r21880163",
+      "sha256": "644e7f7ecbaa8be9252772ec5c084628337f5d384322e0214bc94d5f30384f27",
+      "signatures": [
+        "PATCH /v3/issues/{id_задачи}/checklistItems/{id_пункта_чеклиста}"
+      ],
+      "operations": [
+        "UpdateIssueChecklistItem"
+      ],
+      "content_sha256": "cb4f702fc61c64a0f8ea8a914190591fcd99a460321f0abd1a8ff98c9630bbca"
+    },
+    {
+      "path": "api/issues/delete-checklist.md",
+      "title": "Удалить чеклист",
+      "url": "https://yandex.ru/support/tracker/ru/api/issues/delete-checklist.md?revision=r21880163",
+      "sha256": "236d349a25e6f303bc848d51fa4c52a25faaf21b7791edd502e629e872d7681f",
+      "signatures": [
+        "DELETE /v3/issues/{id_задачи}/checklistItems"
+      ],
+      "operations": [
+        "DeleteIssueChecklist"
+      ],
+      "content_sha256": "b5058e0532ce308cba470f6d78505a9a3a2a48cd57d9e9cfdb6c1109977b29a2"
+    },
+    {
+      "path": "api/issues/delete-checklist-item.md",
+      "title": "Удалить пункт чеклиста",
+      "url": "https://yandex.ru/support/tracker/ru/api/issues/delete-checklist-item.md?revision=r21880163",
+      "sha256": "b79b61c9fd5a88f03ba19c12eaa56e330a04abb612d20be8b87e67288290586e",
+      "signatures": [
+        "DELETE /v3/issues/{id_задачи}/checklistItems/{id_пункта_чеклиста}"
+      ],
+      "operations": [
+        "DeleteIssueChecklistItem"
+      ],
+      "content_sha256": "0788aeb4edf9d034b7f689b3f07eb1cf361dd7a28aef762ec7b26aa105a95c02"
+    },
+    {
+      "path": "api/issues/add-comment.md",
+      "title": "Добавить комментарий",
+      "url": "https://yandex.ru/support/tracker/ru/api/issues/add-comment.md?revision=r21880163",
+      "sha256": "128be7ebb07337535695962114ec00dc6ab3c64d3a2bfdf2fd1899c0aeb1b5fd",
+      "signatures": [
+        "POST /v3/issues/{id_задачи}/comments"
+      ],
+      "operations": [
+        "AddIssueComment"
+      ],
+      "content_sha256": "9302ae71a342067332dc8478eb2abb84cbae97445860ac52a253ce4dc3f347e0"
+    },
+    {
+      "path": "api/issues/get-comments.md",
+      "title": "Получить комментарии к задаче",
+      "url": "https://yandex.ru/support/tracker/ru/api/issues/get-comments.md?revision=r21880163",
+      "sha256": "fc589b24360ad78b68c6a7fb1e68cfb26c95b7307e9fe10010721832dcd17202",
+      "signatures": [
+        "GET /v3/issues/{id_задачи}/comments"
+      ],
+      "operations": [
+        "ListIssueComments"
+      ],
+      "content_sha256": "208d6dd46b5c31cdc63c70ba531573b69618fecf7f4ce3592de1d3d3ad7b6432",
+      "excluded_signatures": [
+        {
+          "signature": "GET /v3/issues/КЛЮЧ_ЗАДАЧИ/comments",
+          "digest": "208d6dd46b5c31cdc63c70ba531573b69618fecf7f4ce3592de1d3d3ad7b6432",
+          "reason": "Concrete request example for ListIssueComments; identifiers instantiate the documented route placeholders."
+        },
+        {
+          "signature": "GET /v3/issues/ISSUE_ID/comments",
+          "digest": "208d6dd46b5c31cdc63c70ba531573b69618fecf7f4ce3592de1d3d3ad7b6432",
+          "reason": "Concrete request example for ListIssueComments; identifiers instantiate the documented route placeholders."
+        }
+      ]
+    },
+    {
+      "path": "api/issues/get-comment.md",
+      "title": "Получить комментарий к задаче",
+      "url": "https://yandex.ru/support/tracker/ru/api/issues/get-comment.md?revision=r21880163",
+      "sha256": "6044192a754a81c1dc4cd322ebbda839ce7c5aac326c6594d4b7a6ecb7dbb90a",
+      "signatures": [
+        "GET /v3/issues/{id_задачи}/comments/{id_комментария}"
+      ],
+      "operations": [
+        "GetIssueComment"
+      ],
+      "content_sha256": "9901d9a069c35428e263c06ec8a71b598ed5c092d1193b131d90c060f791bbdb",
+      "excluded_signatures": [
+        {
+          "signature": "GET /v3/issues/JUNE-2/comments/123456",
+          "digest": "9901d9a069c35428e263c06ec8a71b598ed5c092d1193b131d90c060f791bbdb",
+          "reason": "Concrete request example for GetIssueComment; identifiers instantiate the documented route placeholders."
+        }
+      ]
+    },
+    {
+      "path": "api/issues/edit-comment.md",
+      "title": "Редактировать комментарий",
+      "url": "https://yandex.ru/support/tracker/ru/api/issues/edit-comment.md?revision=r21880163",
+      "sha256": "90492f7f74681a5b287acedb7c2ab158e1ac5ec70d7487f8bc8b2be36c573ef3",
+      "signatures": [
+        "PATCH /v3/issues/{id_задачи}/comments/{id_комментария}"
+      ],
+      "operations": [
+        "UpdateIssueComment"
+      ],
+      "content_sha256": "b9e94aa0fd49fef7d96b2748fb7e7c09ba0d97ddccd14cfe5cfa9cc56a4d8cc9"
+    },
+    {
+      "path": "api/issues/delete-comment.md",
+      "title": "Удалить комментарий",
+      "url": "https://yandex.ru/support/tracker/ru/api/issues/delete-comment.md?revision=r21880163",
+      "sha256": "aa2ecc97a29fb1a9664456eebfaaa4947c75d29b2679e89d9bdc2c011dffbad9",
+      "signatures": [
+        "DELETE /v3/issues/{id_задачи}/comments/{id_комментария}"
+      ],
+      "operations": [
+        "DeleteIssueComment"
+      ],
+      "content_sha256": "3f80447cda9e7d9bdb992f72c7c4b86eb28037dc7d351aa5e1076a26561f3509",
+      "excluded_signatures": [
+        {
+          "signature": "DELETE /v3/issues/JUNE-2/comments/123456",
+          "digest": "3f80447cda9e7d9bdb992f72c7c4b86eb28037dc7d351aa5e1076a26561f3509",
+          "reason": "Concrete request example for DeleteIssueComment; identifiers instantiate the documented route placeholders."
+        }
+      ]
+    },
+    {
+      "path": "api/issues/add-reaction-to-comment.md",
+      "title": "Добавить реакцию на комментарий",
+      "url": "https://yandex.ru/support/tracker/ru/api/issues/add-reaction-to-comment.md?revision=r21880163",
+      "sha256": "7056c05be7a8b590facc628bbc035ee8b0724f53faa0361dd49d901421b2bd96",
+      "signatures": [
+        "POST /v3/issues/{id_задачи}/comments/{id_комментария}/reactions/{название_реакции}"
+      ],
+      "operations": [
+        "AddIssueCommentReaction"
+      ],
+      "content_sha256": "cc4c5f845be566b74b694be2dbb28b7f97890e8c3bd55add1f96bcaa99db49af",
+      "excluded_signatures": [
+        {
+          "signature": "POST /v3/issues/TREK-123/comments/12345/reactions/LIKE",
+          "digest": "cc4c5f845be566b74b694be2dbb28b7f97890e8c3bd55add1f96bcaa99db49af",
+          "reason": "Concrete request example for AddIssueCommentReaction; identifiers instantiate the documented route placeholders."
+        }
+      ]
+    },
+    {
+      "path": "api/issues/get-attachments-list.md",
+      "title": "Получить список прикрепленных файлов",
+      "url": "https://yandex.ru/support/tracker/ru/api/issues/get-attachments-list.md?revision=r21880163",
+      "sha256": "a0a75196395bd907a767b73fdde9ab0102c3331c66407866e4a208e886790787",
+      "signatures": [
+        "GET /v3/issues/{id_задачи}/attachments"
+      ],
+      "operations": [
+        "ListIssueAttachments"
+      ],
+      "content_sha256": "1ad9dac1a8fd7fb36bddcf009871516d60aa39031fdc7bd46d7bbca50d076296",
+      "excluded_signatures": [
+        {
+          "signature": "GET /v3/issues/JUNE-2/attachments",
+          "digest": "1ad9dac1a8fd7fb36bddcf009871516d60aa39031fdc7bd46d7bbca50d076296",
+          "reason": "Concrete request example for ListIssueAttachments; identifiers instantiate the documented route placeholders."
+        }
+      ]
+    },
+    {
+      "path": "api/issues/get-attachment-info.md",
+      "title": "Получить информацию о прикрепленном файле",
+      "url": "https://yandex.ru/support/tracker/ru/api/issues/get-attachment-info.md?revision=r21880163",
+      "sha256": "7bfb3088bfcb49386e1262893eecc34a691d412a7ec1192beb3fa01c45ff7213",
+      "signatures": [
+        "GET /v3/issues/{id_задачи}/attachments/{id_файла}"
+      ],
+      "operations": [
+        "GetIssueAttachment"
+      ],
+      "content_sha256": "55c9dea4148bf65daba8bdfe94f37ce06e6507a16fd803144e5671d72e3f7ff5",
+      "excluded_signatures": [
+        {
+          "signature": "GET /v3/issues/JUNE-2/attachments/4159",
+          "digest": "55c9dea4148bf65daba8bdfe94f37ce06e6507a16fd803144e5671d72e3f7ff5",
+          "reason": "Concrete request example for GetIssueAttachment; identifiers instantiate the documented route placeholders."
+        }
+      ]
+    },
+    {
+      "path": "api/issues/get-attachment.md",
+      "title": "Скачать файл",
+      "url": "https://yandex.ru/support/tracker/ru/api/issues/get-attachment.md?revision=r21880163",
+      "sha256": "1076f994273ab89d05986cfdfc785356f8bc6f1ce4d782b8e61564e619ae04ca",
+      "signatures": [
+        "GET /v3/issues/{id_задачи}/attachments/{id_файла}/{имя_файла}"
+      ],
+      "operations": [
+        "DownloadIssueAttachment"
+      ],
+      "content_sha256": "1af3d1b1036c74f26d1af068438264340563f2a82b736a9da94fb9ee1322214f",
+      "excluded_signatures": [
+        {
+          "signature": "GET /v3/issues/JUNE-2/attachments/4159/attachment.txt",
+          "digest": "1af3d1b1036c74f26d1af068438264340563f2a82b736a9da94fb9ee1322214f",
+          "reason": "Concrete request example for DownloadIssueAttachment; identifiers instantiate the documented route placeholders."
+        }
+      ]
+    },
+    {
+      "path": "api/issues/get-attachment-preview.md",
+      "title": "Скачать миниатюру",
+      "url": "https://yandex.ru/support/tracker/ru/api/issues/get-attachment-preview.md?revision=r21880163",
+      "sha256": "b1dbfc2b83ea9d32a45b673f69302cf555fde78434a0d0988d476225a5edcc40",
+      "signatures": [
+        "GET /v3/issues/{id_задачи}/thumbnails/{id_файла}"
+      ],
+      "operations": [
+        "DownloadIssueThumbnail"
+      ],
+      "content_sha256": "e9be501ff1711a7f698c1a5dbeb124be0f5ee9daf7223d73df971cac352df664"
+    },
+    {
+      "path": "api/issues/post-attachment.md",
+      "title": "Прикрепить файл",
+      "url": "https://yandex.ru/support/tracker/ru/api/issues/post-attachment.md?revision=r21880163",
+      "sha256": "556901c3fc43f9cf7b5ced830217fb13ba490ebd50eaa0ae2f3724a38158ab67",
+      "signatures": [
+        "POST /v3/issues/{id}/attachments"
+      ],
+      "operations": [
+        "UploadIssueAttachment"
+      ],
+      "content_sha256": "d3fd7ede0960229cf6b5e2a4cd66ae227517cbb26cebd8f5669f273031478788"
+    },
+    {
+      "path": "api/issues/temp-attachment.md",
+      "title": "Загрузить временный файл",
+      "url": "https://yandex.ru/support/tracker/ru/api/issues/temp-attachment.md?revision=r21880163",
+      "sha256": "9731cd8c046cba0764fd891efd700c54a7786d76ca412555f90579bc32127f5d",
+      "signatures": [
+        "POST /v3/attachments"
+      ],
+      "operations": [
+        "UploadTemporaryAttachment"
+      ],
+      "content_sha256": "e30f33eb7ee27995cddd87c8d8debe458bd163af393d366455dce7c8a16b4e1c"
+    },
+    {
+      "path": "api/issues/delete-attachment.md",
+      "title": "Удалить файл",
+      "url": "https://yandex.ru/support/tracker/ru/api/issues/delete-attachment.md?revision=r21880163",
+      "sha256": "19a815cf926ff2de9756d819a75d9834dea1d29258c4f2666a47997389959265",
+      "signatures": [
+        "DELETE /v3/issues/{id_задачи}/attachments/{id_файла}"
+      ],
+      "operations": [
+        "DeleteIssueAttachment"
+      ],
+      "content_sha256": "2d602074ea70def762303789258713a072bad29d97bd3b7e61b867b8bbca70bc",
+      "excluded_signatures": [
+        {
+          "signature": "DELETE /v3/issues/JUNE-2/attachments/4159",
+          "digest": "2d602074ea70def762303789258713a072bad29d97bd3b7e61b867b8bbca70bc",
+          "reason": "Concrete request example for DeleteIssueAttachment; identifiers instantiate the documented route placeholders."
+        }
+      ]
+    },
+    {
+      "path": "api/bulkchange/bulk-move-issues.md",
+      "title": "Массовый перенос задач в другую очередь",
+      "url": "https://yandex.ru/support/tracker/ru/api/bulkchange/bulk-move-issues.md?revision=r21880163",
+      "sha256": "2416c698aa37060437fd9e70df3d12c723c32046c760689ce87ef582a40bea37",
+      "signatures": [
+        "POST /v3/bulkchange/_move"
+      ],
+      "operations": [
+        "BulkMoveIssues"
+      ],
+      "content_sha256": "7d2fd89491915eb8468ae3cce6defe2e7e8ec20ea2bd50d04c0101f9721d671e"
+    },
+    {
+      "path": "api/bulkchange/bulk-update-issues.md",
+      "title": "Массовое редактирование задач",
+      "url": "https://yandex.ru/support/tracker/ru/api/bulkchange/bulk-update-issues.md?revision=r21880163",
+      "sha256": "eaec13c763675814a664dd815a70efcd48ba43ef3e0ea32d6f4b461b0a6c627d",
+      "signatures": [
+        "POST /v3/bulkchange/_update"
+      ],
+      "operations": [
+        "BulkUpdateIssues"
+      ],
+      "content_sha256": "f33e3eea3b012be106300838acdc98f2bc4ce181836a6b6d3af84451481dbdec"
+    },
+    {
+      "path": "api/bulkchange/bulk-transition.md",
+      "title": "Массовое изменение статуса задач",
+      "url": "https://yandex.ru/support/tracker/ru/api/bulkchange/bulk-transition.md?revision=r21880163",
+      "sha256": "592303a63c8667ffcdf25096845922b703283f6455e07fe865a46396fa545af9",
+      "signatures": [
+        "POST /v3/bulkchange/_transition"
+      ],
+      "operations": [
+        "BulkTransitionIssues"
+      ],
+      "content_sha256": "4b53e879943773ac05d4e81d21b5da0d94f9ef03a463c98cccf57006827d130c"
+    },
+    {
+      "path": "api/bulkchange/bulk-move-info.md",
+      "title": "Информация о выполнении пакетной операции",
+      "url": "https://yandex.ru/support/tracker/ru/api/bulkchange/bulk-move-info.md?revision=r21880163",
+      "sha256": "42eb6cd281273bd9beca9ad31312062c7cb18ec0821074559156728a449c7443",
+      "signatures": [
+        "GET /v3/bulkchange/{id}",
+        "GET /v3/bulkchange/{id}/issues"
+      ],
+      "operations": [
+        "GetBulkOperation",
+        "ListBulkOperationIssues"
+      ],
+      "content_sha256": "ee2530492afdf702fb4b7213b6621918b066bd22f1167fa3eef1ed633b326eaf"
+    },
+    {
+      "path": "api/issues/get-global-fields.md",
+      "title": "Получить глобальные поля",
+      "url": "https://yandex.ru/support/tracker/ru/api/issues/get-global-fields.md?revision=r21880163",
+      "sha256": "6c4fdcd45ae9adba1a5cc49900b5f708078eb5ae0a8db406a91d7886d28c7046",
+      "signatures": [
+        "GET /v3/fields"
+      ],
+      "operations": [
+        "ListFields"
+      ],
+      "content_sha256": "a42aac9c505d510a5ec0ff013789304f486b6e7fa9ca8f851fc7f03f291c078d",
+      "excluded_signatures": [
+        {
+          "signature": "GET /v3/fields/categories",
+          "digest": "a42aac9c505d510a5ec0ff013789304f486b6e7fa9ca8f851fc7f03f291c078d",
+          "reason": "Concrete request example for GetField; identifiers instantiate the documented route placeholders."
+        }
+      ]
+    },
+    {
+      "path": "api/issues/create-field.md",
+      "title": "Создать поле задачи",
+      "url": "https://yandex.ru/support/tracker/ru/api/issues/create-field.md?revision=r21880163",
+      "sha256": "bdb205decbb5f7f88011d9325a86ec80fc281ec560c70e4e6eff2f788b4ebf3d",
+      "signatures": [
+        "POST /v3/fields"
+      ],
+      "operations": [
+        "CreateField"
+      ],
+      "content_sha256": "02da306f09df250809d9805b0e9322999bab602b075cead679bdef3e386d165f",
+      "excluded_signatures": [
+        {
+          "signature": "GET /v3/fields/categories",
+          "digest": "02da306f09df250809d9805b0e9322999bab602b075cead679bdef3e386d165f",
+          "reason": "Concrete request example for GetField; identifiers instantiate the documented route placeholders."
+        }
+      ]
+    },
+    {
+      "path": "api/issues/get-issue-fields.md",
+      "title": "Получить параметры поля задачи",
+      "url": "https://yandex.ru/support/tracker/ru/api/issues/get-issue-fields.md?revision=r21880163",
+      "sha256": "3731189904b4245f798f142727adbadf6a89dfc7de3167a8e3c110b53a410e43",
+      "signatures": [
+        "GET /v3/fields/{id_поля}"
+      ],
+      "operations": [
+        "GetField"
+      ],
+      "content_sha256": "5c6b0755b05cb02b4769ade4d1d8137f84938fec155e33f4df1468fde44e33f6",
+      "excluded_signatures": [
+        {
+          "signature": "GET /v3/fields/categories",
+          "digest": "5c6b0755b05cb02b4769ade4d1d8137f84938fec155e33f4df1468fde44e33f6",
+          "reason": "Concrete request example for GetField; identifiers instantiate the documented route placeholders."
+        }
+      ]
+    },
+    {
+      "path": "api/issues/patch-issue-field-name.md",
+      "title": "Изменить название поля задачи",
+      "url": "https://yandex.ru/support/tracker/ru/api/issues/patch-issue-field-name.md?revision=r21880163",
+      "sha256": "2fc69cde618c4ede88d3ff055a75d37e1c13ce7b92526787aa0a99f7a25e9b6a",
+      "signatures": [
+        "PATCH /v3/fields/{id}"
+      ],
+      "operations": [
+        "UpdateField"
+      ],
+      "content_sha256": "7d358bee2adb2fdc6bf719f9611cdc45286d952046a9f6d2b8530159a9d6c8fd",
+      "excluded_signatures": [
+        {
+          "signature": "GET /v3/fields/categories",
+          "digest": "7d358bee2adb2fdc6bf719f9611cdc45286d952046a9f6d2b8530159a9d6c8fd",
+          "reason": "Concrete request example for GetField; identifiers instantiate the documented route placeholders."
+        }
+      ]
+    },
+    {
+      "path": "api/issues/patch-issue-field-value.md",
+      "title": "Изменить возможные значения поля задачи",
+      "url": "https://yandex.ru/support/tracker/ru/api/issues/patch-issue-field-value.md?revision=r21880163",
+      "sha256": "61f4a95cc9436d6b0e54b7f2c19e067905548d66f0ed21c5898af3ddb801d8d2",
+      "signatures": [
+        "PATCH /v3/fields/{id}"
+      ],
+      "operations": [
+        "UpdateField"
+      ],
+      "note": "Изменение названия и значений поля используют одну PATCH-операцию.",
+      "content_sha256": "1f03cb7831d0366fae53a637e9e53db882a07b7c8c74bee398972261384ea51b",
+      "excluded_signatures": [
+        {
+          "signature": "GET /v3/fields/categories",
+          "digest": "1f03cb7831d0366fae53a637e9e53db882a07b7c8c74bee398972261384ea51b",
+          "reason": "Concrete request example for GetField; identifiers instantiate the documented route placeholders."
+        }
+      ]
+    },
+    {
+      "path": "api/issues/create-issue-field-category.md",
+      "title": "Создать категорию поля задачи",
+      "url": "https://yandex.ru/support/tracker/ru/api/issues/create-issue-field-category.md?revision=r21880163",
+      "sha256": "f3ab0c492373fb02c97226d4f9302b398a14e242d55fcc5ebbde77be4e55a79b",
+      "signatures": [
+        "POST /v3/fields/categories"
+      ],
+      "operations": [
+        "CreateFieldCategory"
+      ],
+      "content_sha256": "fef5c40d1f95044c095016ba5c0ba87c1b42855856131eb45b8eddbebaffd35d"
+    },
+    {
+      "path": "api/issues/patch-issue-field-category.md",
+      "title": "Изменить категорию поля задачи",
+      "url": "https://yandex.ru/support/tracker/ru/api/issues/patch-issue-field-category.md?revision=r21880163",
+      "sha256": "26e26b2cfba62e9f6abbfd262b7c7934a16a7222a654553b9931c1656312505b",
+      "signatures": [
+        "PATCH /v3/fields/categories/{id}"
+      ],
+      "operations": [
+        "UpdateFieldCategory"
+      ],
+      "content_sha256": "c26bbeb5df7bcece80a3358c45c358aa24f10b0d24bb084d0c51ae73868cc4b0"
+    },
+    {
+      "path": "api/queues/create-local-field.md",
+      "title": "Создать локальное поле очереди",
+      "url": "https://yandex.ru/support/tracker/ru/api/queues/create-local-field.md?revision=r21880163",
+      "sha256": "426f697ee399afc31186ab8bd028fbec1c2b7b480a5e84f95cebb19dc3fba930",
+      "signatures": [
+        "POST /v3/queues/{id_очереди}/localFields"
+      ],
+      "operations": [
+        "CreateLocalField"
+      ],
+      "content_sha256": "a03625e81e2ff1554bac1b2e70cae3071868656523e2060bdbc009b83dfbd9a5",
+      "excluded_signatures": [
+        {
+          "signature": "GET /v3/fields/categories",
+          "digest": "a03625e81e2ff1554bac1b2e70cae3071868656523e2060bdbc009b83dfbd9a5",
+          "reason": "Concrete request example for GetField; identifiers instantiate the documented route placeholders."
+        },
+        {
+          "signature": "POST /v3/queues/DESIGN/localFields",
+          "digest": "a03625e81e2ff1554bac1b2e70cae3071868656523e2060bdbc009b83dfbd9a5",
+          "reason": "Concrete request example for CreateLocalField; identifiers instantiate the documented route placeholders."
+        }
+      ]
+    },
+    {
+      "path": "api/queues/get-local-fields.md",
+      "title": "Получить локальные поля очереди",
+      "url": "https://yandex.ru/support/tracker/ru/api/queues/get-local-fields.md?revision=r21880163",
+      "sha256": "d47658509f3ad1507681533f0e2a20445a932ec1b4684f9b83c089344a6bea45",
+      "signatures": [
+        "GET /v3/queues/{id_очереди}/localFields"
+      ],
+      "operations": [
+        "ListLocalFields"
+      ],
+      "content_sha256": "1cf2ee83dfe55783097b2e507cf9253305a99f2bae451304004128f6b6b81038",
+      "excluded_signatures": [
+        {
+          "signature": "GET /v3/fields/categories",
+          "digest": "1cf2ee83dfe55783097b2e507cf9253305a99f2bae451304004128f6b6b81038",
+          "reason": "Concrete request example for GetField; identifiers instantiate the documented route placeholders."
+        }
+      ]
+    },
+    {
+      "path": "api/queues/get-info-local-field.md",
+      "title": "Получить информацию о локальном поле очереди",
+      "url": "https://yandex.ru/support/tracker/ru/api/queues/get-info-local-field.md?revision=r21880163",
+      "sha256": "d1e8779e9656389db8abfde791bfbd28b67c63e43ff558a16eda32bbc37aab37",
+      "signatures": [
+        "GET /v3/queues/{id_очереди}/localFields/{ключ_поля}"
+      ],
+      "operations": [
+        "GetLocalField"
+      ],
+      "content_sha256": "ad0383e91e368d8a0cee8fae65c98af36cc53d3ee5a8c92dadce573a9498b78b",
+      "excluded_signatures": [
+        {
+          "signature": "GET /v3/queues/{id_очереди}/localFields",
+          "digest": "ad0383e91e368d8a0cee8fae65c98af36cc53d3ee5a8c92dadce573a9498b78b",
+          "reason": "Reference to ListLocalFields; its primary method is documented on api/queues/get-local-fields.md."
+        },
+        {
+          "signature": "GET /v3/fields/categories",
+          "digest": "ad0383e91e368d8a0cee8fae65c98af36cc53d3ee5a8c92dadce573a9498b78b",
+          "reason": "Concrete request example for GetField; identifiers instantiate the documented route placeholders."
+        }
+      ]
+    },
+    {
+      "path": "api/queues/edit-local-field.md",
+      "title": "Редактировать локальное поле очереди",
+      "url": "https://yandex.ru/support/tracker/ru/api/queues/edit-local-field.md?revision=r21880163",
+      "sha256": "bdbd205e49f26e6404bd7761c522808f6423f3a1ad196b43de60b4aa547c5674",
+      "signatures": [
+        "PATCH /v3/queues/{id_очереди}/localFields/{ключ_поля}"
+      ],
+      "operations": [
+        "UpdateLocalField"
+      ],
+      "content_sha256": "339cbee74c1ec929f45d9205ba7bb5678c4fc1182e60ea6c9a3819df164fa91a",
+      "excluded_signatures": [
+        {
+          "signature": "GET /v3/queues/{id_очереди}/localFields",
+          "digest": "339cbee74c1ec929f45d9205ba7bb5678c4fc1182e60ea6c9a3819df164fa91a",
+          "reason": "Reference to ListLocalFields; its primary method is documented on api/queues/get-local-fields.md."
+        },
+        {
+          "signature": "GET /v3/fields/categories",
+          "digest": "339cbee74c1ec929f45d9205ba7bb5678c4fc1182e60ea6c9a3819df164fa91a",
+          "reason": "Concrete request example for GetField; identifiers instantiate the documented route placeholders."
+        },
+        {
+          "signature": "PATCH /v3/queues/QUEUE_ID/localFields/LOCAL_FIELD_ID",
+          "digest": "339cbee74c1ec929f45d9205ba7bb5678c4fc1182e60ea6c9a3819df164fa91a",
+          "reason": "Concrete request example for UpdateLocalField; identifiers instantiate the documented route placeholders."
+        }
+      ]
+    },
+    {
+      "path": "api/entities/about-entities.md",
+      "title": "Описание параметров",
+      "url": "https://yandex.ru/support/tracker/ru/api/entities/about-entities.md?revision=r21880163",
+      "sha256": "1d7593e08018e48d59178f9f153fd257a7d680952cd2eeeb31a22d61958fe72d",
+      "signatures": [],
+      "operations": [],
+      "note": "Описание общего протокола, полей или формы данных; отдельных HTTP-операций нет.",
+      "content_sha256": "be99e858deee0778dc7feeb1f69e7964f0e038a69a9c812fc6308acc80c073a3",
+      "excluded_signatures": [
+        {
+          "signature": "POST /v3/entities/project/12345/checklistItems",
+          "digest": "be99e858deee0778dc7feeb1f69e7964f0e038a69a9c812fc6308acc80c073a3",
+          "reason": "Concrete request example for AddEntityChecklistItems; identifiers instantiate the documented route placeholders."
+        }
+      ]
+    },
+    {
+      "path": "api/entities/create-entity.md",
+      "title": "Создать сущность",
+      "url": "https://yandex.ru/support/tracker/ru/api/entities/create-entity.md?revision=r21880163",
+      "sha256": "15078eb158269be7ef7deaf886e59d861657c5de05be1a2224059935f4af47a6",
+      "signatures": [
+        "POST /v3/entities/{тип_сущности}"
+      ],
+      "operations": [
+        "CreateEntity"
+      ],
+      "content_sha256": "c430c1f5d2f9e65d94f90535cb6d5849f4d65c33973b6d1c9d2b29d25ec14530",
+      "excluded_signatures": [
+        {
+          "signature": "POST /v3/entities/project",
+          "digest": "c430c1f5d2f9e65d94f90535cb6d5849f4d65c33973b6d1c9d2b29d25ec14530",
+          "reason": "Concrete request example for CreateEntity; identifiers instantiate the documented route placeholders."
+        }
+      ]
+    },
+    {
+      "path": "api/entities/get-entity.md",
+      "title": "Получить параметры сущности",
+      "url": "https://yandex.ru/support/tracker/ru/api/entities/get-entity.md?revision=r21880163",
+      "sha256": "78f5eca937fdb51d2740dceb81d52e46ec5d8992b0d6c0541e28aedef4485e91",
+      "signatures": [
+        "GET /v3/entities/{тип_сущности}/{id_сущности}"
+      ],
+      "operations": [
+        "GetEntity"
+      ],
+      "content_sha256": "86b7512a67bb94186d3eb1835514af90f52d633dc087d257d7444fcb5e60426b",
+      "excluded_signatures": [
+        {
+          "signature": "GET /v3/entities/portfolio/655f328da834c763********",
+          "digest": "86b7512a67bb94186d3eb1835514af90f52d633dc087d257d7444fcb5e60426b",
+          "reason": "Concrete request example for GetEntity; identifiers instantiate the documented route placeholders."
+        }
+      ]
+    },
+    {
+      "path": "api/entities/update-entity.md",
+      "title": "Изменить сущность",
+      "url": "https://yandex.ru/support/tracker/ru/api/entities/update-entity.md?revision=r21880163",
+      "sha256": "8c6cd7741944da97c53a8b4e9b8e398c7642be3a8a4d6a82706744f1e5bcb772",
+      "signatures": [
+        "PATCH /v3/entities/{тип_сущности}/{id_сущности}"
+      ],
+      "operations": [
+        "UpdateEntity"
+      ],
+      "content_sha256": "be415165bb80dd0a6caff24a797cdb045d9848eaee923ae63ea030020c3178d5",
+      "excluded_signatures": [
+        {
+          "signature": "PATCH /v3/entities/project/655f8cc52*****",
+          "digest": "be415165bb80dd0a6caff24a797cdb045d9848eaee923ae63ea030020c3178d5",
+          "reason": "Concrete request example for UpdateEntity; identifiers instantiate the documented route placeholders."
+        }
+      ]
+    },
+    {
+      "path": "api/entities/delete-entity.md",
+      "title": "Удалить сущность",
+      "url": "https://yandex.ru/support/tracker/ru/api/entities/delete-entity.md?revision=r21880163",
+      "sha256": "9ce037a0da776a0a4783729d68a24cc2822b5dbb7b3d692a5fca7e6cb9bb407f",
+      "signatures": [
+        "DELETE /v3/entities/{тип_сущности}/{id_сущности}"
+      ],
+      "operations": [
+        "DeleteEntity"
+      ],
+      "content_sha256": "955d0fe1d5e6b93fff8d87dd4408223a863edd8552251c86fa333da3969a1019",
+      "excluded_signatures": [
+        {
+          "signature": "DELETE /v3/entities/project/655f328da834c763********",
+          "digest": "955d0fe1d5e6b93fff8d87dd4408223a863edd8552251c86fa333da3969a1019",
+          "reason": "Concrete request example for DeleteEntity; identifiers instantiate the documented route placeholders."
+        }
+      ]
+    },
+    {
+      "path": "api/entities/search-entities.md",
+      "title": "Получить список сущностей",
+      "url": "https://yandex.ru/support/tracker/ru/api/entities/search-entities.md?revision=r21880163",
+      "sha256": "905bfc59e39be7793deb04f2cc4c6e64977dddb90acb4a2322160cd163575ab4",
+      "signatures": [
+        "POST /v3/entities/{тип_сущности}/_search"
+      ],
+      "operations": [
+        "SearchEntities"
+      ],
+      "content_sha256": "82446c2164227c31ca4bac2ff357620f4220b878d9652cfaba213187e80956bc",
+      "excluded_signatures": [
+        {
+          "signature": "POST /v3/entities/project/_search",
+          "digest": "82446c2164227c31ca4bac2ff357620f4220b878d9652cfaba213187e80956bc",
+          "reason": "Concrete request example for SearchEntities; identifiers instantiate the documented route placeholders."
+        }
+      ]
+    },
+    {
+      "path": "api/entities/bulkchange-entities.md",
+      "title": "Массовое редактирование сущностей",
+      "url": "https://yandex.ru/support/tracker/ru/api/entities/bulkchange-entities.md?revision=r21880163",
+      "sha256": "ec55d30745f831bbe4e30d817bca7ed9b8771ac48fb4ed693c0d9a8b19fffbbd",
+      "signatures": [
+        "POST /v3/entities/{тип_сущности}/bulkchange/_update"
+      ],
+      "operations": [
+        "BulkUpdateEntities"
+      ],
+      "content_sha256": "e691b89912a7d659c358fbb1aa2b987863e7389f924c11234d86f5d299eba54f",
+      "excluded_signatures": [
+        {
+          "signature": "POST /v3/entities/project/bulkchange/_update",
+          "digest": "e691b89912a7d659c358fbb1aa2b987863e7389f924c11234d86f5d299eba54f",
+          "reason": "Concrete request example for BulkUpdateEntities; identifiers instantiate the documented route placeholders."
+        }
+      ]
+    },
+    {
+      "path": "api/entities/get-events-relative.md",
+      "title": "Получить историю событий сущности",
+      "url": "https://yandex.ru/support/tracker/ru/api/entities/get-events-relative.md?revision=r21880163",
+      "sha256": "882c98ff6ca6fe1ed6edf274503fbc6e349812609acd167f3b0487081fbddf3c",
+      "signatures": [
+        "GET /v3/entities/{тип_сущности}/{id_сущности}/events/_relative"
+      ],
+      "operations": [
+        "GetEntityEvents"
+      ],
+      "content_sha256": "5482d1666f1f246cb0f3fa61581b8d3928cc7d7f2c4276d52920f502ab1df1e8",
+      "excluded_signatures": [
+        {
+          "signature": "GET /v3/entities/project/PROJECT_ID/events/_relative",
+          "digest": "5482d1666f1f246cb0f3fa61581b8d3928cc7d7f2c4276d52920f502ab1df1e8",
+          "reason": "Concrete request example for GetEntityEvents; identifiers instantiate the documented route placeholders."
+        }
+      ]
+    },
+    {
+      "path": "api/entities/comments/add-comment.md",
+      "title": "Добавить комментарий",
+      "url": "https://yandex.ru/support/tracker/ru/api/entities/comments/add-comment.md?revision=r21880163",
+      "sha256": "ee428b32bfbd1deedc64d7379e9c9234bde5f36bc668ec4979ff70942d83265e",
+      "signatures": [
+        "POST /v3/entities/{тип_сущности}/{id_сущности}/comments"
+      ],
+      "operations": [
+        "AddEntityComment"
+      ],
+      "content_sha256": "d72fe7cd8ac811ccacded8a44755a42b53095ea8384dacd24904d6a3f7d64edc",
+      "excluded_signatures": [
+        {
+          "signature": "POST /v3/entities/project/PROJECT_ID/comments",
+          "digest": "d72fe7cd8ac811ccacded8a44755a42b53095ea8384dacd24904d6a3f7d64edc",
+          "reason": "Concrete request example for AddEntityComment; identifiers instantiate the documented route placeholders."
+        }
+      ]
+    },
+    {
+      "path": "api/entities/comments/patch-comment.md",
+      "title": "Редактировать комментарий",
+      "url": "https://yandex.ru/support/tracker/ru/api/entities/comments/patch-comment.md?revision=r21880163",
+      "sha256": "d07fafa0b12c97c2ac616d1fca022fb4ab131d129edf810a797173265cca9bbc",
+      "signatures": [
+        "PATCH /v3/entities/{тип_сущности}/{id_сущности}/comments/{id_комментария}"
+      ],
+      "operations": [
+        "UpdateEntityComment"
+      ],
+      "content_sha256": "a6ac2f5acaf752ee96724e4731687c8d42fb7ec28c0a2fe6a89ca997a48e518e",
+      "excluded_signatures": [
+        {
+          "signature": "PATCH /v3/entities/project/PROJECT_ID/comments/31",
+          "digest": "a6ac2f5acaf752ee96724e4731687c8d42fb7ec28c0a2fe6a89ca997a48e518e",
+          "reason": "Concrete request example for UpdateEntityComment; identifiers instantiate the documented route placeholders."
+        }
+      ]
+    },
+    {
+      "path": "api/entities/comments/get-all-comments.md",
+      "title": "Получить все комментарии",
+      "url": "https://yandex.ru/support/tracker/ru/api/entities/comments/get-all-comments.md?revision=r21880163",
+      "sha256": "f6034627e464570568f611300d76b3f6e538489700e29b5c7cf3d03aaea6d2e4",
+      "signatures": [
+        "GET /v3/entities/{тип_сущности}/{id_сущности}/comments",
+        "GET /v3/entities/{тип_сущности}/{id_сущности}/comments/_relative"
+      ],
+      "operations": [
+        "ListEntityComments",
+        "ListEntityCommentsRelative"
+      ],
+      "content_sha256": "169a3e53ca8439a8e893267a99506f6591e5af6abf83aefbc78122f6c6d0e5a4",
+      "excluded_signatures": [
+        {
+          "signature": "GET /v3/entities/project/PROJECT_ID/comments",
+          "digest": "169a3e53ca8439a8e893267a99506f6591e5af6abf83aefbc78122f6c6d0e5a4",
+          "reason": "Concrete request example for ListEntityComments; identifiers instantiate the documented route placeholders."
+        },
+        {
+          "signature": "GET /v3/entities/project/PROJECT_ID/comments/_relative",
+          "digest": "169a3e53ca8439a8e893267a99506f6591e5af6abf83aefbc78122f6c6d0e5a4",
+          "reason": "Concrete request example for ListEntityCommentsRelative, GetEntityComment; identifiers instantiate the documented route placeholders."
+        }
+      ]
+    },
+    {
+      "path": "api/entities/comments/get-comment.md",
+      "title": "Получить комментарий",
+      "url": "https://yandex.ru/support/tracker/ru/api/entities/comments/get-comment.md?revision=r21880163",
+      "sha256": "202f1de9b81d9b836a32912b0c866ba15e290aa85e2eb201349685cb0a067c15",
+      "signatures": [
+        "GET /v3/entities/{тип_сущности}/{id_сущности}/comments/{id_комментария}"
+      ],
+      "operations": [
+        "GetEntityComment"
+      ],
+      "content_sha256": "0e346848cc509b0493f5baaeba3b7a7f100f7b4a136ad3d152b9262a8f9538ec",
+      "excluded_signatures": [
+        {
+          "signature": "GET /v3/entities/project/PROJECT_ID/comments/15",
+          "digest": "0e346848cc509b0493f5baaeba3b7a7f100f7b4a136ad3d152b9262a8f9538ec",
+          "reason": "Concrete request example for GetEntityComment; identifiers instantiate the documented route placeholders."
+        }
+      ]
+    },
+    {
+      "path": "api/entities/comments/delete-comment.md",
+      "title": "Удалить комментарий",
+      "url": "https://yandex.ru/support/tracker/ru/api/entities/comments/delete-comment.md?revision=r21880163",
+      "sha256": "26cb524c666b8047777ba34f2793527566ad0653511864fc5cc8d8bcf6fac504",
+      "signatures": [
+        "DELETE /v3/entities/{тип_сущности}/{id_сущности}/comments/{id_комментария}"
+      ],
+      "operations": [
+        "DeleteEntityComment"
+      ],
+      "content_sha256": "1838caac53bf0a6df87d27e0f926abe9e6feb40c35ef54601c8777baea930940",
+      "excluded_signatures": [
+        {
+          "signature": "DELETE /v3/entities/project/PROJECT_ID/comments/16",
+          "digest": "1838caac53bf0a6df87d27e0f926abe9e6feb40c35ef54601c8777baea930940",
+          "reason": "Concrete request example for DeleteEntityComment; identifiers instantiate the documented route placeholders."
+        }
+      ]
+    },
+    {
+      "path": "api/entities/checklists/add-checklist.md",
+      "title": "Создать чеклист или добавить в него пункты",
+      "url": "https://yandex.ru/support/tracker/ru/api/entities/checklists/add-checklist.md?revision=r21880163",
+      "sha256": "a29f7d62fb114df85b89d8e2db22f9e6d2dd3735759c3e1b0a7a926f6eae0625",
+      "signatures": [
+        "POST /v3/entities/{тип_сущности}/{id_сущности}/checklistItems"
+      ],
+      "operations": [
+        "AddEntityChecklistItems"
+      ],
+      "content_sha256": "8a72b2395998105a273139603cae61fa7da8f72e2decb373c6322aac97493653",
+      "excluded_signatures": [
+        {
+          "signature": "POST /v3/entities/project/PROJECT_ID/checklistItems",
+          "digest": "8a72b2395998105a273139603cae61fa7da8f72e2decb373c6322aac97493653",
+          "reason": "Concrete request example for AddEntityChecklistItems; identifiers instantiate the documented route placeholders."
+        }
+      ]
+    },
+    {
+      "path": "api/entities/checklists/patch-checklist.md",
+      "title": "Редактировать чеклист",
+      "url": "https://yandex.ru/support/tracker/ru/api/entities/checklists/patch-checklist.md?revision=r21880163",
+      "sha256": "cdbb5acf7620462a54e996e390534b345cf9a3b53e0e73ad9590b42100782282",
+      "signatures": [
+        "PATCH /v3/entities/{тип_сущности}/{id_сущности}/checklistItems"
+      ],
+      "operations": [
+        "UpdateEntityChecklist"
+      ],
+      "content_sha256": "cd0f999a817c10c9b27faf6704d64a0dcac3de8e106d753abb8f694022d8219d",
+      "excluded_signatures": [
+        {
+          "signature": "PATCH /v3/entities/project/PROJECT_ID/checklistItems",
+          "digest": "cd0f999a817c10c9b27faf6704d64a0dcac3de8e106d753abb8f694022d8219d",
+          "reason": "Concrete request example for UpdateEntityChecklist; identifiers instantiate the documented route placeholders."
+        }
+      ]
+    },
+    {
+      "path": "api/entities/checklists/patch-checklist-item.md",
+      "title": "Редактировать пункт",
+      "url": "https://yandex.ru/support/tracker/ru/api/entities/checklists/patch-checklist-item.md?revision=r21880163",
+      "sha256": "b0364a9ebd74bfce0018ea1a161467ac38c9475d57c7acb672ca6b7a4664775d",
+      "signatures": [
+        "PATCH /v3/entities/{тип_сущности}/{id_сущности}/checklistItems/{id_пункта_чеклиста}"
+      ],
+      "operations": [
+        "UpdateEntityChecklistItem"
+      ],
+      "content_sha256": "2f751d0f8989b50cfdab807408a93562825f82706c59ec3c962a18d4762199cd",
+      "excluded_signatures": [
+        {
+          "signature": "PATCH /v3/entities/project/PROJECT_ID/checklistItems/CHECKLIST_ITEM_ID",
+          "digest": "2f751d0f8989b50cfdab807408a93562825f82706c59ec3c962a18d4762199cd",
+          "reason": "Concrete request example for UpdateEntityChecklistItem; identifiers instantiate the documented route placeholders."
+        }
+      ]
+    },
+    {
+      "path": "api/entities/checklists/move-checklist-item.md",
+      "title": "Переместить пункт",
+      "url": "https://yandex.ru/support/tracker/ru/api/entities/checklists/move-checklist-item.md?revision=r21880163",
+      "sha256": "448c4b60533a1efd2e00ecd558403cf1d64d308b8dc2aee94684c530a7006eb4",
+      "signatures": [
+        "POST /v3/entities/{тип_сущности}/{id_сущности}/checklistItems/{id_пункта_чеклиста}/_move"
+      ],
+      "operations": [
+        "MoveEntityChecklistItem"
+      ],
+      "content_sha256": "0c7833f9b343418a367821ca6ca8c4c62648b11da0db856ccffb2c7260c09216",
+      "excluded_signatures": [
+        {
+          "signature": "POST /v3/entities/project/PROJECT_ID/checklistItems/CHECKLIST_ITEM_ID/_move",
+          "digest": "0c7833f9b343418a367821ca6ca8c4c62648b11da0db856ccffb2c7260c09216",
+          "reason": "Concrete request example for MoveEntityChecklistItem; identifiers instantiate the documented route placeholders."
+        }
+      ]
+    },
+    {
+      "path": "api/entities/checklists/delete-checklist.md",
+      "title": "Удалить чеклист",
+      "url": "https://yandex.ru/support/tracker/ru/api/entities/checklists/delete-checklist.md?revision=r21880163",
+      "sha256": "b16318633cb6fd675a490d939e1f6a0ab87fdf3b0ff62f9ff5945025c94e679b",
+      "signatures": [
+        "DELETE /v3/entities/{тип_сущности}/{id_сущности}/checklistItems"
+      ],
+      "operations": [
+        "DeleteEntityChecklist"
+      ],
+      "content_sha256": "544b5f8f7108dbd8b266e5740e8d253460256c33773f7c6c37eaf1d2e4980598",
+      "excluded_signatures": [
+        {
+          "signature": "DELETE /v3/entities/project/PROJECT_ID/checklistItems",
+          "digest": "544b5f8f7108dbd8b266e5740e8d253460256c33773f7c6c37eaf1d2e4980598",
+          "reason": "Concrete request example for DeleteEntityChecklist; identifiers instantiate the documented route placeholders."
+        }
+      ]
+    },
+    {
+      "path": "api/entities/checklists/delete-checklist-item.md",
+      "title": "Удалить один пункт",
+      "url": "https://yandex.ru/support/tracker/ru/api/entities/checklists/delete-checklist-item.md?revision=r21880163",
+      "sha256": "959034becda25cc9707e75918a684095492d7578a144399f1cdf10bc7847f628",
+      "signatures": [
+        "DELETE /v3/entities/{тип_сущности}/{id_сущности}/checklistItems/{id_пункта_чеклиста}"
+      ],
+      "operations": [
+        "DeleteEntityChecklistItem"
+      ],
+      "content_sha256": "8948e1e98d5806a075c436591a128cf2b0966d997ae0a5971d82bf875a138f17",
+      "excluded_signatures": [
+        {
+          "signature": "DELETE /v3/entities/project/PROJECT_ID/checklistItems/CHECKLIST_ITEM_ID",
+          "digest": "8948e1e98d5806a075c436591a128cf2b0966d997ae0a5971d82bf875a138f17",
+          "reason": "Concrete request example for DeleteEntityChecklistItem; identifiers instantiate the documented route placeholders."
+        }
+      ]
+    },
+    {
+      "path": "api/entities/keyresults.md",
+      "title": "Ключевые результаты цели",
+      "url": "https://yandex.ru/support/tracker/ru/api/entities/keyresults.md?revision=r21880163",
+      "sha256": "96aa0422c940948627c7c3b5c4323066c4aa2c7b70c1797f52a36105b83da2f4",
+      "signatures": [],
+      "operations": [
+        "GetEntity",
+        "UpdateEntity"
+      ],
+      "note": "Ключевые результаты — fields.keyResultItems в GetEntity/UpdateEntity.",
+      "content_sha256": "9ea67f01671c01242ad5649bc00879c81c8bd25a9bd98f92a143800d5b530ac1",
+      "excluded_signatures": [
+        {
+          "signature": "PATCH /v3/entities/goal/655f328********",
+          "digest": "9ea67f01671c01242ad5649bc00879c81c8bd25a9bd98f92a143800d5b530ac1",
+          "reason": "Concrete request example for UpdateEntity; identifiers instantiate the documented route placeholders."
+        },
+        {
+          "signature": "GET /v3/entities/goal/GOAL_ID",
+          "digest": "9ea67f01671c01242ad5649bc00879c81c8bd25a9bd98f92a143800d5b530ac1",
+          "reason": "Concrete request example for GetEntity; identifiers instantiate the documented route placeholders."
+        }
+      ]
+    },
+    {
+      "path": "api/entities/metric.md",
+      "title": "Метрики",
+      "url": "https://yandex.ru/support/tracker/ru/api/entities/metric.md?revision=r21880163",
+      "sha256": "b33cf468db3214806da6032140db964efa1a117c97bdb9fecf81aab3513c8844",
+      "signatures": [],
+      "operations": [
+        "GetEntity",
+        "UpdateEntity"
+      ],
+      "note": "Метрики — fields.metricItems в GetEntity/UpdateEntity.",
+      "content_sha256": "8f19a03e2465fa4819a89c92808751cbc3413be9c9c52a985b770d0c9ff676b8",
+      "excluded_signatures": [
+        {
+          "signature": "PATCH /v3/entities/goal/655f328********",
+          "digest": "8f19a03e2465fa4819a89c92808751cbc3413be9c9c52a985b770d0c9ff676b8",
+          "reason": "Concrete request example for UpdateEntity; identifiers instantiate the documented route placeholders."
+        },
+        {
+          "signature": "PATCH /v3/entities/project/655f8cc52*****",
+          "digest": "8f19a03e2465fa4819a89c92808751cbc3413be9c9c52a985b770d0c9ff676b8",
+          "reason": "Concrete request example for UpdateEntity; identifiers instantiate the documented route placeholders."
+        },
+        {
+          "signature": "GET /v3/entities/ENTITY_TYPE/ENTITY_ID",
+          "digest": "8f19a03e2465fa4819a89c92808751cbc3413be9c9c52a985b770d0c9ff676b8",
+          "reason": "Concrete request example for GetEntity; identifiers instantiate the documented route placeholders."
+        }
+      ]
+    },
+    {
+      "path": "api/entities/attachments/get-all-attachments.md",
+      "title": "Получить список прикрепленных файлов",
+      "url": "https://yandex.ru/support/tracker/ru/api/entities/attachments/get-all-attachments.md?revision=r21880163",
+      "sha256": "11ead479c2077888e779bde6af1cc02d53b010d0587b1911b795650bf71270d4",
+      "signatures": [
+        "GET /v3/entities/{тип_сущности}/{id_сущности}/attachments"
+      ],
+      "operations": [
+        "ListEntityAttachments"
+      ],
+      "content_sha256": "b88a0829232dea91bfe7e353413c0705ab6c4dbed9dd5c045fe1534eafc2562f",
+      "excluded_signatures": [
+        {
+          "signature": "GET /v3/entities/project/PROJECT_ID/attachments",
+          "digest": "b88a0829232dea91bfe7e353413c0705ab6c4dbed9dd5c045fe1534eafc2562f",
+          "reason": "Concrete request example for ListEntityAttachments; identifiers instantiate the documented route placeholders."
+        }
+      ]
+    },
+    {
+      "path": "api/entities/attachments/get-attachment.md",
+      "title": "Получить информацию о прикрепленном файле",
+      "url": "https://yandex.ru/support/tracker/ru/api/entities/attachments/get-attachment.md?revision=r21880163",
+      "sha256": "f4a19240782ae66015ebb09772b719ad934cdf543b27bd2299c2b19e00529dd3",
+      "signatures": [
+        "GET /v3/entities/{тип_сущности}/{id_сущности}/attachments/{id_файла}"
+      ],
+      "operations": [
+        "GetEntityAttachment"
+      ],
+      "content_sha256": "3a19a9fb112c97e9a223b91fd6b2ad0de12fac820f9394c0fc7fa3014ed0a704",
+      "excluded_signatures": [
+        {
+          "signature": "GET /v3/entities/project/PROJECT_ID/attachments/5",
+          "digest": "3a19a9fb112c97e9a223b91fd6b2ad0de12fac820f9394c0fc7fa3014ed0a704",
+          "reason": "Concrete request example for GetEntityAttachment; identifiers instantiate the documented route placeholders."
+        }
+      ]
+    },
+    {
+      "path": "api/entities/attachments/add-attachment.md",
+      "title": "Прикрепить файл",
+      "url": "https://yandex.ru/support/tracker/ru/api/entities/attachments/add-attachment.md?revision=r21880163",
+      "sha256": "6c4bcd7460f995805c9debb5496feec744cb5bc70dbb566b909bfad3b05e3b89",
+      "signatures": [
+        "POST /v3/entities/{тип_сущности}/{id_сущности}/attachments/{id_файла}"
+      ],
+      "operations": [
+        "AttachEntityFile"
+      ],
+      "content_sha256": "87c8dbac3eb1420c3ef5facdd138b6c254a5c57e5ac34104dd16cfdf97e0c986",
+      "excluded_signatures": [
+        {
+          "signature": "POST /v3/entities/project/PROJECT_ID/attachments/30",
+          "digest": "87c8dbac3eb1420c3ef5facdd138b6c254a5c57e5ac34104dd16cfdf97e0c986",
+          "reason": "Concrete request example for AttachEntityFile; identifiers instantiate the documented route placeholders."
+        }
+      ]
+    },
+    {
+      "path": "api/entities/attachments/delete-attachment.md",
+      "title": "Удалить файл",
+      "url": "https://yandex.ru/support/tracker/ru/api/entities/attachments/delete-attachment.md?revision=r21880163",
+      "sha256": "d1cf016c2d547755b4bb5fd46fcedd406ee0521c583e7420ddae5b756abcd996",
+      "signatures": [
+        "DELETE /v3/entities/{тип_сущности}/{id_сущности}/attachments/{id_файла}"
+      ],
+      "operations": [
+        "DeleteEntityAttachment"
+      ],
+      "content_sha256": "8417a755899b6885b0bba8502bba487c3a88d1edb260cdbe788874f1a2588b93",
+      "excluded_signatures": [
+        {
+          "signature": "DELETE /v3/entities/project/PROJECT_ID/attachments/123",
+          "digest": "8417a755899b6885b0bba8502bba487c3a88d1edb260cdbe788874f1a2588b93",
+          "reason": "Concrete request example for DeleteEntityAttachment; identifiers instantiate the documented route placeholders."
+        }
+      ]
+    },
+    {
+      "path": "api/entities/links/add-links.md",
+      "title": "Связать сущности",
+      "url": "https://yandex.ru/support/tracker/ru/api/entities/links/add-links.md?revision=r21880163",
+      "sha256": "a740b9ff24a7873a78ac587f4f17d05845e3e98b44e9e28be5088e34fa3f48db",
+      "signatures": [
+        "POST /v3/entities/{тип_сущности}/{id_сущности}/links"
+      ],
+      "operations": [
+        "CreateEntityLink"
+      ],
+      "content_sha256": "af822810514f9efc9c845d8833ef26a6f663942b14bc3939cde2a6bfb60814c2",
+      "excluded_signatures": [
+        {
+          "signature": "POST /v3/entities/project/PROJECT_ID/links",
+          "digest": "af822810514f9efc9c845d8833ef26a6f663942b14bc3939cde2a6bfb60814c2",
+          "reason": "Concrete request example for CreateEntityLink; identifiers instantiate the documented route placeholders."
+        }
+      ]
+    },
+    {
+      "path": "api/entities/links/get-links.md",
+      "title": "Получить связи",
+      "url": "https://yandex.ru/support/tracker/ru/api/entities/links/get-links.md?revision=r21880163",
+      "sha256": "d789489cda17ad481ae5539cb88c589c37320516718ba2cfe805b9e64a23c10b",
+      "signatures": [
+        "GET /v3/entities/{тип_сущности}/{id_сущности}/links"
+      ],
+      "operations": [
+        "ListEntityLinks"
+      ],
+      "content_sha256": "5610767e7a3db34fc9987fe44fecf90e7e1ec7593a1ca4242d883f02207f8995",
+      "excluded_signatures": [
+        {
+          "signature": "GET /v3/entities/project/PROJECT_ID/links",
+          "digest": "5610767e7a3db34fc9987fe44fecf90e7e1ec7593a1ca4242d883f02207f8995",
+          "reason": "Concrete request example for ListEntityLinks; identifiers instantiate the documented route placeholders."
+        }
+      ]
+    },
+    {
+      "path": "api/entities/links/delete-link.md",
+      "title": "Удалить связь",
+      "url": "https://yandex.ru/support/tracker/ru/api/entities/links/delete-link.md?revision=r21880163",
+      "sha256": "d3a6282d659174a67d4a8ca0bdf80dd565171ddb926df5f57e498ed2b1e35d81",
+      "signatures": [
+        "DELETE /v3/entities/{тип_сущности}/{id_сущности}/links"
+      ],
+      "operations": [
+        "DeleteEntityLink"
+      ],
+      "content_sha256": "30c7b35ccc0db4bf959846d95b9fff78253f100852cdbe623d8beae00aad2000",
+      "excluded_signatures": [
+        {
+          "signature": "DELETE /v3/entities/project/PROJECT_ID/links",
+          "digest": "30c7b35ccc0db4bf959846d95b9fff78253f100852cdbe623d8beae00aad2000",
+          "reason": "Concrete request example for DeleteEntityLink; identifiers instantiate the documented route placeholders."
+        }
+      ]
+    },
+    {
+      "path": "api/entities/get-access.md",
+      "title": "Получить расширенные настройки доступа",
+      "url": "https://yandex.ru/support/tracker/ru/api/entities/get-access.md?revision=r21880163",
+      "sha256": "f52b5c97e48b373886a734a64fa3e6676cf2c9266a0c83a8f12bdac95570519e",
+      "signatures": [
+        "GET /v3/entities/{тип_сущности}/{id_сущности}/extendedPermissions"
+      ],
+      "operations": [
+        "GetEntityAccess"
+      ],
+      "content_sha256": "8a5937889d99f2eb081b061fe1e8bccda64b10b746e07e27be23857b336c95c2"
+    },
+    {
+      "path": "api/entities/get-permissions.md",
+      "title": "Получить права доступа",
+      "url": "https://yandex.ru/support/tracker/ru/api/entities/get-permissions.md?revision=r21880163",
+      "sha256": "4f8d83ed2a386aca07ce1d8cc7c800f652ee3ad5685f3588f0113dcad2acf4d0",
+      "signatures": [
+        "GET /v3/entities/{тип_сущности}/{id_сущности}/permissions"
+      ],
+      "operations": [
+        "GetEntityPermissions"
+      ],
+      "content_sha256": "f2f585ec227ed1bd8f3e8bae78e462109c351c9303d9c79796acd96d57389644"
+    },
+    {
+      "path": "api/entities/patch-access.md",
+      "title": "Изменить расширенные настройки доступа",
+      "url": "https://yandex.ru/support/tracker/ru/api/entities/patch-access.md?revision=r21880163",
+      "sha256": "354562425d4e21a25d86d75f1bc74527023e8cb6bb851fdb7d54ba1a62f4eaeb",
+      "signatures": [
+        "PATCH /v3/entities/{тип_сущности}/{id_сущности}/extendedPermissions"
+      ],
+      "operations": [
+        "UpdateEntityAccess"
+      ],
+      "content_sha256": "abd3e637589be7897e89316edebda47e60c54224e1b50d1cc3c1aed85457aba0",
+      "excluded_signatures": [
+        {
+          "signature": "PATCH /v3/entities/project/655f8cc52*****/extendedPermissions",
+          "digest": "abd3e637589be7897e89316edebda47e60c54224e1b50d1cc3c1aed85457aba0",
+          "reason": "Concrete request example for UpdateEntityAccess; identifiers instantiate the documented route placeholders."
+        }
+      ]
+    },
+    {
+      "path": "api/entities/patch-permissions.md",
+      "title": "Изменить права доступа",
+      "url": "https://yandex.ru/support/tracker/ru/api/entities/patch-permissions.md?revision=r21880163",
+      "sha256": "1bf00565efa40d45f8631cc5a4530b37b0c9f5ac445e632bc499638f3df4c9ef",
+      "signatures": [
+        "PATCH /v3/entities/{тип_сущности}/{id_сущности}/permissions"
+      ],
+      "operations": [
+        "UpdateEntityPermissions"
+      ],
+      "content_sha256": "cf04f7d34af15863c6d2fdfddd6d04f0fbeff56abfb8bc96ff508026cec4ab6e"
+    },
+    {
+      "path": "api/projects/create-project.md",
+      "title": "Создать проект",
+      "url": "https://yandex.ru/support/tracker/ru/api/projects/create-project.md?revision=r21880163",
+      "sha256": "89b2647691c80577b6bcaf87ade464543f99c95c5fa64a58f49d76182a0d9236",
+      "signatures": [
+        "POST /v3/projects"
+      ],
+      "operations": [
+        "CreateProject"
+      ],
+      "content_sha256": "507f382a78ff9a3f1a43385a36a28d444d994c5ca217cd311168796b1aadc847"
+    },
+    {
+      "path": "api/projects/get-project.md",
+      "title": "Получить параметры проекта",
+      "url": "https://yandex.ru/support/tracker/ru/api/projects/get-project.md?revision=r21880163",
+      "sha256": "02a1447d70622841f0d617777282579eeb3eb8999570774d7f478125f3593df5",
+      "signatures": [
+        "GET /v3/projects/{id_проекта}"
+      ],
+      "operations": [
+        "GetProject"
+      ],
+      "content_sha256": "0dd811d8e18cb7265c5c18f9ec3a10a1c718c599eb1a1b7c1b4e839176849ad5"
+    },
+    {
+      "path": "api/projects/get-projects.md",
+      "title": "Получить список всех проектов",
+      "url": "https://yandex.ru/support/tracker/ru/api/projects/get-projects.md?revision=r21880163",
+      "sha256": "573d2c33edf9254ee0c72b63cd45ae6f7d2403a6800adf5ee8716d4027a2ba24",
+      "signatures": [
+        "GET /v3/projects"
+      ],
+      "operations": [
+        "ListProjects"
+      ],
+      "content_sha256": "4807f84764a31f1f5830aa6701ba431284cc5d09dcb87f8e77538dcd16110f5b"
+    },
+    {
+      "path": "api/projects/get-project-queues.md",
+      "title": "Получить список очередей проекта",
+      "url": "https://yandex.ru/support/tracker/ru/api/projects/get-project-queues.md?revision=r21880163",
+      "sha256": "df5c3aca0b7237c34c1aa8320db19df22597dea2fb943bbf67bed361439d58bd",
+      "signatures": [
+        "GET /v3/projects/{id_проекта}/queues"
+      ],
+      "operations": [
+        "ListProjectQueues"
+      ],
+      "content_sha256": "eeceb052da2f5926b402960b01718a4bfa8aaaf99a1d9318f0f0c1abe85f4120"
+    },
+    {
+      "path": "api/projects/update-project.md",
+      "title": "Изменить проект",
+      "url": "https://yandex.ru/support/tracker/ru/api/projects/update-project.md?revision=r21880163",
+      "sha256": "69585d7ccb3f3a57db01bf318d2295db1c9403f30735b4d85d11e45f23400982",
+      "signatures": [
+        "PUT /v3/projects/{id}"
+      ],
+      "operations": [
+        "UpdateProject"
+      ],
+      "content_sha256": "b84f4fd2d8412d30fbba8e41aaa1169170fcc9a1e7d2fff369e18220842a4e44"
+    },
+    {
+      "path": "api/projects/delete-project.md",
+      "title": "Удалить проект",
+      "url": "https://yandex.ru/support/tracker/ru/api/projects/delete-project.md?revision=r21880163",
+      "sha256": "bbfd5d0693fca33ea981bc22b661115c866d175d3925fa74ef9614d736eb429d",
+      "signatures": [
+        "DELETE /v3/projects/{id_проекта}"
+      ],
+      "operations": [
+        "DeleteProject"
+      ],
+      "content_sha256": "608dc0ba10882bf54352dabf4060ec7761ded03e5a1bf5dce48be05c5ae70a08"
+    },
+    {
+      "path": "api/queues/create-queue.md",
+      "title": "Создать очередь",
+      "url": "https://yandex.ru/support/tracker/ru/api/queues/create-queue.md?revision=r21880163",
+      "sha256": "5d211d00d76820d2d1bf413b431aaf6c46f968837dde4647c60641ed42bff5d1",
+      "signatures": [
+        "POST /v3/queues"
+      ],
+      "operations": [
+        "CreateQueue"
+      ],
+      "content_sha256": "a4de9b401d32f9524313b82177d8f4f7419f986bdc7f25458d34d5282085a3b0"
+    },
+    {
+      "path": "api/queues/get-queue.md",
+      "title": "Получить параметры очереди",
+      "url": "https://yandex.ru/support/tracker/ru/api/queues/get-queue.md?revision=r21880163",
+      "sha256": "4d351a8201b59cbb6ca2aefb1db94345ce10965fa1d7755672175116ea36c013",
+      "signatures": [
+        "GET /v3/queues/{id_очереди}"
+      ],
+      "operations": [
+        "GetQueue"
+      ],
+      "content_sha256": "b03d989125152f2778278203fde33d06e11d408358d858a874e2c176a5f6bf5f",
+      "excluded_signatures": [
+        {
+          "signature": "GET /v3/queues/TEST",
+          "digest": "b03d989125152f2778278203fde33d06e11d408358d858a874e2c176a5f6bf5f",
+          "reason": "Concrete request example for GetQueue; identifiers instantiate the documented route placeholders."
+        }
+      ]
+    },
+    {
+      "path": "api/queues/get-queues.md",
+      "title": "Получить список очередей",
+      "url": "https://yandex.ru/support/tracker/ru/api/queues/get-queues.md?revision=r21880163",
+      "sha256": "5c03e1f805788d14597faa7cf666bcce7cb70674d53f764e505caf30cb109e52",
+      "signatures": [
+        "GET /v3/queues"
+      ],
+      "operations": [
+        "ListQueues"
+      ],
+      "content_sha256": "cd5aac7587f172c1b4d61fee99041020d99ec1526c47c89c5ae8d7199b6537de"
+    },
+    {
+      "path": "api/queues/get-fields.md",
+      "title": "Получить обязательные поля очереди",
+      "url": "https://yandex.ru/support/tracker/ru/api/queues/get-fields.md?revision=r21880163",
+      "sha256": "7231d9a69ab70dbd230cce66d5aff770056886d2e22bcaf764d17d7306b80f9a",
+      "signatures": [
+        "GET /v3/queues/{id_очереди}/fields"
+      ],
+      "operations": [
+        "ListQueueFields"
+      ],
+      "content_sha256": "4ab5cf5f5d6f523bea6477e6543c1d050ed77812810a576c2947071118cd3eca",
+      "excluded_signatures": [
+        {
+          "signature": "GET /v3/queues/TEST/fields",
+          "digest": "4ab5cf5f5d6f523bea6477e6543c1d050ed77812810a576c2947071118cd3eca",
+          "reason": "Concrete request example for ListQueueFields; identifiers instantiate the documented route placeholders."
+        }
+      ]
+    },
+    {
+      "path": "api/queues/delete-queue.md",
+      "title": "Удалить очередь",
+      "url": "https://yandex.ru/support/tracker/ru/api/queues/delete-queue.md?revision=r21880163",
+      "sha256": "c492b294ea8ea1a6867c101b8c1c0f4d31ddd6a70f684054e35c87b5eb2a55f0",
+      "signatures": [
+        "DELETE /v3/queues/{id_очереди}"
+      ],
+      "operations": [
+        "DeleteQueue"
+      ],
+      "content_sha256": "cb255c152b6c40779c0404b8a367ec21ab8f42e5cfcb711781fa374cac042dc3"
+    },
+    {
+      "path": "api/queues/restore-queue.md",
+      "title": "Восстановить очередь",
+      "url": "https://yandex.ru/support/tracker/ru/api/queues/restore-queue.md?revision=r21880163",
+      "sha256": "950e4976f08e65b9ff10f3ce205ce3adf98ccdfbd7ef111a21b60b3437ef4eea",
+      "signatures": [
+        "POST /v3/queues/{id_очереди}/_restore"
+      ],
+      "operations": [
+        "RestoreQueue"
+      ],
+      "content_sha256": "f18559eb9ba117930d66d150f9716fdfd161c4052fa8a369fc04d4ea7ddcb2c8"
+    },
+    {
+      "path": "api/queues/get-tags.md",
+      "title": "Получить теги очереди",
+      "url": "https://yandex.ru/support/tracker/ru/api/queues/get-tags.md?revision=r21880163",
+      "sha256": "365d45aba5b71599edb2cfdc244e70742cfe9337697b73597f953f72d81bd1f8",
+      "signatures": [
+        "GET /v3/queues/{id_очереди}/tags"
+      ],
+      "operations": [
+        "ListQueueTags"
+      ],
+      "content_sha256": "42999ba777490ce8a2a9d6645a3b8d87cf118de2b8ddf47d11a4ab4af093bb21"
+    },
+    {
+      "path": "api/queues/delete-tag.md",
+      "title": "Удалить тег из очереди",
+      "url": "https://yandex.ru/support/tracker/ru/api/queues/delete-tag.md?revision=r21880163",
+      "sha256": "b71b9161bcf65bb64749aa45e1f33019a4ba2d14772ad12869edcbb99f6f8cfc",
+      "signatures": [
+        "POST /v3/queues/{id_очереди}/tags/_remove"
+      ],
+      "operations": [
+        "DeleteQueueTag"
+      ],
+      "content_sha256": "2002edc6beaec7cabe1a5de1b12becdb6369d2a5a4095035a288e6ae843e8346"
+    },
+    {
+      "path": "api/queues/manage-access.md",
+      "title": "Выдать права доступа к очереди",
+      "url": "https://yandex.ru/support/tracker/ru/api/queues/manage-access.md?revision=r21880163",
+      "sha256": "2e04338a3a70eb2c334f89c38bfb3f08b8a21b0c8710a6e9814e9ba366ff8d0c",
+      "signatures": [
+        "PATCH /v3/queues/{id_очереди}/permissions"
+      ],
+      "operations": [
+        "UpdateQueuePermissions"
+      ],
+      "content_sha256": "61700e9e907928dd17c675fad94b00c4e1141af6bfceb9314bafe0e0f749229d",
+      "excluded_signatures": [
+        {
+          "signature": "PATCH /v3/queues/TESTQUEUE/permissions",
+          "digest": "61700e9e907928dd17c675fad94b00c4e1141af6bfceb9314bafe0e0f749229d",
+          "reason": "Concrete request example for UpdateQueuePermissions; identifiers instantiate the documented route placeholders."
+        }
+      ]
+    },
+    {
+      "path": "api/queues/get-user-access.md",
+      "title": "Получить права доступа пользователя в очереди",
+      "url": "https://yandex.ru/support/tracker/ru/api/queues/get-user-access.md?revision=r21880163",
+      "sha256": "b01625e134ecb115014e55febfe6ba11a0452a6b36ebd3fe228a868ec01fd29b",
+      "signatures": [
+        "GET /v3/queues/{id}/permissions/users/{userId}"
+      ],
+      "operations": [
+        "GetQueueUserPermissions"
+      ],
+      "content_sha256": "7a6e4f16eac21f54c26cb80b488873afd59241bcc0054cf339ad0f7d20eeae3a"
+    },
+    {
+      "path": "api/queues/get-group-access.md",
+      "title": "Получить права доступа группы в очереди",
+      "url": "https://yandex.ru/support/tracker/ru/api/queues/get-group-access.md?revision=r21880163",
+      "sha256": "436e455c30fb5139c7b74048185a1c6ee9be0e60400c7a25dc889007c1e22fc8",
+      "signatures": [
+        "GET /v3/queues/{id}/permissions/groups/{groupId}"
+      ],
+      "operations": [
+        "GetQueueGroupPermissions"
+      ],
+      "content_sha256": "31c138673392221658af0be8e0d3a3479d985afbc50996f0ae019fdbfa0f8380"
+    },
+    {
+      "path": "api/queues/workflows/post-workflow.md",
+      "title": "Создать рабочий процесс",
+      "url": "https://yandex.ru/support/tracker/ru/api/queues/workflows/post-workflow.md?revision=r21880163",
+      "sha256": "a0d9a59c5b40f91170664401ba68881f06aaac5bb8a994b873f339831c2e04b6",
+      "signatures": [
+        "POST /v3/workflows"
+      ],
+      "operations": [
+        "CreateWorkflow"
+      ],
+      "content_sha256": "1845cf47f26ea4cd0d8fd87db356923096fbdc5769bd97ad2e018c6ac6944398"
+    },
+    {
+      "path": "api/queues/workflows/get-workflows.md",
+      "title": "Получить список рабочих процессов",
+      "url": "https://yandex.ru/support/tracker/ru/api/queues/workflows/get-workflows.md?revision=r21880163",
+      "sha256": "b5813f3bda9cc2e869fe38523d186e0b69120df3205eeecf192ea9660bff4402",
+      "signatures": [
+        "GET /v3/workflows"
+      ],
+      "operations": [
+        "ListWorkflows"
+      ],
+      "content_sha256": "b6f8b583009ebce5b9e69a36ff3fc60c8e30fc629d3e248618a18d8fc0f8e9e7"
+    },
+    {
+      "path": "api/queues/workflows/get-queue-workflows.md",
+      "title": "Получить рабочие процессы очереди",
+      "url": "https://yandex.ru/support/tracker/ru/api/queues/workflows/get-queue-workflows.md?revision=r21880163",
+      "sha256": "450a49caec3f8347f83a6cbeb075b5ba672933f12306c4868030fc040101b905",
+      "signatures": [
+        "GET /v3/queues/{id_очереди}/workflows"
+      ],
+      "operations": [
+        "ListQueueWorkflows"
+      ],
+      "content_sha256": "41e32b06c3627fe6b73bb7d9e9c70fb6a56d9ad4d600f2fcb324a1879221965a"
+    },
+    {
+      "path": "api/queues/workflows/get-workflow.md",
+      "title": "Получить рабочий процесс",
+      "url": "https://yandex.ru/support/tracker/ru/api/queues/workflows/get-workflow.md?revision=r21880163",
+      "sha256": "f7fc57682dd9ad369efa88b3d75da9617a01bb5fb757934b390bc1a03bb7e959",
+      "signatures": [
+        "GET /v3/workflows/{id}"
+      ],
+      "operations": [
+        "GetWorkflow"
+      ],
+      "content_sha256": "aacca37275bcfe5629606afa786409ffe2700a736ffea4cff8c43905db098ab8"
+    },
+    {
+      "path": "api/queues/workflows/patch-workflow.md",
+      "title": "Изменить рабочий процесс",
+      "url": "https://yandex.ru/support/tracker/ru/api/queues/workflows/patch-workflow.md?revision=r21880163",
+      "sha256": "4074c2e6f15e0e13bc4eee9ded3dcc68e804f536571911330f33476ddfcf32cf",
+      "signatures": [
+        "PATCH /v3/workflows/{id}"
+      ],
+      "operations": [
+        "UpdateWorkflow"
+      ],
+      "content_sha256": "c3166b092185b520bec2d4d946673df76d2f1d054a61797f27c1b3aebd5b1768",
+      "excluded_signatures": [
+        {
+          "signature": "PATCH /v3/workflows/W21",
+          "digest": "c3166b092185b520bec2d4d946673df76d2f1d054a61797f27c1b3aebd5b1768",
+          "reason": "Concrete request example for UpdateWorkflow; identifiers instantiate the documented route placeholders."
+        }
+      ]
+    },
+    {
+      "path": "api/queues/workflows/patch-workflow-action.md",
+      "title": "Изменить действие в шаге рабочего процесса",
+      "url": "https://yandex.ru/support/tracker/ru/api/queues/workflows/patch-workflow-action.md?revision=r21880163",
+      "sha256": "f2d47b7fefdfb309e95d742a97d404655babfbfdf1bccf855e988ee09e0dca56",
+      "signatures": [
+        "PATCH /v3/workflows/{id}/steps/{статус}/actions/{id_действия}"
+      ],
+      "operations": [
+        "UpdateWorkflowAction"
+      ],
+      "content_sha256": "6f558b84561e158f35dc1b2c689ffc55c4fe28a8099ba4376352caf52bdf32e9",
+      "excluded_signatures": [
+        {
+          "signature": "PATCH /v3/workflows/W21/steps/inProgress/actions/close",
+          "digest": "6f558b84561e158f35dc1b2c689ffc55c4fe28a8099ba4376352caf52bdf32e9",
+          "reason": "Concrete request example for UpdateWorkflowAction; identifiers instantiate the documented route placeholders."
+        }
+      ]
+    },
+    {
+      "path": "api/queues/workflows/delete-workflow.md",
+      "title": "Удалить рабочий процесс",
+      "url": "https://yandex.ru/support/tracker/ru/api/queues/workflows/delete-workflow.md?revision=r21880163",
+      "sha256": "5cfeb612e0687cb9826e5f3f3227705d3aa92be5358ee353634e6cc3e7255592",
+      "signatures": [
+        "DELETE /v3/workflows/{id}"
+      ],
+      "operations": [
+        "DeleteWorkflow"
+      ],
+      "content_sha256": "fb60172baf4af1d904ecfe98d9bea2c74e7e175ee89010ac9eb3a294659ce35d"
+    },
+    {
+      "path": "api/queues/create-autoaction.md",
+      "title": "Создать автодействие",
+      "url": "https://yandex.ru/support/tracker/ru/api/queues/create-autoaction.md?revision=r21880163",
+      "sha256": "43a96f536fd4004fa602b716cf7c9015dce1079079bc295d345d24e143ebd01f",
+      "signatures": [
+        "POST /v3/queues/{id_очереди}/autoactions"
+      ],
+      "operations": [
+        "CreateAutoaction"
+      ],
+      "content_sha256": "b1a7f08a978bc8cf6566eb054f71784552e1cc5d3b80eb9628e4376e19a4eaf0",
+      "excluded_signatures": [
+        {
+          "signature": "POST /v3/queues/DESIGN/autoactions",
+          "digest": "b1a7f08a978bc8cf6566eb054f71784552e1cc5d3b80eb9628e4376e19a4eaf0",
+          "reason": "Concrete request example for CreateAutoaction; identifiers instantiate the documented route placeholders."
+        }
+      ]
+    },
+    {
+      "path": "api/queues/get-autoaction.md",
+      "title": "Получить параметры автодействия",
+      "url": "https://yandex.ru/support/tracker/ru/api/queues/get-autoaction.md?revision=r21880163",
+      "sha256": "d9a6b92964a0eb572ecacd9442c3067488a4d908bffadf1c1918fc5fb92acba3",
+      "signatures": [
+        "GET /v3/queues/{id_очереди}/autoactions/{id_автодействия}"
+      ],
+      "operations": [
+        "GetAutoaction"
+      ],
+      "content_sha256": "e8a75c2d625118763e0c743caf30c87a9b74dfb3dd066df28d9f570f5b84772d"
+    },
+    {
+      "path": "api/queues/view-autoaction-logs.md",
+      "title": "Просмотреть логи автодействия",
+      "url": "https://yandex.ru/support/tracker/ru/api/queues/view-autoaction-logs.md?revision=r21880163",
+      "sha256": "79526a3cc0315a04d2c5f385decbd50052b206b3c2eef2dccffa4c9ca46e16e9",
+      "signatures": [
+        "GET /v3/queues/{ключ_очереди}/autoactions/{id_автодействия}/logs",
+        "GET /v3/queues/{ключ_очереди}/autoactions/{id_автодействия}/logs/{id_запуска_автодействия}"
+      ],
+      "operations": [
+        "ListAutoactionLogs",
+        "GetAutoactionLog"
+      ],
+      "content_sha256": "333e5c92f232ad4bd10990b9d9e2b850e229bf8786b396888b52d06578669aa2"
+    },
+    {
+      "path": "api/queues/create-trigger.md",
+      "title": "Создать триггер",
+      "url": "https://yandex.ru/support/tracker/ru/api/queues/create-trigger.md?revision=r21880163",
+      "sha256": "384f2a4326935b109d396e83a9fedbe6fe8623f2661a9918012095febfac9843",
+      "signatures": [
+        "POST /v3/queues/{id_очереди}/triggers"
+      ],
+      "operations": [
+        "CreateTrigger"
+      ],
+      "content_sha256": "28779ed3f7e57255070136ff72151d449c770d472c2eaba4950c7a5519880db1",
+      "excluded_signatures": [
+        {
+          "signature": "POST /v3/queues/DESIGN/triggers",
+          "digest": "28779ed3f7e57255070136ff72151d449c770d472c2eaba4950c7a5519880db1",
+          "reason": "Concrete request example for CreateTrigger; identifiers instantiate the documented route placeholders."
+        }
+      ]
+    },
+    {
+      "path": "api/queues/get-triggers.md",
+      "title": "Получить список триггеров очереди",
+      "url": "https://yandex.ru/support/tracker/ru/api/queues/get-triggers.md?revision=r21880163",
+      "sha256": "d4aaef9ad0e92dcb72053ba1032430e10d368360e1d481ad899b1fc7d0957e37",
+      "signatures": [
+        "GET /v3/queues/{id_очереди}/triggers"
+      ],
+      "operations": [
+        "ListTriggers"
+      ],
+      "content_sha256": "406d041e9069a791a291fa71fb0d674a5c0137217c80c6d1d28d5c174558d723",
+      "excluded_signatures": [
+        {
+          "signature": "GET /v3/queues/DESIGN/triggers",
+          "digest": "406d041e9069a791a291fa71fb0d674a5c0137217c80c6d1d28d5c174558d723",
+          "reason": "Concrete request example for ListTriggers; identifiers instantiate the documented route placeholders."
+        }
+      ]
+    },
+    {
+      "path": "api/queues/get-trigger.md",
+      "title": "Получить параметры триггера",
+      "url": "https://yandex.ru/support/tracker/ru/api/queues/get-trigger.md?revision=r21880163",
+      "sha256": "874d7bd08401ef440bad69f93e8ac489d50900e8f9590f3c30fb1cfd954d96da",
+      "signatures": [
+        "GET /v3/queues/{id_очереди}/triggers/{id_триггера}"
+      ],
+      "operations": [
+        "GetTrigger"
+      ],
+      "content_sha256": "f1e2e8bd9589f064e8c291cd35d6c2d145a4af5012bff6568b3a8fac13981247"
+    },
+    {
+      "path": "api/queues/change-trigger.md",
+      "title": "Изменить триггер",
+      "url": "https://yandex.ru/support/tracker/ru/api/queues/change-trigger.md?revision=r21880163",
+      "sha256": "ad8ad04659b06961f7393d506868fc0685e30ebde7dae63567ef5d2bfba032ab",
+      "signatures": [
+        "PATCH /v3/queues/{queueId}/triggers/{id}"
+      ],
+      "operations": [
+        "UpdateTrigger"
+      ],
+      "content_sha256": "2ce10b344c0d8e54d23b7746e8b024b5b24acd1d3fabd549581e8c62104e2257",
+      "excluded_signatures": [
+        {
+          "signature": "PATCH /v3/queues/DESIGN/triggers/16",
+          "digest": "2ce10b344c0d8e54d23b7746e8b024b5b24acd1d3fabd549581e8c62104e2257",
+          "reason": "Concrete request example for UpdateTrigger; identifiers instantiate the documented route placeholders."
+        }
+      ]
+    },
+    {
+      "path": "api/queues/change-trigger-actions.md",
+      "title": "Объекты действий триггера",
+      "url": "https://yandex.ru/support/tracker/ru/api/queues/change-trigger-actions.md?revision=r21880163",
+      "sha256": "67ee0c70bc7d174df813598e81717f9037af135f40fbc4c6df54c8f0a1e14d11",
+      "signatures": [],
+      "operations": [],
+      "note": "Описание общего протокола, полей или формы данных; отдельных HTTP-операций нет.",
+      "content_sha256": "b350dbd204d4d943c8893e359fee920d5af97c16c7446b473735a714c2887eaa"
+    },
+    {
+      "path": "api/queues/change-trigger-conditions.md",
+      "title": "Объекты условий срабатывания триггера",
+      "url": "https://yandex.ru/support/tracker/ru/api/queues/change-trigger-conditions.md?revision=r21880163",
+      "sha256": "c55efafe8b2037e77505455fd96b30e3315f842e50bb65061ee4ae7c12c36296",
+      "signatures": [],
+      "operations": [],
+      "note": "Описание общего протокола, полей или формы данных; отдельных HTTP-операций нет.",
+      "content_sha256": "1aa3a0314dbb741aba3a97f40f099c9223bc7c1b8d7f5c3067879428b9f0a638"
+    },
+    {
+      "path": "api/queues/view-trigger-logs.md",
+      "title": "Просмотреть логи триггера",
+      "url": "https://yandex.ru/support/tracker/ru/api/queues/view-trigger-logs.md?revision=r21880163",
+      "sha256": "ad73437ebce72e85a507c9bdff49bf61437a4cf474a0fac4b73ade9fc5b10498",
+      "signatures": [
+        "GET /v3/queues/{ключ_очереди}/triggers/{id_триггера}/webhooks/log"
+      ],
+      "operations": [
+        "ListTriggerLogs"
+      ],
+      "content_sha256": "a3f7b2493b0fd08a7cbadebcfa7451ca642381c0550cc1621d0261605233075d",
+      "excluded_signatures": [
+        {
+          "signature": "GET /v3/queues/DEV/triggers/6/webhooks/log",
+          "digest": "a3f7b2493b0fd08a7cbadebcfa7451ca642381c0550cc1621d0261605233075d",
+          "reason": "Concrete request example for ListTriggerLogs; identifiers instantiate the documented route placeholders."
+        }
+      ]
+    },
+    {
+      "path": "api/get-macroses.md",
+      "title": "Получить макросы очереди",
+      "url": "https://yandex.ru/support/tracker/ru/api/get-macroses.md?revision=r21880163",
+      "sha256": "eb32ff4366392c57c9f42c5f662a329f75ba6aa998f01d7b226f93ccdf6f7110",
+      "signatures": [
+        "GET /v3/queues/{id_очереди}/macros"
+      ],
+      "operations": [
+        "ListMacros"
+      ],
+      "content_sha256": "5e5223ebc61aed922288c65bed1fc68265273668e4984313afd48e7cb74fddc5"
+    },
+    {
+      "path": "api/get-macros.md",
+      "title": "Получить макрос",
+      "url": "https://yandex.ru/support/tracker/ru/api/get-macros.md?revision=r21880163",
+      "sha256": "5fc17898c2e2fa3853cb1c6195a99a6d319e532710446d0a40337cadb35f2a23",
+      "signatures": [
+        "GET /v3/queues/{id_очереди}/macros/{id_макроса}"
+      ],
+      "operations": [
+        "GetMacro"
+      ],
+      "content_sha256": "c5c4a440b5d98cd2c6dad6a5a7975aab953b88224559dc5b84d5f7a935822f55"
+    },
+    {
+      "path": "api/post-macros.md",
+      "title": "Создать макрос",
+      "url": "https://yandex.ru/support/tracker/ru/api/post-macros.md?revision=r21880163",
+      "sha256": "b6e59a9d9f36223f8d837dbdcd1035e8d0421c72b3cc7b857a020e862ccfaec3",
+      "signatures": [
+        "POST /v3/queues/{id_очереди}/macros"
+      ],
+      "operations": [
+        "CreateMacro"
+      ],
+      "content_sha256": "c463e3e12fd6754004c8205d87c89bd5eba910477c9ffca72ec3efedec864b0e"
+    },
+    {
+      "path": "api/patch-macros.md",
+      "title": "Редактировать макрос",
+      "url": "https://yandex.ru/support/tracker/ru/api/patch-macros.md?revision=r21880163",
+      "sha256": "3229dd5bbbccd87fe2330944f36f039ad1d6077ecf08346919da7f321999d1cb",
+      "signatures": [
+        "PATCH /v3/queues/{id_очереди}/macros/{id_макроса}"
+      ],
+      "operations": [
+        "UpdateMacro"
+      ],
+      "content_sha256": "57a81cf29b572f607fde9e487052260210214c5313eb437e2ce785a233a4df50"
+    },
+    {
+      "path": "api/delete-macros.md",
+      "title": "Удалить макрос",
+      "url": "https://yandex.ru/support/tracker/ru/api/delete-macros.md?revision=r21880163",
+      "sha256": "0595d91af9cdb536c3667211a937cd24fd2536a68efac2c4d11da1af43f221c6",
+      "signatures": [
+        "DELETE /v3/queues/{id_очереди}/macros/{id_макроса}"
+      ],
+      "operations": [
+        "DeleteMacro"
+      ],
+      "content_sha256": "bc05dc5999c02eae4e4612ddd65d46e252e31f196cd1d3d8296c52b0409e3e6c"
+    },
+    {
+      "path": "api/boards/get-boards.md",
+      "title": "Получить параметры всех досок",
+      "url": "https://yandex.ru/support/tracker/ru/api/boards/get-boards.md?revision=r21880163",
+      "sha256": "bc68ac9d922dfc7d453dd3b5cc40686b0819fd5d46a64944452941fdb6a08163",
+      "signatures": [
+        "GET /v3/boards"
+      ],
+      "operations": [
+        "ListBoards"
+      ],
+      "content_sha256": "daa204137641f00919c6d46b91f20d1959930b2187fd5c19dc512b824a8b7d2a"
+    },
+    {
+      "path": "api/boards/get-boards-paginate.md",
+      "title": "Получить параметры всех досок с поддержкой пагинации",
+      "url": "https://yandex.ru/support/tracker/ru/api/boards/get-boards-paginate.md?revision=r21880163",
+      "sha256": "41baf25b7d3c00230668097045ca5b20d5c96738a430ff786ec8062e27df3215",
+      "signatures": [
+        "GET /v3/boards/_paginate"
+      ],
+      "operations": [
+        "ListBoardsPage"
+      ],
+      "content_sha256": "0356b2e4b60e8788521d138e03dedb6b724cf109fe134245a67348dc569fd328"
+    },
+    {
+      "path": "api/boards/get-board.md",
+      "title": "Получить параметры доски",
+      "url": "https://yandex.ru/support/tracker/ru/api/boards/get-board.md?revision=r21880163",
+      "sha256": "3ac6f67aa21a223bc1dcf956df3039068812af1ab7bc5ea1082faffd98c7ccde",
+      "signatures": [
+        "GET /v3/boards/{id_доски}"
+      ],
+      "operations": [
+        "GetBoard"
+      ],
+      "content_sha256": "f2ba94bb4f45b620e7ebbc40a5274232d432ca5e353ad100d9b2dadea1fb636e"
+    },
+    {
+      "path": "api/boards/post-board.md",
+      "title": "Создать доску",
+      "url": "https://yandex.ru/support/tracker/ru/api/boards/post-board.md?revision=r21880163",
+      "sha256": "91ee7fa6d49ff4a89088edcaa026fcbcba0d6b760422b1342c70ab058d0c20ba",
+      "signatures": [
+        "POST /v3/liveBoards"
+      ],
+      "operations": [
+        "CreateBoard"
+      ],
+      "content_sha256": "d74201963334277f4420287d75b1e5a121537e8ffa117cb8a4e54932357167f5",
+      "excluded_signatures": [
+        {
+          "signature": "POST /v3/boards",
+          "digest": "d74201963334277f4420287d75b1e5a121537e8ffa117cb8a4e54932357167f5",
+          "reason": "Deprecated endpoint mentioned only in a historical note; the documented current creation method is POST /v3/liveBoards. No legacy API is implemented."
+        }
+      ]
+    },
+    {
+      "path": "api/boards/patch-board.md",
+      "title": "Редактировать доску",
+      "url": "https://yandex.ru/support/tracker/ru/api/boards/patch-board.md?revision=r21880163",
+      "sha256": "3e91b6b3d81e5a0f3d3ae27c5fa8fda6a90ad81f96ef46863acb05b5ebdedc26",
+      "signatures": [
+        "PATCH /v3/boards/{id_доски}"
+      ],
+      "operations": [
+        "UpdateBoard"
+      ],
+      "content_sha256": "2a1218ae4bf9d76f0710b87ac5578edb1d1dd4c84ecc4643c352dca2a098123f",
+      "excluded_signatures": [
+        {
+          "signature": "PATCH /v3/boards/5",
+          "digest": "2a1218ae4bf9d76f0710b87ac5578edb1d1dd4c84ecc4643c352dca2a098123f",
+          "reason": "Concrete request example for UpdateBoard; identifiers instantiate the documented route placeholders."
+        }
+      ]
+    },
+    {
+      "path": "api/boards/delete-board.md",
+      "title": "Удалить доску",
+      "url": "https://yandex.ru/support/tracker/ru/api/boards/delete-board.md?revision=r21880163",
+      "sha256": "b3257e51980de7ad59cdb8e3d6be9e5cc99c7155254a920588e11f0baddbd25a",
+      "signatures": [
+        "DELETE /v3/boards/{id_доски}"
+      ],
+      "operations": [
+        "DeleteBoard"
+      ],
+      "content_sha256": "95218757e6a9a1e3c3179f80e2930d2b1a9ba1cb6e2c8ed4a2ef8b92446a6517"
+    },
+    {
+      "path": "api/boards/get-columns.md",
+      "title": "Получить параметры всех колонок",
+      "url": "https://yandex.ru/support/tracker/ru/api/boards/get-columns.md?revision=r21880163",
+      "sha256": "8a2b36ac3c6bc1a4c1ee5579e4788f69ebc4ff81425f018bf5c8e5a2f807e866",
+      "signatures": [
+        "GET /v3/boards/{id_доски}/columns"
+      ],
+      "operations": [
+        "ListBoardColumns"
+      ],
+      "content_sha256": "a7de5ba5dc2d2023dd8baaae3a1d54e6abcf5051662740f6b14ec51428e7b039"
+    },
+    {
+      "path": "api/boards/get-column.md",
+      "title": "Получить параметры колонки",
+      "url": "https://yandex.ru/support/tracker/ru/api/boards/get-column.md?revision=r21880163",
+      "sha256": "6191d13e2b9de56be3668f7f93c1b4a0430fc3c54d49b9fa52f3199a638e84d6",
+      "signatures": [
+        "GET /v3/boards/{id_доски}/columns/{id_колонки}"
+      ],
+      "operations": [
+        "GetBoardColumn"
+      ],
+      "content_sha256": "6900326d40789b5b8e97cb89b31b2a3010aed008a977b04388bd852541e2fed6"
+    },
+    {
+      "path": "api/boards/post-column.md",
+      "title": "Создать колонку",
+      "url": "https://yandex.ru/support/tracker/ru/api/boards/post-column.md?revision=r21880163",
+      "sha256": "02415f00e933435fa002ec69e0a7a9360fefb085f2ccf07eee077e2fa9183762",
+      "signatures": [
+        "POST /v3/boards/{id}/columns"
+      ],
+      "operations": [
+        "CreateBoardColumn"
+      ],
+      "content_sha256": "5af1718d9bdb9af18f8f8a1bba0b7c818debe76f63f0612cc45ae681639898f6"
+    },
+    {
+      "path": "api/boards/patch-column.md",
+      "title": "Редактировать колонку",
+      "url": "https://yandex.ru/support/tracker/ru/api/boards/patch-column.md?revision=r21880163",
+      "sha256": "6abfb97a24e910d26a5950926427871fc85ee52778fbe260b31c534cad773061",
+      "signatures": [
+        "PATCH /v3/boards/{id_доски}/columns/{id_колонки}"
+      ],
+      "operations": [
+        "UpdateBoardColumn"
+      ],
+      "content_sha256": "7d5382a14727392ecfe59b8d1b4f8b28b1488df673c8dfe42eba4b9d376547b2",
+      "excluded_signatures": [
+        {
+          "signature": "PATCH /v3/boards/5/columns/1",
+          "digest": "7d5382a14727392ecfe59b8d1b4f8b28b1488df673c8dfe42eba4b9d376547b2",
+          "reason": "Concrete request example for UpdateBoardColumn; identifiers instantiate the documented route placeholders."
+        }
+      ]
+    },
+    {
+      "path": "api/boards/delete-column.md",
+      "title": "Удалить колонку",
+      "url": "https://yandex.ru/support/tracker/ru/api/boards/delete-column.md?revision=r21880163",
+      "sha256": "14cb8f054251539ed9f9e66522e96f97c465bc4ccc7b89945460a8ea33ae5bd1",
+      "signatures": [
+        "DELETE /v3/boards/{id_доски}/columns/{id_колонки}"
+      ],
+      "operations": [
+        "DeleteBoardColumn"
+      ],
+      "content_sha256": "5bbd27b8a5adf5670fc18ae13b3bb345fe08f3cc8dc5115b49e3be2546efc2e4"
+    },
+    {
+      "path": "api/boards/get-sprints.md",
+      "title": "Получить все спринты доски",
+      "url": "https://yandex.ru/support/tracker/ru/api/boards/get-sprints.md?revision=r21880163",
+      "sha256": "91afa734a49936cabbf0c5ef54b9642d4c0d9348ca5c41ecef04daeead416011",
+      "signatures": [
+        "GET /v3/boards/{id_доски}/sprints"
+      ],
+      "operations": [
+        "ListBoardSprints"
+      ],
+      "content_sha256": "6c4d4b1bab89729e41ed3d849d23756688186ca36f8f36fe60749760b82a8622"
+    },
+    {
+      "path": "api/boards/get-sprint.md",
+      "title": "Получить спринт",
+      "url": "https://yandex.ru/support/tracker/ru/api/boards/get-sprint.md?revision=r21880163",
+      "sha256": "209e6eb0bdf2b895cb8222554907ddf8f4c78c473b573f7ad8ecef12548d7862",
+      "signatures": [
+        "GET /v3/sprints/{идентификатор_спринта}"
+      ],
+      "operations": [
+        "GetSprint"
+      ],
+      "content_sha256": "f854fe3216b87ec1f40a59b7767a7e23dc9aeee8385c2b637cc79403b84d6cf2"
+    },
+    {
+      "path": "api/boards/post-sprint.md",
+      "title": "Создать спринт",
+      "url": "https://yandex.ru/support/tracker/ru/api/boards/post-sprint.md?revision=r21880163",
+      "sha256": "fe0c52ec0887475820c12f405979bda783a03f5e04fba73e8c757876405d9a6e",
+      "signatures": [
+        "POST /v3/sprints"
+      ],
+      "operations": [
+        "CreateSprint"
+      ],
+      "content_sha256": "e9c15a878381e2ba2856de0a1fd4e4e759dff28e9e569bde8e27d7e4b02e65bc"
+    },
+    {
+      "path": "api/boards/patch-sprint.md",
+      "title": "Редактировать спринт",
+      "url": "https://yandex.ru/support/tracker/ru/api/boards/patch-sprint.md?revision=r21880163",
+      "sha256": "ec321e6d23bc2a992e061e45c01ec69e608e455429a1c7ab75126e5a82ff3d0a",
+      "signatures": [
+        "PATCH /v3/sprints/{идентификатор_спринта}"
+      ],
+      "operations": [
+        "UpdateSprint"
+      ],
+      "content_sha256": "4e8099748ac949db5cdd7f424fea321c879ef309f5179bf9029a14b7c6347be6",
+      "excluded_signatures": [
+        {
+          "signature": "PATCH /v3/sprints/44**",
+          "digest": "4e8099748ac949db5cdd7f424fea321c879ef309f5179bf9029a14b7c6347be6",
+          "reason": "Concrete request example for UpdateSprint; identifiers instantiate the documented route placeholders."
+        }
+      ]
+    },
+    {
+      "path": "api/boards/start-sprint.md",
+      "title": "Запустить спринт",
+      "url": "https://yandex.ru/support/tracker/ru/api/boards/start-sprint.md?revision=r21880163",
+      "sha256": "00fdf80f3be71240fcfda2621cfdd75c17083012ec3dd045d5cf5a3da7d34012",
+      "signatures": [
+        "POST /v3/sprints/{идентификатор_спринта}/_start"
+      ],
+      "operations": [
+        "StartSprint"
+      ],
+      "content_sha256": "fb3a868accf7266a7d1eae90e70fbe001356593e0c4b957d1f26cbae0e22c1fa"
+    },
+    {
+      "path": "api/boards/archive-sprint.md",
+      "title": "Завершить спринт",
+      "url": "https://yandex.ru/support/tracker/ru/api/boards/archive-sprint.md?revision=r21880163",
+      "sha256": "2fb980c81fe5d6e7044d55c6496be8f8b4268223635267ecd80865b5282b0d45",
+      "signatures": [
+        "POST /v3/sprints/{идентификатор_спринта}/_archive"
+      ],
+      "operations": [
+        "ArchiveSprint"
+      ],
+      "content_sha256": "0911e27ce0623c4aebaeabe68d7d641015b6208cbef80d8065ab26e6ff202c52"
+    },
+    {
+      "path": "api/boards/delete-sprint.md",
+      "title": "Удалить спринт",
+      "url": "https://yandex.ru/support/tracker/ru/api/boards/delete-sprint.md?revision=r21880163",
+      "sha256": "b530aa875888cf163e68ae667f97d498a0b416bb7ea9782ce7ecaabb0be38215",
+      "signatures": [
+        "DELETE /v3/sprints/{идентификатор_спринта}"
+      ],
+      "operations": [
+        "DeleteSprint"
+      ],
+      "content_sha256": "70d2292dc5fc2970f32c75bf7c14c44ed093bbc032a525a1dfe9a842eab66f05"
+    },
+    {
+      "path": "api/dashboards/create-dashboard.md",
+      "title": "Создать дашборд",
+      "url": "https://yandex.ru/support/tracker/ru/api/dashboards/create-dashboard.md?revision=r21880163",
+      "sha256": "1279f264d00d2174e2e17671080eeb6645db293ab44e4e824ce2944e15252463",
+      "signatures": [
+        "POST /v3/dashboards"
+      ],
+      "operations": [
+        "CreateDashboard"
+      ],
+      "content_sha256": "21e98b96bfc7638bab6f9edd7239eb44d6d9dfd28d8b0c1d676f7835d41bb2fd"
+    },
+    {
+      "path": "api/dashboards/search-dashboards.md",
+      "title": "Найти дашборды",
+      "url": "https://yandex.ru/support/tracker/ru/api/dashboards/search-dashboards.md?revision=r21880163",
+      "sha256": "cacfc7145b24379b6705bf437e19a071ab83604aba3da05c5af6a690726ee7e2",
+      "signatures": [
+        "POST /v3/dashboards/_search"
+      ],
+      "operations": [
+        "SearchDashboards"
+      ],
+      "content_sha256": "6dbef3f52c14797d18bba378666f65cd218f1cf71a09681fe2ee900bd53c3853"
+    },
+    {
+      "path": "api/dashboards/copy-dashboard.md",
+      "title": "Копировать дашборд",
+      "url": "https://yandex.ru/support/tracker/ru/api/dashboards/copy-dashboard.md?revision=r21880163",
+      "sha256": "ea8adbb6e85036d9a7196a1aedcdfbe41882bba2a91ae63a823e0c72fc7ea337",
+      "signatures": [
+        "POST /v3/dashboards/{id_дашборда}/_copy"
+      ],
+      "operations": [
+        "CopyDashboard"
+      ],
+      "content_sha256": "f490515ac4dd86ea576a3be1827e6eb6d7d700d2621edfb4b0bc643d1ab388fa"
+    },
+    {
+      "path": "api/dashboards/get-dashboard.md",
+      "title": "Получить дашборд",
+      "url": "https://yandex.ru/support/tracker/ru/api/dashboards/get-dashboard.md?revision=r21880163",
+      "sha256": "46571713fcab9e3288044c9b399ce59b4550b760b6ab6700c7c9f30440834477",
+      "signatures": [
+        "GET /v3/dashboards/{id_дашборда}"
+      ],
+      "operations": [
+        "GetDashboard"
+      ],
+      "content_sha256": "b89f319e2841a5e28f7ea890b25b37ebba506f26e5c20004af29b83614ed94e6"
+    },
+    {
+      "path": "api/dashboards/update-dashboard.md",
+      "title": "Обновить дашборд",
+      "url": "https://yandex.ru/support/tracker/ru/api/dashboards/update-dashboard.md?revision=r21880163",
+      "sha256": "a348371ee32c5fddc2fffb93d998e06edd1addb91281cecc7727011183431b03",
+      "signatures": [
+        "PATCH /v3/dashboards/{id_дашборда}"
+      ],
+      "operations": [
+        "UpdateDashboard"
+      ],
+      "content_sha256": "a86e0d63f0d2ca4a6edaf47adc1aaf10c28e704d360e9402c1f25290ae083f0a"
+    },
+    {
+      "path": "api/dashboards/get-dashboard-permissions.md",
+      "title": "Получить права доступа к дашборду",
+      "url": "https://yandex.ru/support/tracker/ru/api/dashboards/get-dashboard-permissions.md?revision=r21880163",
+      "sha256": "d7fe88b921b91fc9610b750f52c6241d673ed59453ee0b3d304cceed0127041c",
+      "signatures": [
+        "GET /v3/dashboards/{id_дашборда}/permissions"
+      ],
+      "operations": [
+        "GetDashboardPermissions"
+      ],
+      "content_sha256": "317d330bebdab0b97507d4bb6fe881d6c16b71656a4b0947432201aab6b650d2"
+    },
+    {
+      "path": "api/dashboards/update-dashboard-permissions.md",
+      "title": "Изменить права доступа к дашборду",
+      "url": "https://yandex.ru/support/tracker/ru/api/dashboards/update-dashboard-permissions.md?revision=r21880163",
+      "sha256": "2f0941d12a53b3cd9dc1506bdc5d61af9405ceedcdb77d0ab1c00860f4e94572",
+      "signatures": [
+        "PATCH /v3/dashboards/{id_дашборда}/permissions"
+      ],
+      "operations": [
+        "UpdateDashboardPermissions"
+      ],
+      "content_sha256": "f700c2f7184148ee356a44577dced140d5fc3e58777d425027044e55f5437a22"
+    },
+    {
+      "path": "api/dashboards/create-dashboard-widget.md",
+      "title": "Создать виджет",
+      "url": "https://yandex.ru/support/tracker/ru/api/dashboards/create-dashboard-widget.md?revision=r21880163",
+      "sha256": "ab3b3a36ef526db3bf5518d3a4b738f27e37beaf4dadb95fac43ff7fab7d030c",
+      "signatures": [
+        "POST /v3/dashboards/{id_дашборда}/widgets"
+      ],
+      "operations": [
+        "CreateDashboardWidget"
+      ],
+      "content_sha256": "b7bba8fe58bac1f89fb0c6045b61d50a5790b828d3ee9793105f46997517c3bc",
+      "excluded_signatures": [
+        {
+          "signature": "GET /v3/fields",
+          "digest": "b7bba8fe58bac1f89fb0c6045b61d50a5790b828d3ee9793105f46997517c3bc",
+          "reason": "Reference to ListFields; its primary method is documented on api/issues/get-global-fields.md."
+        }
+      ]
+    },
+    {
+      "path": "api/dashboards/get-widget.md",
+      "title": "Получить виджет",
+      "url": "https://yandex.ru/support/tracker/ru/api/dashboards/get-widget.md?revision=r21880163",
+      "sha256": "033d835a0700e11e3c957fdd0193ce0dce1f8cc255f5e66481c08f5674e8c8bd",
+      "signatures": [
+        "GET /v3/widgets/{id_виджета}"
+      ],
+      "operations": [
+        "GetWidget"
+      ],
+      "content_sha256": "672fcff4815e6bb84997d0b2989bb5d4ff73118fb36e0fb3c4b7fd6cdfecfac1"
+    },
+    {
+      "path": "api/dashboards/update-widget.md",
+      "title": "Обновить виджет",
+      "url": "https://yandex.ru/support/tracker/ru/api/dashboards/update-widget.md?revision=r21880163",
+      "sha256": "3606fed818e13b9b658e5fbf84c08a8175750567b8a3a273b7e78d1d7b53b15b",
+      "signatures": [
+        "PATCH /v3/widgets/{id_виджета}"
+      ],
+      "operations": [
+        "UpdateWidget"
+      ],
+      "content_sha256": "8abbac8f8a5740f8d402e0b88855208791618c52127fc0684e519da5de1ed5ec",
+      "excluded_signatures": [
+        {
+          "signature": "GET /v3/fields",
+          "digest": "8abbac8f8a5740f8d402e0b88855208791618c52127fc0684e519da5de1ed5ec",
+          "reason": "Reference to ListFields; its primary method is documented on api/issues/get-global-fields.md."
+        }
+      ]
+    },
+    {
+      "path": "api/dashboards/import-widget.md",
+      "title": "Импортировать виджет",
+      "url": "https://yandex.ru/support/tracker/ru/api/dashboards/import-widget.md?revision=r21880163",
+      "sha256": "e70c78e337dfc6f750579307079a233c9511b1e5b3a73f0d5bb5c771bb00f4ad",
+      "signatures": [
+        "POST /v3/dashboards/{id_дашборда}/widgets/_import"
+      ],
+      "operations": [
+        "ImportDashboardWidget"
+      ],
+      "content_sha256": "578566ed4ca4ed9729329ce7a09b8ab6e16bb3d07ebed551aae4270731c45eed",
+      "excluded_signatures": [
+        {
+          "signature": "GET /v3/fields",
+          "digest": "578566ed4ca4ed9729329ce7a09b8ab6e16bb3d07ebed551aae4270731c45eed",
+          "reason": "Reference to ListFields; its primary method is documented on api/issues/get-global-fields.md."
+        }
+      ]
+    },
+    {
+      "path": "api/queues/get-components.md",
+      "title": "Получить список компонентов",
+      "url": "https://yandex.ru/support/tracker/ru/api/queues/get-components.md?revision=r21880163",
+      "sha256": "ccb33208c61fa7d968b609f7f36f236695c9062d7fb7695a3c815b853b88212a",
+      "signatures": [
+        "GET /v3/components"
+      ],
+      "operations": [
+        "ListComponents"
+      ],
+      "content_sha256": "2e9aa09fd4485b4217aba4886c73a44d97fe097f41b6d8772ade52a9bd8bf592"
+    },
+    {
+      "path": "api/queues/get-queue-components.md",
+      "title": "Получить компоненты очереди",
+      "url": "https://yandex.ru/support/tracker/ru/api/queues/get-queue-components.md?revision=r21880163",
+      "sha256": "9d676d9e5afe3d5d60ced55edee98d42749d3398ddc937ca496fef1e2ca3dd46",
+      "signatures": [
+        "GET /v3/queues/{id_очереди}/components"
+      ],
+      "operations": [
+        "ListQueueComponents"
+      ],
+      "content_sha256": "fe8ef03c543cce1304cb9b091f9be2b53b3737bb71a409113b3f422a25343ee7"
+    },
+    {
+      "path": "api/queues/get-component.md",
+      "title": "Получить компонент",
+      "url": "https://yandex.ru/support/tracker/ru/api/queues/get-component.md?revision=r21880163",
+      "sha256": "e925cfb0ed61cdbaf47e5484e2f59ca5e488237639cbd48db6269600e3460f5a",
+      "signatures": [
+        "GET /v3/components/{id_компонента}"
+      ],
+      "operations": [
+        "GetComponent"
+      ],
+      "content_sha256": "15ed320872980e09214e6214e3579b2ae70a952eb853680958bf3af0d0d60bd9"
+    },
+    {
+      "path": "api/queues/post-component.md",
+      "title": "Создать компонент",
+      "url": "https://yandex.ru/support/tracker/ru/api/queues/post-component.md?revision=r21880163",
+      "sha256": "7c3ea81dcb9e1d83bae82757b184135b5b1751e8778c40000999960fac1d5e5f",
+      "signatures": [
+        "POST /v3/components"
+      ],
+      "operations": [
+        "CreateComponent"
+      ],
+      "content_sha256": "e1760f446ea322c623ad61a3b57183063b916d114d1b1c8142a47a06f3304b82"
+    },
+    {
+      "path": "api/queues/patch-component.md",
+      "title": "Редактировать компонент",
+      "url": "https://yandex.ru/support/tracker/ru/api/queues/patch-component.md?revision=r21880163",
+      "sha256": "9c92c88905d59d7f28b5592c071b015fa4d379b3e1d13019c21a7b5e50d819dd",
+      "signatures": [
+        "PATCH /v3/components/{id}"
+      ],
+      "operations": [
+        "UpdateComponent"
+      ],
+      "content_sha256": "6b336ffdc5a623cc44855ef65643e22bd36fbffe2c67d7d760ff6ef0bbaf1bdb"
+    },
+    {
+      "path": "api/queues/delete-component.md",
+      "title": "Удалить компонент",
+      "url": "https://yandex.ru/support/tracker/ru/api/queues/delete-component.md?revision=r21880163",
+      "sha256": "08994e268b5a7d4946dcc63ae76f78c1e2072b64c3ef42ccea66c9b86e47b6f4",
+      "signatures": [
+        "DELETE /v3/components/{id_компонента}"
+      ],
+      "operations": [
+        "DeleteComponent"
+      ],
+      "content_sha256": "c1d6d9dfbb6bbd5ecb96934b9e3a74496082e120fc7155e1d35e093f6bb1c236"
+    },
+    {
+      "path": "api/queues/get-component-user-access.md",
+      "title": "Получить права доступа пользователя к компоненту",
+      "url": "https://yandex.ru/support/tracker/ru/api/queues/get-component-user-access.md?revision=r21880163",
+      "sha256": "34769a5a1fc4025f452e614cf7347bfb97954db11017447c770568ffcdad4e1f",
+      "signatures": [
+        "GET /v3/components/{componentId}/permissions/users/{userId}"
+      ],
+      "operations": [
+        "GetComponentUserPermissions"
+      ],
+      "content_sha256": "b5c377ab18f4a568597df4084649ebe99d44cd4f110bf03da1d0010b864c68a8"
+    },
+    {
+      "path": "api/queues/get-component-group-access.md",
+      "title": "Получить права доступа группы к компоненту",
+      "url": "https://yandex.ru/support/tracker/ru/api/queues/get-component-group-access.md?revision=r21880163",
+      "sha256": "c654f14965dc99a4a585c3dbae98ceab0b740a87983ece5c0a52efed22b58c83",
+      "signatures": [
+        "GET /v3/components/{componentId}/permissions/groups/{groupId}"
+      ],
+      "operations": [
+        "GetComponentGroupPermissions"
+      ],
+      "content_sha256": "36757fed0250aaf1e4d72d8f1dd2e2c171cf12815c8ea60ece61d00ace428e89"
+    },
+    {
+      "path": "api/queues/create-version.md",
+      "title": "Создать версию очереди",
+      "url": "https://yandex.ru/support/tracker/ru/api/queues/create-version.md?revision=r21880163",
+      "sha256": "8637d5e768fdc998c0169a66c2718c74574db2c4c361970497a98a73eef2db49",
+      "signatures": [
+        "POST /v3/versions"
+      ],
+      "operations": [
+        "CreateVersion"
+      ],
+      "content_sha256": "c30088f29bfc0e572440b27dabc9c87ed47088862fc9640df64a1e2a58ea9757",
+      "excluded_signatures": [
+        {
+          "signature": "POST /v3/queues/TEST/versions",
+          "digest": "c30088f29bfc0e572440b27dabc9c87ed47088862fc9640df64a1e2a58ea9757",
+          "reason": "The concrete request example conflicts with the page method POST /v3/versions. The SDK follows the primary method; no alternative queue-scoped contract is described."
+        }
+      ]
+    },
+    {
+      "path": "api/queues/get-versions.md",
+      "title": "Получить версии очереди",
+      "url": "https://yandex.ru/support/tracker/ru/api/queues/get-versions.md?revision=r21880163",
+      "sha256": "255593914a745926f9076cf3bd1756c5fecb85a6a1ff98c88f4851df4257e86b",
+      "signatures": [
+        "GET /v3/queues/{id_очереди}/versions"
+      ],
+      "operations": [
+        "ListQueueVersions"
+      ],
+      "content_sha256": "113e6809577a1db695c3a7aaf874d07d5bd68a9da7225cf27afae94a22a78cc6",
+      "excluded_signatures": [
+        {
+          "signature": "GET /v3/queues/TEST/versions",
+          "digest": "113e6809577a1db695c3a7aaf874d07d5bd68a9da7225cf27afae94a22a78cc6",
+          "reason": "Concrete request example for ListQueueVersions; identifiers instantiate the documented route placeholders."
+        }
+      ]
+    },
+    {
+      "path": "api/queues/get-version.md",
+      "title": "Получить версию очереди",
+      "url": "https://yandex.ru/support/tracker/ru/api/queues/get-version.md?revision=r21880163",
+      "sha256": "9ac31eff954c402ff85d47241ea437d5ecc9457192f42f739ad3cbb8b74d1c6c",
+      "signatures": [
+        "GET /v3/versions/{id_версии}"
+      ],
+      "operations": [
+        "GetVersion"
+      ],
+      "content_sha256": "2c758bf4fd1b12cddbecab5315628d70256ddd874a5e37e7aa25b2490328c490"
+    },
+    {
+      "path": "api/queues/update-version.md",
+      "title": "Изменить версию очереди",
+      "url": "https://yandex.ru/support/tracker/ru/api/queues/update-version.md?revision=r21880163",
+      "sha256": "c7aa3dc69b669d4d2d684442b237f0031de3da647fc19fe33987f708049520b1",
+      "signatures": [
+        "PATCH /v3/versions/{id_версии}"
+      ],
+      "operations": [
+        "UpdateVersion"
+      ],
+      "content_sha256": "282ae99a093cc949a7f9cb213c54d227693f6aec9f7b13790a04250420ee3f71"
+    },
+    {
+      "path": "api/queues/delete-version.md",
+      "title": "Удалить версию очереди",
+      "url": "https://yandex.ru/support/tracker/ru/api/queues/delete-version.md?revision=r21880163",
+      "sha256": "3745b7f0c44013767b5ad078fe6e1518260ba535991b0fd3b62977ba99210b76",
+      "signatures": [
+        "DELETE /v3/versions/{id_версии}"
+      ],
+      "operations": [
+        "DeleteVersion"
+      ],
+      "content_sha256": "6ad666d7d985d16c08e072411abfa92ebae50df9f59aad8b1ea3051093d2ef33"
+    },
+    {
+      "path": "api/admin/get-issue-types.md",
+      "title": "Получить список типов задач",
+      "url": "https://yandex.ru/support/tracker/ru/api/admin/get-issue-types.md?revision=r21880163",
+      "sha256": "c29c820430749911133c5ee09d83a76b3a937e585df3384bbbc962dc64ef8cb4",
+      "signatures": [
+        "GET /v3/issuetypes"
+      ],
+      "operations": [
+        "ListIssueTypes"
+      ],
+      "content_sha256": "b4e70f2f31401dca61b95b88a4e445f3f779402fa0dc1d5e9d9908097971bdd3"
+    },
+    {
+      "path": "api/admin/create-issue-type.md",
+      "title": "Создать тип задачи",
+      "url": "https://yandex.ru/support/tracker/ru/api/admin/create-issue-type.md?revision=r21880163",
+      "sha256": "25965930e5255b2b75d2926043eb0bb47c8de50a40e4114a870a293c4413ceb7",
+      "signatures": [
+        "POST /v3/issuetypes"
+      ],
+      "operations": [
+        "CreateIssueType"
+      ],
+      "content_sha256": "59b97b689a17c3f9c869933bdc7978e0edbb257524c2a5579023ef49a819a65e"
+    },
+    {
+      "path": "api/admin/patch-issue-type.md",
+      "title": "Редактировать тип задачи",
+      "url": "https://yandex.ru/support/tracker/ru/api/admin/patch-issue-type.md?revision=r21880163",
+      "sha256": "5105de2f356bebb311060cdd96af47811820cb700ef8eb5ab61c39cba670e3ab",
+      "signatures": [
+        "PATCH /v3/issuetypes/{id_или_ключ_типа_задачи}"
+      ],
+      "operations": [
+        "UpdateIssueType"
+      ],
+      "content_sha256": "952b0e5a7611a7f8bd590ef796fba2ec7f809653ba30a7f0ce19c331b285bdf6",
+      "excluded_signatures": [
+        {
+          "signature": "PATCH /v3/issuetypes/23",
+          "digest": "952b0e5a7611a7f8bd590ef796fba2ec7f809653ba30a7f0ce19c331b285bdf6",
+          "reason": "Concrete request example for UpdateIssueType; identifiers instantiate the documented route placeholders."
+        }
+      ]
+    },
+    {
+      "path": "api/admin/get-statuses.md",
+      "title": "Получить список статусов",
+      "url": "https://yandex.ru/support/tracker/ru/api/admin/get-statuses.md?revision=r21880163",
+      "sha256": "9be578fe9cc77b5855134dbf56ab35c6f848510c7bb84782e2cf8c5b37d399bb",
+      "signatures": [
+        "GET /v3/statuses"
+      ],
+      "operations": [
+        "ListStatuses"
+      ],
+      "content_sha256": "7e19979bb8b0385ca2a67f0637588f1b0b149d1d4f49014d89f45c9e6483050b"
+    },
+    {
+      "path": "api/admin/create-status.md",
+      "title": "Создать статус задачи",
+      "url": "https://yandex.ru/support/tracker/ru/api/admin/create-status.md?revision=r21880163",
+      "sha256": "cad3602308e5a47a6a6c269be4008e51b33e15c4dd38cc840f3bf7f4e7d1536e",
+      "signatures": [
+        "POST /v3/statuses"
+      ],
+      "operations": [
+        "CreateStatus"
+      ],
+      "content_sha256": "90acae38892cb7e48f101fb7aab902cbdf01a16624b4d6c791d8d5b4d5d11327"
+    },
+    {
+      "path": "api/admin/patch-status.md",
+      "title": "Редактировать статус задачи",
+      "url": "https://yandex.ru/support/tracker/ru/api/admin/patch-status.md?revision=r21880163",
+      "sha256": "d86f8f58ce0ca94ea2d10e2232489c975c9ab5b26f7ef8caacccdde6656996bc",
+      "signatures": [
+        "PATCH /v3/statuses/{id_или_ключ_статуса}"
+      ],
+      "operations": [
+        "UpdateStatus"
+      ],
+      "content_sha256": "584909695013f26bbd7861ecfa9d94096e65b40d92b7f2308c09a8ae329e3e6d",
+      "excluded_signatures": [
+        {
+          "signature": "PATCH /v3/statuses/29",
+          "digest": "584909695013f26bbd7861ecfa9d94096e65b40d92b7f2308c09a8ae329e3e6d",
+          "reason": "Concrete request example for UpdateStatus; identifiers instantiate the documented route placeholders."
+        }
+      ]
+    },
+    {
+      "path": "api/admin/get-resolutions.md",
+      "title": "Получить список резолюций",
+      "url": "https://yandex.ru/support/tracker/ru/api/admin/get-resolutions.md?revision=r21880163",
+      "sha256": "6f9a4537c824463ae676280ec5642e06cf9c4285c2f18ce3c3508ad2f4335996",
+      "signatures": [
+        "GET /v3/resolutions"
+      ],
+      "operations": [
+        "ListResolutions"
+      ],
+      "content_sha256": "3ecc2111219d9c17a85e8f3fe76b2aac8665350759ec23453c8857c190d959b1"
+    },
+    {
+      "path": "api/admin/create-resolution.md",
+      "title": "Создать резолюцию",
+      "url": "https://yandex.ru/support/tracker/ru/api/admin/create-resolution.md?revision=r21880163",
+      "sha256": "176c2c5d59a9109a956a8cc20352adc2c763375158d14bf8aeaf23558a691126",
+      "signatures": [
+        "POST /v3/resolutions"
+      ],
+      "operations": [
+        "CreateResolution"
+      ],
+      "content_sha256": "81971f4e49cff6af743c29a2ed809b851838cd8390bc57152ba08bd4b8c28617"
+    },
+    {
+      "path": "api/admin/patch-resolution.md",
+      "title": "Редактировать резолюцию",
+      "url": "https://yandex.ru/support/tracker/ru/api/admin/patch-resolution.md?revision=r21880163",
+      "sha256": "0ad98ef2fc88fc9bae95a828be6b3f3d9e30245b0a0b867dc2c790844374b449",
+      "signatures": [
+        "PATCH /v3/resolutions/{id_или_ключ_резолюции}"
+      ],
+      "operations": [
+        "UpdateResolution"
+      ],
+      "content_sha256": "f7f1de02f4653011a69b9ba3c1e42655880c94e8842a73ece6cd937d95258c24",
+      "excluded_signatures": [
+        {
+          "signature": "PATCH /v3/resolutions/9",
+          "digest": "f7f1de02f4653011a69b9ba3c1e42655880c94e8842a73ece6cd937d95258c24",
+          "reason": "Concrete request example for UpdateResolution; identifiers instantiate the documented route placeholders."
+        }
+      ]
+    },
+    {
+      "path": "api/admin/get-priorities.md",
+      "title": "Получить список приоритетов",
+      "url": "https://yandex.ru/support/tracker/ru/api/admin/get-priorities.md?revision=r21880163",
+      "sha256": "df9f77218c5807b3db90589172a9e64ac973d0ad8ca9c9e9967e7fb435cfd063",
+      "signatures": [
+        "GET /v3/priorities"
+      ],
+      "operations": [
+        "ListPriorities"
+      ],
+      "content_sha256": "a4694019ee9cc7f62e1a5023945bdf7e70c28e39e4c73e76ee95d47815050ced"
+    },
+    {
+      "path": "api/admin/create-priority.md",
+      "title": "Создать приоритет",
+      "url": "https://yandex.ru/support/tracker/ru/api/admin/create-priority.md?revision=r21880163",
+      "sha256": "5e58c79f5a7e86186ceee22c1948f5d3a3cd1e253159c5781e6ef3195af52096",
+      "signatures": [
+        "POST /v3/priorities"
+      ],
+      "operations": [
+        "CreatePriority"
+      ],
+      "content_sha256": "3704a4b6a7be7acd5f3196b1017cdcec729eb647a3ac9d951f37fe3705537a4e"
+    },
+    {
+      "path": "api/admin/patch-priority.md",
+      "title": "Редактировать приоритет",
+      "url": "https://yandex.ru/support/tracker/ru/api/admin/patch-priority.md?revision=r21880163",
+      "sha256": "09626032da06be513e75752421d779a1dc010c67591a68528941b552bd1dbdc7",
+      "signatures": [
+        "PATCH /v3/priorities/{id_или_ключ_приоритета}"
+      ],
+      "operations": [
+        "UpdatePriority"
+      ],
+      "content_sha256": "073b8be1e05032792066469efae58e8ce62228a3b46ffc1802bdf7aa689918ac",
+      "excluded_signatures": [
+        {
+          "signature": "PATCH /v3/priorities/one",
+          "digest": "073b8be1e05032792066469efae58e8ce62228a3b46ffc1802bdf7aa689918ac",
+          "reason": "Concrete request example for UpdatePriority; identifiers instantiate the documented route placeholders."
+        }
+      ]
+    },
+    {
+      "path": "api/issues/new-worklog.md",
+      "title": "Добавить запись о затраченном времени",
+      "url": "https://yandex.ru/support/tracker/ru/api/issues/new-worklog.md?revision=r21880163",
+      "sha256": "81c356adcba9af579871ef6616effa9896f2f8d4c9cbd11fe8e2a086c55b9048",
+      "signatures": [
+        "POST /v3/issues/{id_задачи}/worklog"
+      ],
+      "operations": [
+        "AddIssueWorklog"
+      ],
+      "content_sha256": "f9f7d89279dddbfcca703f475a9a367341521b97289029cafe9ee965376facbf"
+    },
+    {
+      "path": "api/issues/patch-worklog.md",
+      "title": "Редактировать запись о затраченном времени",
+      "url": "https://yandex.ru/support/tracker/ru/api/issues/patch-worklog.md?revision=r21880163",
+      "sha256": "1a1dfb4af2ab4d29537ec47facd8ed2a4f488b334fc1717497855103cc7f830c",
+      "signatures": [
+        "PATCH /v3/issues/{id_задачи}/worklog/{id_записи}"
+      ],
+      "operations": [
+        "UpdateIssueWorklog"
+      ],
+      "content_sha256": "4e74d6131b9fc8f5645658fa51b36c088f6dbb13f32c63ccad1bed63426f3c87"
+    },
+    {
+      "path": "api/issues/delete-worklog.md",
+      "title": "Удалить запись о затраченном времени",
+      "url": "https://yandex.ru/support/tracker/ru/api/issues/delete-worklog.md?revision=r21880163",
+      "sha256": "9311a845c18ce046a863e1d3aeb26557953d49c690dd5a2b64ae251c6198bea0",
+      "signatures": [
+        "DELETE /v3/issues/{id_задачи}/worklog/{id_записи}"
+      ],
+      "operations": [
+        "DeleteIssueWorklog"
+      ],
+      "content_sha256": "142face59cd8bc6843f7eee751806a29260ec7f15236ed8ed5b798cb11b445d1"
+    },
+    {
+      "path": "api/issues/issue-worklog.md",
+      "title": "Получить все записи по задаче",
+      "url": "https://yandex.ru/support/tracker/ru/api/issues/issue-worklog.md?revision=r21880163",
+      "sha256": "99b70766883d1b7bea622fba51c45e7947c22fbb04e8c0abb02087edb7af5d44",
+      "signatures": [
+        "GET /v3/issues/{id_задачи}/worklog"
+      ],
+      "operations": [
+        "ListIssueWorklogs"
+      ],
+      "content_sha256": "ccb3fe63ff2866bcb2b4eee949cde2e8959dce59a460ca9cb1351a019f34d43c",
+      "excluded_signatures": [
+        {
+          "signature": "GET /v3/issues/ISSUE_ID_OR_KEY/worklog",
+          "digest": "ccb3fe63ff2866bcb2b4eee949cde2e8959dce59a460ca9cb1351a019f34d43c",
+          "reason": "Concrete request example for ListIssueWorklogs; identifiers instantiate the documented route placeholders."
+        }
+      ]
+    },
+    {
+      "path": "api/issues/get-worklog.md",
+      "title": "Отобрать записи по параметрам",
+      "url": "https://yandex.ru/support/tracker/ru/api/issues/get-worklog.md?revision=r21880163",
+      "sha256": "ec145bd5ca0d71856ba9e0f113a9644940d1fcb439fe93bc837f99357e23fb0d",
+      "signatures": [
+        "GET /v3/worklog",
+        "POST /v3/worklog/_search"
+      ],
+      "operations": [
+        "ListWorklogs",
+        "SearchWorklogs"
+      ],
+      "content_sha256": "669fd0dafed05595a511a86a4d3e82a7576fc41976c05d4dfd7ad29b21a5b46d"
+    },
+    {
+      "path": "api/import/import-ticket.md",
+      "title": "Импортировать задачу",
+      "url": "https://yandex.ru/support/tracker/ru/api/import/import-ticket.md?revision=r21880163",
+      "sha256": "8c975c3ea8a610a1c15f8766aeb70d396224a4f3c8fd4a2cd7634883d26809ab",
+      "signatures": [
+        "POST /v3/issues/_import"
+      ],
+      "operations": [
+        "ImportIssue"
+      ],
+      "content_sha256": "a6e620cd5109a8479ae5007c9533243c41093b670234ab279d9ebb49a941c32e"
+    },
+    {
+      "path": "api/import/import-attachments.md",
+      "title": "Импортировать файлы",
+      "url": "https://yandex.ru/support/tracker/ru/api/import/import-attachments.md?revision=r21880163",
+      "sha256": "46e4171d39be7db66ca8ffb70cdb4c18ab2efa18e84dd51a4e0c1b5a1010f22d",
+      "signatures": [
+        "POST /v3/issues/{id_задачи}/attachments/_import",
+        "POST /v3/issues/{id_задачи}/comments/{id_комментария}/attachments/_import"
+      ],
+      "operations": [
+        "ImportIssueAttachment",
+        "ImportCommentAttachment"
+      ],
+      "content_sha256": "8da1c6ab338df305c9e7de2087c45d4a144145ff2435eea6a3167f71fdfb3b78"
+    },
+    {
+      "path": "api/import/import-comments.md",
+      "title": "Импортировать комментарии",
+      "url": "https://yandex.ru/support/tracker/ru/api/import/import-comments.md?revision=r21880163",
+      "sha256": "2872bd607e90630a7b937b7d2cbd5c6f996c6fee21f0069bbc71a48796393b40",
+      "signatures": [
+        "POST /v3/issues/{id_задачи}/comments/_import"
+      ],
+      "operations": [
+        "ImportIssueComment"
+      ],
+      "content_sha256": "95294b99d7fd92502a2c5c8d57652463cab90c0635a0b899f0a9e41540978cea"
+    },
+    {
+      "path": "api/import/import-links.md",
+      "title": "Импортировать связи",
+      "url": "https://yandex.ru/support/tracker/ru/api/import/import-links.md?revision=r21880163",
+      "sha256": "64352e6f4b43cea13cf5c7da0869c2a013bf4a3e7c3bbf0ce7d507999ffbef5a",
+      "signatures": [
+        "POST /v3/issues/{id_задачи}/links/_import"
+      ],
+      "operations": [
+        "ImportIssueLink"
+      ],
+      "content_sha256": "db7ef527ed24976994261da1e826074d0eb72e3b7bdae2272fb458fc32d44381"
+    },
+    {
+      "path": "api/import/import-worklogs.md",
+      "title": "Импортировать записи о затраченном времени",
+      "url": "https://yandex.ru/support/tracker/ru/api/import/import-worklogs.md?revision=r21880163",
+      "sha256": "26f1148f3e72415cd7cae6b31a56cfc5d1cc54da4286fd95134c9ecefe41e606",
+      "signatures": [
+        "POST /v3/issues/{id_задачи}/worklogs/_import"
+      ],
+      "operations": [
+        "ImportIssueWorklog"
+      ],
+      "content_sha256": "7168df45b8c05ef36fdc4c54e74b61892ca5cc9e91be6645ac1122dca44f8501"
+    },
+    {
+      "path": "api/issues/get-applications.md",
+      "title": "Получить список внешних приложений",
+      "url": "https://yandex.ru/support/tracker/ru/api/issues/get-applications.md?revision=r21880163",
+      "sha256": "a17a5c3fd35b20c7cb0f276da45dbd60bfe3b4efe5bf04ccc72c5ec45ed2a935",
+      "signatures": [
+        "GET /v3/applications"
+      ],
+      "operations": [
+        "ListApplications"
+      ],
+      "content_sha256": "f960ffd5c355742c5f6aa991b34ac1d9d72892a887a5c2ffd2e9979912d1e269"
+    },
+    {
+      "path": "api/issues/get-external-links.md",
+      "title": "Получить список внешних связей задачи",
+      "url": "https://yandex.ru/support/tracker/ru/api/issues/get-external-links.md?revision=r21880163",
+      "sha256": "2122f123e66150ab547ce68a272acb28876a252f2695ef22f646da00e8d39f3b",
+      "signatures": [
+        "GET /v3/issues/{id_задачи}/remotelinks"
+      ],
+      "operations": [
+        "ListIssueExternalLinks"
+      ],
+      "content_sha256": "9f8baa12a541acc8be900fdb3f4fb50b3339c61562283dfce7e641aaadde057c"
+    },
+    {
+      "path": "api/issues/add-external-link.md",
+      "title": "Добавить внешнюю связь",
+      "url": "https://yandex.ru/support/tracker/ru/api/issues/add-external-link.md?revision=r21880163",
+      "sha256": "d2cfaa4cff7e79466196526486c363185efa324b0c5a86f1b2440ae129201230",
+      "signatures": [
+        "POST /v3/issues/{id_задачи}/remotelinks"
+      ],
+      "operations": [
+        "CreateIssueExternalLink"
+      ],
+      "content_sha256": "99018c45f3144d5910b2db7c7d85a2bfa9c41c689204644f7e8c3014e0add0a3"
+    },
+    {
+      "path": "api/issues/delete-external-link.md",
+      "title": "Удалить внешнюю связь",
+      "url": "https://yandex.ru/support/tracker/ru/api/issues/delete-external-link.md?revision=r21880163",
+      "sha256": "6a955a92f2eb2855264ba91675594d606f29f8618f45bcbb64056dade2d7f834",
+      "signatures": [
+        "DELETE /v3/issues/{id_задачи}/remotelinks/{id_внешней_связи}"
+      ],
+      "operations": [
+        "DeleteIssueExternalLink"
+      ],
+      "content_sha256": "93bfa4ec1818f677dc3e68688505d509ba048a77bc5b8474f80daefbfef7b329"
+    },
+    {
+      "path": "api/users/get-user-info.md",
+      "title": "Получить информацию о текущем пользователе",
+      "url": "https://yandex.ru/support/tracker/ru/api/users/get-user-info.md?revision=r21880163",
+      "sha256": "da1e0115c8f8991dd356f6f951c547c737d661db1ad554f1488ddcdf05f5ad9b",
+      "signatures": [
+        "GET /v3/myself"
+      ],
+      "operations": [
+        "GetCurrentUser"
+      ],
+      "content_sha256": "636db88606321a240696224cc68408d7d56d435abbc16437c506e4a274ae8207"
+    },
+    {
+      "path": "api/users/get-user.md",
+      "title": "Получить информацию о заданном пользователе",
+      "url": "https://yandex.ru/support/tracker/ru/api/users/get-user.md?revision=r21880163",
+      "sha256": "8ed6e0d48cf6adc26c69d5d0072e66200e75ffe506578c59ad79859f9c26e909",
+      "signatures": [
+        "GET /v3/users/{id}"
+      ],
+      "operations": [
+        "GetUser"
+      ],
+      "content_sha256": "9d3d715702c2972a93ae0b7db0c8cdbe0b9320ef86efaa79d87505ffb7f54b30",
+      "excluded_signatures": [
+        {
+          "signature": "GET /v3/users/login:12345",
+          "digest": "9d3d715702c2972a93ae0b7db0c8cdbe0b9320ef86efaa79d87505ffb7f54b30",
+          "reason": "Concrete request example for GetUser; identifiers instantiate the documented route placeholders."
+        },
+        {
+          "signature": "GET /v3/users/username",
+          "digest": "9d3d715702c2972a93ae0b7db0c8cdbe0b9320ef86efaa79d87505ffb7f54b30",
+          "reason": "Concrete request example for GetUser; identifiers instantiate the documented route placeholders."
+        }
+      ]
+    },
+    {
+      "path": "api/users/get-users.md",
+      "title": "Получить информацию о пользователях",
+      "url": "https://yandex.ru/support/tracker/ru/api/users/get-users.md?revision=r21880163",
+      "sha256": "7667bfa049e9adf853762c029108f461eb2c83b3492eeb2bf6fceab3bebcc8f8",
+      "signatures": [
+        "GET /v3/users"
+      ],
+      "operations": [
+        "ListUsers"
+      ],
+      "content_sha256": "1d93d85e58d237d1854a8c333b0a1036c7aa99f33132305bc567187e17315b8c"
+    },
+    {
+      "path": "api/users/get-users-relative.md",
+      "title": "Получить информацию о пользователях с относительной пагинацией",
+      "url": "https://yandex.ru/support/tracker/ru/api/users/get-users-relative.md?revision=r21880163",
+      "sha256": "09787ec7f1e714dd78e71a08bfcf3f812d8dc67387fc039a9fc375dc77b51023",
+      "signatures": [
+        "GET /v3/users/_relative"
+      ],
+      "operations": [
+        "ListUsersRelative"
+      ],
+      "content_sha256": "36939e535aeed9a34c86786c594fa2566b609ba596d1492f58ceb5e7fc890672"
+    },
+    {
+      "path": "api/gaps/post-gaps.md",
+      "title": "Создать отсутствия",
+      "url": "https://yandex.ru/support/tracker/ru/api/gaps/post-gaps.md?revision=r21880163",
+      "sha256": "34b39f6f09f372fe215a309046123d9550c975835e0bb2ab27e4abaa517f22d7",
+      "signatures": [
+        "POST /v3/gaps"
+      ],
+      "operations": [
+        "CreateGaps"
+      ],
+      "content_sha256": "152e5b18fb384f8dc81325acaf4b2c90fe9dbda110b44653ef32a917a4bb5284",
+      "excluded_signatures": [
+        {
+          "signature": "GET /v3/gaps/workflows",
+          "digest": "152e5b18fb384f8dc81325acaf4b2c90fe9dbda110b44653ef32a917a4bb5284",
+          "reason": "Reference inside the workflow field description. This page documents gap creation, not the response contract of the referenced workflow-list method."
+        }
+      ]
+    },
+    {
+      "path": "api/gaps/search-gaps.md",
+      "title": "Найти отсутствия",
+      "url": "https://yandex.ru/support/tracker/ru/api/gaps/search-gaps.md?revision=r21880163",
+      "sha256": "4be7d39a6d8c54e5549aa1b1a07d899c62a58fc2a629fdafd24865853105b77d",
+      "signatures": [
+        "POST /v3/gaps/_search"
+      ],
+      "operations": [
+        "SearchGaps"
+      ],
+      "content_sha256": "272cd3f9267c21b8f2a6befc867eddc7a8726bb665e6cb7f0b91a65c1872c01a",
+      "excluded_signatures": [
+        {
+          "signature": "GET /v3/gaps/workflows",
+          "digest": "272cd3f9267c21b8f2a6befc867eddc7a8726bb665e6cb7f0b91a65c1872c01a",
+          "reason": "Reference inside the workflow field description. This page documents gap search, not the response contract of the referenced workflow-list method."
+        }
+      ]
+    },
+    {
+      "path": "api/gaps/delete-gaps.md",
+      "title": "Удалить отсутствия",
+      "url": "https://yandex.ru/support/tracker/ru/api/gaps/delete-gaps.md?revision=r21880163",
+      "sha256": "e57917bd197893560fd20cace5fe56faf7c6b1866cf0d2da4b565e7074134cae",
+      "signatures": [
+        "DELETE /v3/gaps"
+      ],
+      "operations": [
+        "DeleteGaps"
+      ],
+      "content_sha256": "9c3d15ce34d789b33d2ecdec6b385d2eb28d778e8020bbed01114bc12e548ba1"
+    },
+    {
+      "path": "api/error-codes.md",
+      "title": "Возможные коды ответа",
+      "url": "https://yandex.ru/support/tracker/ru/api/error-codes.md?revision=r21880163",
+      "sha256": "c17332a34ff19cffa5da6a70ddf10acb7ea9c32266c09481b4b0cac35c03f94a",
+      "signatures": [],
+      "operations": [],
+      "note": "Описание общего протокола, полей или формы данных; отдельных HTTP-операций нет.",
+      "content_sha256": "ab26e4a7ff37539d7016dca71bf2b664428456b38f5f97de0ce57124a8524d0e"
+    }
+  ]
+}

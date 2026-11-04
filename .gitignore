@@ -1,0 +1,17 @@
+# Editor and machine-local state
+.idea/
+.vscode/
+.codegraph/
+.DS_Store
+/local/
+/cache/
+/.metrics/
+/target/
+# Go build and coverage output
+/bin/
+/api-review/
+*.test
+/coverage.out
+/coverage.html
+/.cov
+

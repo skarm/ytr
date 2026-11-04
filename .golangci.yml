@@ -1,0 +1,149 @@
+version: "2"
+
+run:
+  timeout: 5m
+  relative-path-mode: gomod
+  modules-download-mode: readonly
+  # Build tags are selected explicitly by each Makefile lint target.
+
+linters:
+  default: none
+  enable:
+    - asciicheck
+    - bodyclose
+    - canonicalheader
+    - dogsled
+    - dupl
+    - errcheck
+    - errorlint
+    - forcetypeassert
+    - gochecknoglobals
+    - gochecknoinits
+    - gocognit
+    - gocritic
+    - gocyclo
+    - godot
+    - goprintffuncname
+    - gosec
+    - govet
+    - iface
+    - ineffassign
+    - misspell
+    - nakedret
+    - nilerr
+    - nilnesserr
+    - noctx
+    - nolintlint
+    - perfsprint
+    - prealloc
+    - predeclared
+    - protogetter
+    - revive
+    - sloglint
+    - sqlclosecheck
+    - staticcheck
+    - testpackage
+    - tparallel
+    - unconvert
+    - unparam
+    - unused
+    - whitespace
+    - wsl_v5
+  settings:
+    gocritic:
+      disabled-checks: [ ifElseChain ]
+    godot:
+      scope: declarations
+      capital: false
+    govet:
+      enable: [ nilness ]
+    nolintlint:
+      require-explanation: true
+      require-specific: true
+    revive:
+      rules:
+        - name: error-naming
+        - name: receiver-naming
+        - name: var-naming
+    staticcheck:
+      checks: [ all, '-QF1001' ]
+      # Keep the standard initialisms and the protocol/format names used here.
+      initialisms:
+        - ACL
+        - API
+        - ASCII
+        - CPU
+        - CSS
+        - DNS
+        - EOF
+        - GUID
+        - HTML
+        - HTTP
+        - HTTPS
+        - ID
+        - IP
+        - JSON
+        - QPS
+        - RAM
+        - RPC
+        - SLA
+        - SMTP
+        - SQL
+        - SSH
+        - TCP
+        - TLS
+        - TTL
+        - UDP
+        - UI
+        - GID
+        - UID
+        - UUID
+        - URI
+        - URL
+        - UTF8
+        - VM
+        - XML
+        - XMPP
+        - XSRF
+        - XSS
+        - SIP
+        - RTP
+        - AMQP
+        - DB
+        - TS
+        - MCP
+        - LSP
+        - SARIF
+        - YAML
+        - TOML
+    thelper:
+      tb:
+        name: false
+  exclusions:
+    generated: strict
+    rules:
+      # Test scenarios keep repeated fixtures and assertions together.
+      - path: _test\.go$
+        linters: [ dupl, gocognit, gocyclo, wsl_v5 ]
+      # Test fixtures deliberately exercise weak algorithms and unchecked inputs.
+      - path: _test\.go$
+        linters: [ errcheck, forcetypeassert, gosec ]
+      # Nil contexts are intentional negative API inputs in these tests.
+      - path: _test\.go$
+        linters: [ staticcheck ]
+        text: 'SA1012:'
+
+formatters:
+  enable: [ gofmt, gofumpt, goimports ]
+  settings:
+    goimports:
+      local-prefixes: [ github.com/skarm/ytr ]
+
+issues:
+  max-issues-per-linter: 0
+  max-same-issues: 0
+
+output:
+  formats:
+    text:
+      colors: false

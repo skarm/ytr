@@ -1,0 +1,1797 @@
+{
+  "revision": "r21880163",
+  "verified_on": "2026-10-31",
+  "operations": [
+    {
+      "name": "CreateIssue",
+      "method": "POST",
+      "path": "/v3/issues",
+      "request": "json",
+      "response": "json",
+      "source": "api/issues/create-issue.md",
+      "summary": "Создать задачу"
+    },
+    {
+      "name": "GetIssue",
+      "method": "GET",
+      "path": "/v3/issues/{issueID}",
+      "request": "none",
+      "response": "json",
+      "source": "api/issues/get-issue.md",
+      "summary": "Получить параметры задачи"
+    },
+    {
+      "name": "UpdateIssue",
+      "method": "PATCH",
+      "path": "/v3/issues/{issueID}",
+      "request": "json",
+      "response": "json",
+      "source": "api/issues/patch-issue.md",
+      "summary": "Редактировать задачу"
+    },
+    {
+      "name": "CreateIssueLink",
+      "method": "POST",
+      "path": "/v3/issues/{issueID}/links",
+      "request": "json",
+      "response": "json",
+      "source": "api/issues/link-issue.md",
+      "summary": "Создать связь с задачей"
+    },
+    {
+      "name": "ListIssueLinks",
+      "method": "GET",
+      "path": "/v3/issues/{issueID}/links",
+      "request": "none",
+      "response": "json",
+      "source": "api/issues/get-links.md",
+      "summary": "Получить связи задачи"
+    },
+    {
+      "name": "ListIssueLinksPage",
+      "method": "POST",
+      "path": "/v3/issues/{issueID}/links/_list",
+      "request": "json",
+      "response": "json",
+      "source": "api/issues/get-links-paginate.md",
+      "summary": "Получить связи задачи с пагинацией"
+    },
+    {
+      "name": "DeleteIssueLink",
+      "method": "DELETE",
+      "path": "/v3/issues/{issueID}/links/{linkID}",
+      "request": "none",
+      "response": "json",
+      "source": "api/issues/delete-link-issue.md",
+      "summary": "Удалить связь с задачей"
+    },
+    {
+      "name": "MoveIssue",
+      "method": "POST",
+      "path": "/v3/issues/{issueID}/_move",
+      "request": "json",
+      "response": "json",
+      "source": "api/issues/move-issue.md",
+      "summary": "Перенести задачу в другую очередь"
+    },
+    {
+      "name": "ListIssueTransitions",
+      "method": "GET",
+      "path": "/v3/issues/{issueID}/transitions",
+      "request": "none",
+      "response": "json",
+      "source": "api/issues/get-transitions.md",
+      "summary": "Получить переходы"
+    },
+    {
+      "name": "ExecuteIssueTransition",
+      "method": "POST",
+      "path": "/v3/issues/{issueID}/transitions/{transitionID}/_execute",
+      "request": "json",
+      "response": "json",
+      "source": "api/issues/new-transition.md",
+      "summary": "Выполнить переход в статус"
+    },
+    {
+      "name": "CreateIssueReport",
+      "method": "POST",
+      "path": "/v3/entities/report",
+      "request": "json",
+      "response": "json",
+      "source": "api/issues/create-report.md",
+      "summary": "Создать отчет по задачам"
+    },
+    {
+      "name": "SearchIssueReports",
+      "method": "POST",
+      "path": "/v3/entities/report/_search",
+      "request": "json",
+      "response": "json",
+      "source": "api/issues/search-reports.md",
+      "summary": "Найти отчеты по задачам"
+    },
+    {
+      "name": "GetIssueChangelog",
+      "method": "GET",
+      "path": "/v3/issues/{issueID}/changelog",
+      "request": "none",
+      "response": "json",
+      "source": "api/issues/get-changelog.md",
+      "summary": "Получить историю изменений задачи"
+    },
+    {
+      "name": "SearchIssues",
+      "method": "POST",
+      "path": "/v3/issues/_search",
+      "request": "json",
+      "response": "json",
+      "source": "api/issues/search-issues.md",
+      "summary": "Найти задачи"
+    },
+    {
+      "name": "CountIssues",
+      "method": "POST",
+      "path": "/v3/issues/_count",
+      "request": "json",
+      "response": "json",
+      "source": "api/issues/count-issues.md",
+      "summary": "Узнать количество задач"
+    },
+    {
+      "name": "SuggestIssues",
+      "method": "GET",
+      "path": "/v3/issues/_suggest",
+      "request": "none",
+      "response": "json",
+      "source": "api/issues/get-suggest.md",
+      "summary": "Сформировать подсказки (suggest) при поиске задач"
+    },
+    {
+      "name": "ClearIssueScroll",
+      "method": "POST",
+      "path": "/v3/system/search/scroll/_clear",
+      "request": "json",
+      "response": "json",
+      "source": "api/issues/search-release.md",
+      "summary": "Освободить ресурсы просмотра прокрутки"
+    },
+    {
+      "name": "CreateFilter",
+      "method": "POST",
+      "path": "/v3/filters",
+      "request": "json",
+      "response": "json",
+      "source": "api/filters/create-filter.md",
+      "summary": "Создать фильтр"
+    },
+    {
+      "name": "GetFilter",
+      "method": "GET",
+      "path": "/v3/filters/{filterID}",
+      "request": "none",
+      "response": "json",
+      "source": "api/filters/get-filter.md",
+      "summary": "Получить параметры фильтра"
+    },
+    {
+      "name": "UpdateFilter",
+      "method": "PATCH",
+      "path": "/v3/filters/{filterID}",
+      "request": "json",
+      "response": "json",
+      "source": "api/filters/update-filter.md",
+      "summary": "Редактировать фильтр"
+    },
+    {
+      "name": "DeleteFilter",
+      "method": "DELETE",
+      "path": "/v2/filters/{filterID}",
+      "request": "none",
+      "response": "json",
+      "source": "api/filters/delete-filter.md",
+      "summary": "Удалить фильтр"
+    },
+    {
+      "name": "AddIssueChecklistItems",
+      "method": "POST",
+      "path": "/v3/issues/{issueID}/checklistItems",
+      "request": "json",
+      "response": "json",
+      "source": "api/issues/add-checklist-item.md",
+      "summary": "Создать чеклист или добавить в него пункты"
+    },
+    {
+      "name": "GetIssueChecklist",
+      "method": "GET",
+      "path": "/v3/issues/{issueID}/checklistItems",
+      "request": "none",
+      "response": "json",
+      "source": "api/issues/get-checklist.md",
+      "summary": "Получить параметры чеклиста"
+    },
+    {
+      "name": "UpdateIssueChecklistItem",
+      "method": "PATCH",
+      "path": "/v3/issues/{issueID}/checklistItems/{itemID}",
+      "request": "json",
+      "response": "json",
+      "source": "api/issues/edit-checklist.md",
+      "summary": "Редактировать чеклист"
+    },
+    {
+      "name": "DeleteIssueChecklist",
+      "method": "DELETE",
+      "path": "/v3/issues/{issueID}/checklistItems",
+      "request": "none",
+      "response": "json",
+      "source": "api/issues/delete-checklist.md",
+      "summary": "Удалить чеклист"
+    },
+    {
+      "name": "DeleteIssueChecklistItem",
+      "method": "DELETE",
+      "path": "/v3/issues/{issueID}/checklistItems/{itemID}",
+      "request": "none",
+      "response": "json",
+      "source": "api/issues/delete-checklist-item.md",
+      "summary": "Удалить пункт чеклиста"
+    },
+    {
+      "name": "AddIssueComment",
+      "method": "POST",
+      "path": "/v3/issues/{issueID}/comments",
+      "request": "json",
+      "response": "json",
+      "source": "api/issues/add-comment.md",
+      "summary": "Добавить комментарий"
+    },
+    {
+      "name": "ListIssueComments",
+      "method": "GET",
+      "path": "/v3/issues/{issueID}/comments",
+      "request": "none",
+      "response": "json",
+      "source": "api/issues/get-comments.md",
+      "summary": "Получить комментарии к задаче"
+    },
+    {
+      "name": "GetIssueComment",
+      "method": "GET",
+      "path": "/v3/issues/{issueID}/comments/{commentID}",
+      "request": "none",
+      "response": "json",
+      "source": "api/issues/get-comment.md",
+      "summary": "Получить комментарий к задаче"
+    },
+    {
+      "name": "UpdateIssueComment",
+      "method": "PATCH",
+      "path": "/v3/issues/{issueID}/comments/{commentID}",
+      "request": "json",
+      "response": "json",
+      "source": "api/issues/edit-comment.md",
+      "summary": "Редактировать комментарий"
+    },
+    {
+      "name": "DeleteIssueComment",
+      "method": "DELETE",
+      "path": "/v3/issues/{issueID}/comments/{commentID}",
+      "request": "none",
+      "response": "json",
+      "source": "api/issues/delete-comment.md",
+      "summary": "Удалить комментарий"
+    },
+    {
+      "name": "AddIssueCommentReaction",
+      "method": "POST",
+      "path": "/v3/issues/{issueID}/comments/{commentID}/reactions/{reaction}",
+      "request": "none",
+      "response": "json",
+      "source": "api/issues/add-reaction-to-comment.md",
+      "summary": "Добавить реакцию на комментарий"
+    },
+    {
+      "name": "ListIssueAttachments",
+      "method": "GET",
+      "path": "/v3/issues/{issueID}/attachments",
+      "request": "none",
+      "response": "json",
+      "source": "api/issues/get-attachments-list.md",
+      "summary": "Получить список прикрепленных файлов"
+    },
+    {
+      "name": "GetIssueAttachment",
+      "method": "GET",
+      "path": "/v3/issues/{issueID}/attachments/{fileID}",
+      "request": "none",
+      "response": "json",
+      "source": "api/issues/get-attachment-info.md",
+      "summary": "Получить информацию о прикрепленном файле"
+    },
+    {
+      "name": "DownloadIssueAttachment",
+      "method": "GET",
+      "path": "/v3/issues/{issueID}/attachments/{fileID}/{filename}",
+      "request": "none",
+      "response": "stream",
+      "source": "api/issues/get-attachment.md",
+      "summary": "Скачать файл"
+    },
+    {
+      "name": "DownloadIssueThumbnail",
+      "method": "GET",
+      "path": "/v3/issues/{issueID}/thumbnails/{fileID}",
+      "request": "none",
+      "response": "stream",
+      "source": "api/issues/get-attachment-preview.md",
+      "summary": "Скачать миниатюру"
+    },
+    {
+      "name": "UploadIssueAttachment",
+      "method": "POST",
+      "path": "/v3/issues/{issueID}/attachments",
+      "request": "multipart",
+      "response": "json",
+      "source": "api/issues/post-attachment.md",
+      "summary": "Прикрепить файл"
+    },
+    {
+      "name": "UploadTemporaryAttachment",
+      "method": "POST",
+      "path": "/v3/attachments",
+      "request": "multipart",
+      "response": "json",
+      "source": "api/issues/temp-attachment.md",
+      "summary": "Загрузить временный файл"
+    },
+    {
+      "name": "DeleteIssueAttachment",
+      "method": "DELETE",
+      "path": "/v3/issues/{issueID}/attachments/{fileID}",
+      "request": "none",
+      "response": "json",
+      "source": "api/issues/delete-attachment.md",
+      "summary": "Удалить файл"
+    },
+    {
+      "name": "BulkMoveIssues",
+      "method": "POST",
+      "path": "/v3/bulkchange/_move",
+      "request": "json",
+      "response": "json",
+      "source": "api/bulkchange/bulk-move-issues.md",
+      "summary": "Массовый перенос задач в другую очередь"
+    },
+    {
+      "name": "BulkUpdateIssues",
+      "method": "POST",
+      "path": "/v3/bulkchange/_update",
+      "request": "json",
+      "response": "json",
+      "source": "api/bulkchange/bulk-update-issues.md",
+      "summary": "Массовое редактирование задач"
+    },
+    {
+      "name": "BulkTransitionIssues",
+      "method": "POST",
+      "path": "/v3/bulkchange/_transition",
+      "request": "json",
+      "response": "json",
+      "source": "api/bulkchange/bulk-transition.md",
+      "summary": "Массовое изменение статуса задач"
+    },
+    {
+      "name": "GetBulkOperation",
+      "method": "GET",
+      "path": "/v3/bulkchange/{operationID}",
+      "request": "none",
+      "response": "json",
+      "source": "api/bulkchange/bulk-move-info.md",
+      "summary": "Информация о выполнении пакетной операции"
+    },
+    {
+      "name": "ListBulkOperationIssues",
+      "method": "GET",
+      "path": "/v3/bulkchange/{operationID}/issues",
+      "request": "none",
+      "response": "json",
+      "source": "api/bulkchange/bulk-move-info.md",
+      "summary": "Информация о выполнении пакетной операции"
+    },
+    {
+      "name": "ListFields",
+      "method": "GET",
+      "path": "/v3/fields",
+      "request": "none",
+      "response": "json",
+      "source": "api/issues/get-global-fields.md",
+      "summary": "Получить глобальные поля"
+    },
+    {
+      "name": "CreateField",
+      "method": "POST",
+      "path": "/v3/fields",
+      "request": "json",
+      "response": "json",
+      "source": "api/issues/create-field.md",
+      "summary": "Создать поле задачи"
+    },
+    {
+      "name": "GetField",
+      "method": "GET",
+      "path": "/v3/fields/{fieldID}",
+      "request": "none",
+      "response": "json",
+      "source": "api/issues/get-issue-fields.md",
+      "summary": "Получить параметры поля задачи"
+    },
+    {
+      "name": "UpdateField",
+      "method": "PATCH",
+      "path": "/v3/fields/{fieldID}",
+      "request": "json",
+      "response": "json",
+      "source": "api/issues/patch-issue-field-name.md",
+      "summary": "Изменить название поля задачи"
+    },
+    {
+      "name": "CreateFieldCategory",
+      "method": "POST",
+      "path": "/v3/fields/categories",
+      "request": "json",
+      "response": "json",
+      "source": "api/issues/create-issue-field-category.md",
+      "summary": "Создать категорию поля задачи"
+    },
+    {
+      "name": "UpdateFieldCategory",
+      "method": "PATCH",
+      "path": "/v3/fields/categories/{categoryID}",
+      "request": "json",
+      "response": "json",
+      "source": "api/issues/patch-issue-field-category.md",
+      "summary": "Изменить категорию поля задачи"
+    },
+    {
+      "name": "CreateLocalField",
+      "method": "POST",
+      "path": "/v3/queues/{queueID}/localFields",
+      "request": "json",
+      "response": "json",
+      "source": "api/queues/create-local-field.md",
+      "summary": "Создать локальное поле очереди"
+    },
+    {
+      "name": "ListLocalFields",
+      "method": "GET",
+      "path": "/v3/queues/{queueID}/localFields",
+      "request": "none",
+      "response": "json",
+      "source": "api/queues/get-local-fields.md",
+      "summary": "Получить локальные поля очереди"
+    },
+    {
+      "name": "GetLocalField",
+      "method": "GET",
+      "path": "/v3/queues/{queueID}/localFields/{fieldKey}",
+      "request": "none",
+      "response": "json",
+      "source": "api/queues/get-info-local-field.md",
+      "summary": "Получить информацию о локальном поле очереди"
+    },
+    {
+      "name": "UpdateLocalField",
+      "method": "PATCH",
+      "path": "/v3/queues/{queueID}/localFields/{fieldKey}",
+      "request": "json",
+      "response": "json",
+      "source": "api/queues/edit-local-field.md",
+      "summary": "Редактировать локальное поле очереди"
+    },
+    {
+      "name": "CreateEntity",
+      "method": "POST",
+      "path": "/v3/entities/{entityType}",
+      "request": "json",
+      "response": "json",
+      "source": "api/entities/create-entity.md",
+      "summary": "Создать сущность"
+    },
+    {
+      "name": "GetEntity",
+      "method": "GET",
+      "path": "/v3/entities/{entityType}/{entityID}",
+      "request": "none",
+      "response": "json",
+      "source": "api/entities/get-entity.md",
+      "summary": "Получить параметры сущности"
+    },
+    {
+      "name": "UpdateEntity",
+      "method": "PATCH",
+      "path": "/v3/entities/{entityType}/{entityID}",
+      "request": "json",
+      "response": "json",
+      "source": "api/entities/update-entity.md",
+      "summary": "Изменить сущность"
+    },
+    {
+      "name": "DeleteEntity",
+      "method": "DELETE",
+      "path": "/v3/entities/{entityType}/{entityID}",
+      "request": "none",
+      "response": "json",
+      "source": "api/entities/delete-entity.md",
+      "summary": "Удалить сущность"
+    },
+    {
+      "name": "SearchEntities",
+      "method": "POST",
+      "path": "/v3/entities/{entityType}/_search",
+      "request": "json",
+      "response": "json",
+      "source": "api/entities/search-entities.md",
+      "summary": "Получить список сущностей"
+    },
+    {
+      "name": "BulkUpdateEntities",
+      "method": "POST",
+      "path": "/v3/entities/{entityType}/bulkchange/_update",
+      "request": "json",
+      "response": "json",
+      "source": "api/entities/bulkchange-entities.md",
+      "summary": "Массовое редактирование сущностей"
+    },
+    {
+      "name": "GetEntityEvents",
+      "method": "GET",
+      "path": "/v3/entities/{entityType}/{entityID}/events/_relative",
+      "request": "none",
+      "response": "json",
+      "source": "api/entities/get-events-relative.md",
+      "summary": "Получить историю событий сущности"
+    },
+    {
+      "name": "AddEntityComment",
+      "method": "POST",
+      "path": "/v3/entities/{entityType}/{entityID}/comments",
+      "request": "json",
+      "response": "json",
+      "source": "api/entities/comments/add-comment.md",
+      "summary": "Добавить комментарий"
+    },
+    {
+      "name": "UpdateEntityComment",
+      "method": "PATCH",
+      "path": "/v3/entities/{entityType}/{entityID}/comments/{commentID}",
+      "request": "json",
+      "response": "json",
+      "source": "api/entities/comments/patch-comment.md",
+      "summary": "Редактировать комментарий"
+    },
+    {
+      "name": "ListEntityComments",
+      "method": "GET",
+      "path": "/v3/entities/{entityType}/{entityID}/comments",
+      "request": "none",
+      "response": "json",
+      "source": "api/entities/comments/get-all-comments.md",
+      "summary": "Получить все комментарии"
+    },
+    {
+      "name": "ListEntityCommentsRelative",
+      "method": "GET",
+      "path": "/v3/entities/{entityType}/{entityID}/comments/_relative",
+      "request": "none",
+      "response": "json",
+      "source": "api/entities/comments/get-all-comments.md",
+      "summary": "Получить все комментарии"
+    },
+    {
+      "name": "GetEntityComment",
+      "method": "GET",
+      "path": "/v3/entities/{entityType}/{entityID}/comments/{commentID}",
+      "request": "none",
+      "response": "json",
+      "source": "api/entities/comments/get-comment.md",
+      "summary": "Получить комментарий"
+    },
+    {
+      "name": "DeleteEntityComment",
+      "method": "DELETE",
+      "path": "/v3/entities/{entityType}/{entityID}/comments/{commentID}",
+      "request": "none",
+      "response": "json",
+      "source": "api/entities/comments/delete-comment.md",
+      "summary": "Удалить комментарий"
+    },
+    {
+      "name": "AddEntityChecklistItems",
+      "method": "POST",
+      "path": "/v3/entities/{entityType}/{entityID}/checklistItems",
+      "request": "json",
+      "response": "json",
+      "source": "api/entities/checklists/add-checklist.md",
+      "summary": "Создать чеклист или добавить в него пункты"
+    },
+    {
+      "name": "UpdateEntityChecklist",
+      "method": "PATCH",
+      "path": "/v3/entities/{entityType}/{entityID}/checklistItems",
+      "request": "json",
+      "response": "json",
+      "source": "api/entities/checklists/patch-checklist.md",
+      "summary": "Редактировать чеклист"
+    },
+    {
+      "name": "UpdateEntityChecklistItem",
+      "method": "PATCH",
+      "path": "/v3/entities/{entityType}/{entityID}/checklistItems/{itemID}",
+      "request": "json",
+      "response": "json",
+      "source": "api/entities/checklists/patch-checklist-item.md",
+      "summary": "Редактировать пункт"
+    },
+    {
+      "name": "MoveEntityChecklistItem",
+      "method": "POST",
+      "path": "/v3/entities/{entityType}/{entityID}/checklistItems/{itemID}/_move",
+      "request": "json",
+      "response": "json",
+      "source": "api/entities/checklists/move-checklist-item.md",
+      "summary": "Переместить пункт"
+    },
+    {
+      "name": "DeleteEntityChecklist",
+      "method": "DELETE",
+      "path": "/v3/entities/{entityType}/{entityID}/checklistItems",
+      "request": "none",
+      "response": "json",
+      "source": "api/entities/checklists/delete-checklist.md",
+      "summary": "Удалить чеклист"
+    },
+    {
+      "name": "DeleteEntityChecklistItem",
+      "method": "DELETE",
+      "path": "/v3/entities/{entityType}/{entityID}/checklistItems/{itemID}",
+      "request": "none",
+      "response": "json",
+      "source": "api/entities/checklists/delete-checklist-item.md",
+      "summary": "Удалить один пункт"
+    },
+    {
+      "name": "ListEntityAttachments",
+      "method": "GET",
+      "path": "/v3/entities/{entityType}/{entityID}/attachments",
+      "request": "none",
+      "response": "json",
+      "source": "api/entities/attachments/get-all-attachments.md",
+      "summary": "Получить список прикрепленных файлов"
+    },
+    {
+      "name": "GetEntityAttachment",
+      "method": "GET",
+      "path": "/v3/entities/{entityType}/{entityID}/attachments/{fileID}",
+      "request": "none",
+      "response": "json",
+      "source": "api/entities/attachments/get-attachment.md",
+      "summary": "Получить информацию о прикрепленном файле"
+    },
+    {
+      "name": "AttachEntityFile",
+      "method": "POST",
+      "path": "/v3/entities/{entityType}/{entityID}/attachments/{fileID}",
+      "request": "none",
+      "response": "json",
+      "source": "api/entities/attachments/add-attachment.md",
+      "summary": "Прикрепить файл"
+    },
+    {
+      "name": "DeleteEntityAttachment",
+      "method": "DELETE",
+      "path": "/v3/entities/{entityType}/{entityID}/attachments/{fileID}",
+      "request": "none",
+      "response": "json",
+      "source": "api/entities/attachments/delete-attachment.md",
+      "summary": "Удалить файл"
+    },
+    {
+      "name": "CreateEntityLink",
+      "method": "POST",
+      "path": "/v3/entities/{entityType}/{entityID}/links",
+      "request": "json",
+      "response": "json",
+      "source": "api/entities/links/add-links.md",
+      "summary": "Связать сущности"
+    },
+    {
+      "name": "ListEntityLinks",
+      "method": "GET",
+      "path": "/v3/entities/{entityType}/{entityID}/links",
+      "request": "none",
+      "response": "json",
+      "source": "api/entities/links/get-links.md",
+      "summary": "Получить связи"
+    },
+    {
+      "name": "DeleteEntityLink",
+      "method": "DELETE",
+      "path": "/v3/entities/{entityType}/{entityID}/links",
+      "request": "none",
+      "response": "json",
+      "source": "api/entities/links/delete-link.md",
+      "summary": "Удалить связь"
+    },
+    {
+      "name": "GetEntityAccess",
+      "method": "GET",
+      "path": "/v3/entities/{entityType}/{entityID}/extendedPermissions",
+      "request": "none",
+      "response": "json",
+      "source": "api/entities/get-access.md",
+      "summary": "Получить расширенные настройки доступа"
+    },
+    {
+      "name": "GetEntityPermissions",
+      "method": "GET",
+      "path": "/v3/entities/{entityType}/{entityID}/permissions",
+      "request": "none",
+      "response": "json",
+      "source": "api/entities/get-permissions.md",
+      "summary": "Получить права доступа"
+    },
+    {
+      "name": "UpdateEntityAccess",
+      "method": "PATCH",
+      "path": "/v3/entities/{entityType}/{entityID}/extendedPermissions",
+      "request": "json",
+      "response": "json",
+      "source": "api/entities/patch-access.md",
+      "summary": "Изменить расширенные настройки доступа"
+    },
+    {
+      "name": "UpdateEntityPermissions",
+      "method": "PATCH",
+      "path": "/v3/entities/{entityType}/{entityID}/permissions",
+      "request": "json",
+      "response": "json",
+      "source": "api/entities/patch-permissions.md",
+      "summary": "Изменить права доступа"
+    },
+    {
+      "name": "CreateProject",
+      "method": "POST",
+      "path": "/v3/projects",
+      "request": "json",
+      "response": "json",
+      "source": "api/projects/create-project.md",
+      "summary": "Создать проект"
+    },
+    {
+      "name": "GetProject",
+      "method": "GET",
+      "path": "/v3/projects/{projectID}",
+      "request": "none",
+      "response": "json",
+      "source": "api/projects/get-project.md",
+      "summary": "Получить параметры проекта"
+    },
+    {
+      "name": "ListProjects",
+      "method": "GET",
+      "path": "/v3/projects",
+      "request": "none",
+      "response": "json",
+      "source": "api/projects/get-projects.md",
+      "summary": "Получить список всех проектов"
+    },
+    {
+      "name": "ListProjectQueues",
+      "method": "GET",
+      "path": "/v3/projects/{projectID}/queues",
+      "request": "none",
+      "response": "json",
+      "source": "api/projects/get-project-queues.md",
+      "summary": "Получить список очередей проекта"
+    },
+    {
+      "name": "UpdateProject",
+      "method": "PUT",
+      "path": "/v3/projects/{projectID}",
+      "request": "json",
+      "response": "json",
+      "source": "api/projects/update-project.md",
+      "summary": "Изменить проект"
+    },
+    {
+      "name": "DeleteProject",
+      "method": "DELETE",
+      "path": "/v3/projects/{projectID}",
+      "request": "none",
+      "response": "json",
+      "source": "api/projects/delete-project.md",
+      "summary": "Удалить проект"
+    },
+    {
+      "name": "CreateQueue",
+      "method": "POST",
+      "path": "/v3/queues",
+      "request": "json",
+      "response": "json",
+      "source": "api/queues/create-queue.md",
+      "summary": "Создать очередь"
+    },
+    {
+      "name": "GetQueue",
+      "method": "GET",
+      "path": "/v3/queues/{queueID}",
+      "request": "none",
+      "response": "json",
+      "source": "api/queues/get-queue.md",
+      "summary": "Получить параметры очереди"
+    },
+    {
+      "name": "ListQueues",
+      "method": "GET",
+      "path": "/v3/queues",
+      "request": "none",
+      "response": "json",
+      "source": "api/queues/get-queues.md",
+      "summary": "Получить список очередей"
+    },
+    {
+      "name": "ListQueueFields",
+      "method": "GET",
+      "path": "/v3/queues/{queueID}/fields",
+      "request": "none",
+      "response": "json",
+      "source": "api/queues/get-fields.md",
+      "summary": "Получить обязательные поля очереди"
+    },
+    {
+      "name": "DeleteQueue",
+      "method": "DELETE",
+      "path": "/v3/queues/{queueID}",
+      "request": "none",
+      "response": "json",
+      "source": "api/queues/delete-queue.md",
+      "summary": "Удалить очередь"
+    },
+    {
+      "name": "RestoreQueue",
+      "method": "POST",
+      "path": "/v3/queues/{queueID}/_restore",
+      "request": "none",
+      "response": "json",
+      "source": "api/queues/restore-queue.md",
+      "summary": "Восстановить очередь"
+    },
+    {
+      "name": "ListQueueTags",
+      "method": "GET",
+      "path": "/v3/queues/{queueID}/tags",
+      "request": "none",
+      "response": "json",
+      "source": "api/queues/get-tags.md",
+      "summary": "Получить теги очереди"
+    },
+    {
+      "name": "DeleteQueueTag",
+      "method": "POST",
+      "path": "/v3/queues/{queueID}/tags/_remove",
+      "request": "json",
+      "response": "json",
+      "source": "api/queues/delete-tag.md",
+      "summary": "Удалить тег из очереди"
+    },
+    {
+      "name": "UpdateQueuePermissions",
+      "method": "PATCH",
+      "path": "/v3/queues/{queueID}/permissions",
+      "request": "json",
+      "response": "json",
+      "source": "api/queues/manage-access.md",
+      "summary": "Выдать права доступа к очереди"
+    },
+    {
+      "name": "GetQueueUserPermissions",
+      "method": "GET",
+      "path": "/v3/queues/{queueID}/permissions/users/{userID}",
+      "request": "none",
+      "response": "json",
+      "source": "api/queues/get-user-access.md",
+      "summary": "Получить права доступа пользователя в очереди"
+    },
+    {
+      "name": "GetQueueGroupPermissions",
+      "method": "GET",
+      "path": "/v3/queues/{queueID}/permissions/groups/{groupID}",
+      "request": "none",
+      "response": "json",
+      "source": "api/queues/get-group-access.md",
+      "summary": "Получить права доступа группы в очереди"
+    },
+    {
+      "name": "CreateWorkflow",
+      "method": "POST",
+      "path": "/v3/workflows",
+      "request": "json",
+      "response": "json",
+      "source": "api/queues/workflows/post-workflow.md",
+      "summary": "Создать рабочий процесс"
+    },
+    {
+      "name": "ListWorkflows",
+      "method": "GET",
+      "path": "/v3/workflows",
+      "request": "none",
+      "response": "json",
+      "source": "api/queues/workflows/get-workflows.md",
+      "summary": "Получить список рабочих процессов"
+    },
+    {
+      "name": "ListQueueWorkflows",
+      "method": "GET",
+      "path": "/v3/queues/{queueID}/workflows",
+      "request": "none",
+      "response": "json",
+      "source": "api/queues/workflows/get-queue-workflows.md",
+      "summary": "Получить рабочие процессы очереди"
+    },
+    {
+      "name": "GetWorkflow",
+      "method": "GET",
+      "path": "/v3/workflows/{workflowID}",
+      "request": "none",
+      "response": "json",
+      "source": "api/queues/workflows/get-workflow.md",
+      "summary": "Получить рабочий процесс"
+    },
+    {
+      "name": "UpdateWorkflow",
+      "method": "PATCH",
+      "path": "/v3/workflows/{workflowID}",
+      "request": "json",
+      "response": "json",
+      "source": "api/queues/workflows/patch-workflow.md",
+      "summary": "Изменить рабочий процесс"
+    },
+    {
+      "name": "UpdateWorkflowAction",
+      "method": "PATCH",
+      "path": "/v3/workflows/{workflowID}/steps/{statusID}/actions/{actionID}",
+      "request": "json",
+      "response": "json",
+      "source": "api/queues/workflows/patch-workflow-action.md",
+      "summary": "Изменить действие в шаге рабочего процесса"
+    },
+    {
+      "name": "DeleteWorkflow",
+      "method": "DELETE",
+      "path": "/v3/workflows/{workflowID}",
+      "request": "none",
+      "response": "json",
+      "source": "api/queues/workflows/delete-workflow.md",
+      "summary": "Удалить рабочий процесс"
+    },
+    {
+      "name": "CreateAutoaction",
+      "method": "POST",
+      "path": "/v3/queues/{queueID}/autoactions",
+      "request": "json",
+      "response": "json",
+      "source": "api/queues/create-autoaction.md",
+      "summary": "Создать автодействие"
+    },
+    {
+      "name": "GetAutoaction",
+      "method": "GET",
+      "path": "/v3/queues/{queueID}/autoactions/{autoactionID}",
+      "request": "none",
+      "response": "json",
+      "source": "api/queues/get-autoaction.md",
+      "summary": "Получить параметры автодействия"
+    },
+    {
+      "name": "ListAutoactionLogs",
+      "method": "GET",
+      "path": "/v3/queues/{queueID}/autoactions/{autoactionID}/logs",
+      "request": "none",
+      "response": "json",
+      "source": "api/queues/view-autoaction-logs.md",
+      "summary": "Просмотреть логи автодействия"
+    },
+    {
+      "name": "GetAutoactionLog",
+      "method": "GET",
+      "path": "/v3/queues/{queueID}/autoactions/{autoactionID}/logs/{launchID}",
+      "request": "none",
+      "response": "json",
+      "source": "api/queues/view-autoaction-logs.md",
+      "summary": "Просмотреть логи автодействия"
+    },
+    {
+      "name": "CreateTrigger",
+      "method": "POST",
+      "path": "/v3/queues/{queueID}/triggers",
+      "request": "json",
+      "response": "json",
+      "source": "api/queues/create-trigger.md",
+      "summary": "Создать триггер"
+    },
+    {
+      "name": "ListTriggers",
+      "method": "GET",
+      "path": "/v3/queues/{queueID}/triggers",
+      "request": "none",
+      "response": "json",
+      "source": "api/queues/get-triggers.md",
+      "summary": "Получить список триггеров очереди"
+    },
+    {
+      "name": "GetTrigger",
+      "method": "GET",
+      "path": "/v3/queues/{queueID}/triggers/{triggerID}",
+      "request": "none",
+      "response": "json",
+      "source": "api/queues/get-trigger.md",
+      "summary": "Получить параметры триггера"
+    },
+    {
+      "name": "UpdateTrigger",
+      "method": "PATCH",
+      "path": "/v3/queues/{queueID}/triggers/{triggerID}",
+      "request": "json",
+      "response": "json",
+      "source": "api/queues/change-trigger.md",
+      "summary": "Изменить триггер"
+    },
+    {
+      "name": "ListTriggerLogs",
+      "method": "GET",
+      "path": "/v3/queues/{queueID}/triggers/{triggerID}/webhooks/log",
+      "request": "none",
+      "response": "json",
+      "source": "api/queues/view-trigger-logs.md",
+      "summary": "Просмотреть логи триггера"
+    },
+    {
+      "name": "ListMacros",
+      "method": "GET",
+      "path": "/v3/queues/{queueID}/macros",
+      "request": "none",
+      "response": "json",
+      "source": "api/get-macroses.md",
+      "summary": "Получить макросы очереди"
+    },
+    {
+      "name": "GetMacro",
+      "method": "GET",
+      "path": "/v3/queues/{queueID}/macros/{macroID}",
+      "request": "none",
+      "response": "json",
+      "source": "api/get-macros.md",
+      "summary": "Получить макрос"
+    },
+    {
+      "name": "CreateMacro",
+      "method": "POST",
+      "path": "/v3/queues/{queueID}/macros",
+      "request": "json",
+      "response": "json",
+      "source": "api/post-macros.md",
+      "summary": "Создать макрос"
+    },
+    {
+      "name": "UpdateMacro",
+      "method": "PATCH",
+      "path": "/v3/queues/{queueID}/macros/{macroID}",
+      "request": "json",
+      "response": "json",
+      "source": "api/patch-macros.md",
+      "summary": "Редактировать макрос"
+    },
+    {
+      "name": "DeleteMacro",
+      "method": "DELETE",
+      "path": "/v3/queues/{queueID}/macros/{macroID}",
+      "request": "none",
+      "response": "json",
+      "source": "api/delete-macros.md",
+      "summary": "Удалить макрос"
+    },
+    {
+      "name": "ListBoards",
+      "method": "GET",
+      "path": "/v3/boards",
+      "request": "none",
+      "response": "json",
+      "source": "api/boards/get-boards.md",
+      "summary": "Получить параметры всех досок"
+    },
+    {
+      "name": "ListBoardsPage",
+      "method": "GET",
+      "path": "/v3/boards/_paginate",
+      "request": "none",
+      "response": "json",
+      "source": "api/boards/get-boards-paginate.md",
+      "summary": "Получить параметры всех досок с поддержкой пагинации"
+    },
+    {
+      "name": "GetBoard",
+      "method": "GET",
+      "path": "/v3/boards/{boardID}",
+      "request": "none",
+      "response": "json",
+      "source": "api/boards/get-board.md",
+      "summary": "Получить параметры доски"
+    },
+    {
+      "name": "CreateBoard",
+      "method": "POST",
+      "path": "/v3/liveBoards",
+      "request": "json",
+      "response": "json",
+      "source": "api/boards/post-board.md",
+      "summary": "Создать доску"
+    },
+    {
+      "name": "UpdateBoard",
+      "method": "PATCH",
+      "path": "/v3/boards/{boardID}",
+      "request": "json",
+      "response": "json",
+      "source": "api/boards/patch-board.md",
+      "summary": "Редактировать доску"
+    },
+    {
+      "name": "DeleteBoard",
+      "method": "DELETE",
+      "path": "/v3/boards/{boardID}",
+      "request": "none",
+      "response": "json",
+      "source": "api/boards/delete-board.md",
+      "summary": "Удалить доску"
+    },
+    {
+      "name": "ListBoardColumns",
+      "method": "GET",
+      "path": "/v3/boards/{boardID}/columns",
+      "request": "none",
+      "response": "json",
+      "source": "api/boards/get-columns.md",
+      "summary": "Получить параметры всех колонок"
+    },
+    {
+      "name": "GetBoardColumn",
+      "method": "GET",
+      "path": "/v3/boards/{boardID}/columns/{columnID}",
+      "request": "none",
+      "response": "json",
+      "source": "api/boards/get-column.md",
+      "summary": "Получить параметры колонки"
+    },
+    {
+      "name": "CreateBoardColumn",
+      "method": "POST",
+      "path": "/v3/boards/{boardID}/columns",
+      "request": "json",
+      "response": "json",
+      "source": "api/boards/post-column.md",
+      "summary": "Создать колонку"
+    },
+    {
+      "name": "UpdateBoardColumn",
+      "method": "PATCH",
+      "path": "/v3/boards/{boardID}/columns/{columnID}",
+      "request": "json",
+      "response": "json",
+      "source": "api/boards/patch-column.md",
+      "summary": "Редактировать колонку"
+    },
+    {
+      "name": "DeleteBoardColumn",
+      "method": "DELETE",
+      "path": "/v3/boards/{boardID}/columns/{columnID}",
+      "request": "none",
+      "response": "json",
+      "source": "api/boards/delete-column.md",
+      "summary": "Удалить колонку"
+    },
+    {
+      "name": "ListBoardSprints",
+      "method": "GET",
+      "path": "/v3/boards/{boardID}/sprints",
+      "request": "none",
+      "response": "json",
+      "source": "api/boards/get-sprints.md",
+      "summary": "Получить все спринты доски"
+    },
+    {
+      "name": "GetSprint",
+      "method": "GET",
+      "path": "/v3/sprints/{sprintID}",
+      "request": "none",
+      "response": "json",
+      "source": "api/boards/get-sprint.md",
+      "summary": "Получить спринт"
+    },
+    {
+      "name": "CreateSprint",
+      "method": "POST",
+      "path": "/v3/sprints",
+      "request": "json",
+      "response": "json",
+      "source": "api/boards/post-sprint.md",
+      "summary": "Создать спринт"
+    },
+    {
+      "name": "UpdateSprint",
+      "method": "PATCH",
+      "path": "/v3/sprints/{sprintID}",
+      "request": "json",
+      "response": "json",
+      "source": "api/boards/patch-sprint.md",
+      "summary": "Редактировать спринт"
+    },
+    {
+      "name": "StartSprint",
+      "method": "POST",
+      "path": "/v3/sprints/{sprintID}/_start",
+      "request": "none",
+      "response": "json",
+      "source": "api/boards/start-sprint.md",
+      "summary": "Запустить спринт"
+    },
+    {
+      "name": "ArchiveSprint",
+      "method": "POST",
+      "path": "/v3/sprints/{sprintID}/_archive",
+      "request": "none",
+      "response": "json",
+      "source": "api/boards/archive-sprint.md",
+      "summary": "Завершить спринт"
+    },
+    {
+      "name": "DeleteSprint",
+      "method": "DELETE",
+      "path": "/v3/sprints/{sprintID}",
+      "request": "none",
+      "response": "json",
+      "source": "api/boards/delete-sprint.md",
+      "summary": "Удалить спринт"
+    },
+    {
+      "name": "CreateDashboard",
+      "method": "POST",
+      "path": "/v3/dashboards",
+      "request": "json",
+      "response": "json",
+      "source": "api/dashboards/create-dashboard.md",
+      "summary": "Создать дашборд"
+    },
+    {
+      "name": "SearchDashboards",
+      "method": "POST",
+      "path": "/v3/dashboards/_search",
+      "request": "json",
+      "response": "json",
+      "source": "api/dashboards/search-dashboards.md",
+      "summary": "Найти дашборды"
+    },
+    {
+      "name": "CopyDashboard",
+      "method": "POST",
+      "path": "/v3/dashboards/{dashboardID}/_copy",
+      "request": "json",
+      "response": "json",
+      "source": "api/dashboards/copy-dashboard.md",
+      "summary": "Копировать дашборд"
+    },
+    {
+      "name": "GetDashboard",
+      "method": "GET",
+      "path": "/v3/dashboards/{dashboardID}",
+      "request": "none",
+      "response": "json",
+      "source": "api/dashboards/get-dashboard.md",
+      "summary": "Получить дашборд"
+    },
+    {
+      "name": "UpdateDashboard",
+      "method": "PATCH",
+      "path": "/v3/dashboards/{dashboardID}",
+      "request": "json",
+      "response": "json",
+      "source": "api/dashboards/update-dashboard.md",
+      "summary": "Обновить дашборд"
+    },
+    {
+      "name": "GetDashboardPermissions",
+      "method": "GET",
+      "path": "/v3/dashboards/{dashboardID}/permissions",
+      "request": "none",
+      "response": "json",
+      "source": "api/dashboards/get-dashboard-permissions.md",
+      "summary": "Получить права доступа к дашборду"
+    },
+    {
+      "name": "UpdateDashboardPermissions",
+      "method": "PATCH",
+      "path": "/v3/dashboards/{dashboardID}/permissions",
+      "request": "json",
+      "response": "json",
+      "source": "api/dashboards/update-dashboard-permissions.md",
+      "summary": "Изменить права доступа к дашборду"
+    },
+    {
+      "name": "CreateDashboardWidget",
+      "method": "POST",
+      "path": "/v3/dashboards/{dashboardID}/widgets",
+      "request": "json",
+      "response": "json",
+      "source": "api/dashboards/create-dashboard-widget.md",
+      "summary": "Создать виджет"
+    },
+    {
+      "name": "GetWidget",
+      "method": "GET",
+      "path": "/v3/widgets/{widgetID}",
+      "request": "none",
+      "response": "json",
+      "source": "api/dashboards/get-widget.md",
+      "summary": "Получить виджет"
+    },
+    {
+      "name": "UpdateWidget",
+      "method": "PATCH",
+      "path": "/v3/widgets/{widgetID}",
+      "request": "json",
+      "response": "json",
+      "source": "api/dashboards/update-widget.md",
+      "summary": "Обновить виджет"
+    },
+    {
+      "name": "ImportDashboardWidget",
+      "method": "POST",
+      "path": "/v3/dashboards/{dashboardID}/widgets/_import",
+      "request": "json",
+      "response": "json",
+      "source": "api/dashboards/import-widget.md",
+      "summary": "Импортировать виджет"
+    },
+    {
+      "name": "ListComponents",
+      "method": "GET",
+      "path": "/v3/components",
+      "request": "none",
+      "response": "json",
+      "source": "api/queues/get-components.md",
+      "summary": "Получить список компонентов"
+    },
+    {
+      "name": "ListQueueComponents",
+      "method": "GET",
+      "path": "/v3/queues/{queueID}/components",
+      "request": "none",
+      "response": "json",
+      "source": "api/queues/get-queue-components.md",
+      "summary": "Получить компоненты очереди"
+    },
+    {
+      "name": "GetComponent",
+      "method": "GET",
+      "path": "/v3/components/{componentID}",
+      "request": "none",
+      "response": "json",
+      "source": "api/queues/get-component.md",
+      "summary": "Получить компонент"
+    },
+    {
+      "name": "CreateComponent",
+      "method": "POST",
+      "path": "/v3/components",
+      "request": "json",
+      "response": "json",
+      "source": "api/queues/post-component.md",
+      "summary": "Создать компонент"
+    },
+    {
+      "name": "UpdateComponent",
+      "method": "PATCH",
+      "path": "/v3/components/{componentID}",
+      "request": "json",
+      "response": "json",
+      "source": "api/queues/patch-component.md",
+      "summary": "Редактировать компонент"
+    },
+    {
+      "name": "DeleteComponent",
+      "method": "DELETE",
+      "path": "/v3/components/{componentID}",
+      "request": "none",
+      "response": "json",
+      "source": "api/queues/delete-component.md",
+      "summary": "Удалить компонент"
+    },
+    {
+      "name": "GetComponentUserPermissions",
+      "method": "GET",
+      "path": "/v3/components/{componentID}/permissions/users/{userID}",
+      "request": "none",
+      "response": "json",
+      "source": "api/queues/get-component-user-access.md",
+      "summary": "Получить права доступа пользователя к компоненту"
+    },
+    {
+      "name": "GetComponentGroupPermissions",
+      "method": "GET",
+      "path": "/v3/components/{componentID}/permissions/groups/{groupID}",
+      "request": "none",
+      "response": "json",
+      "source": "api/queues/get-component-group-access.md",
+      "summary": "Получить права доступа группы к компоненту"
+    },
+    {
+      "name": "CreateVersion",
+      "method": "POST",
+      "path": "/v3/versions",
+      "request": "json",
+      "response": "json",
+      "source": "api/queues/create-version.md",
+      "summary": "Создать версию очереди"
+    },
+    {
+      "name": "ListQueueVersions",
+      "method": "GET",
+      "path": "/v3/queues/{queueID}/versions",
+      "request": "none",
+      "response": "json",
+      "source": "api/queues/get-versions.md",
+      "summary": "Получить версии очереди"
+    },
+    {
+      "name": "GetVersion",
+      "method": "GET",
+      "path": "/v3/versions/{versionID}",
+      "request": "none",
+      "response": "json",
+      "source": "api/queues/get-version.md",
+      "summary": "Получить версию очереди"
+    },
+    {
+      "name": "UpdateVersion",
+      "method": "PATCH",
+      "path": "/v3/versions/{versionID}",
+      "request": "json",
+      "response": "json",
+      "source": "api/queues/update-version.md",
+      "summary": "Изменить версию очереди"
+    },
+    {
+      "name": "DeleteVersion",
+      "method": "DELETE",
+      "path": "/v3/versions/{versionID}",
+      "request": "none",
+      "response": "json",
+      "source": "api/queues/delete-version.md",
+      "summary": "Удалить версию очереди"
+    },
+    {
+      "name": "ListIssueTypes",
+      "method": "GET",
+      "path": "/v3/issuetypes",
+      "request": "none",
+      "response": "json",
+      "source": "api/admin/get-issue-types.md",
+      "summary": "Получить список типов задач"
+    },
+    {
+      "name": "CreateIssueType",
+      "method": "POST",
+      "path": "/v3/issuetypes",
+      "request": "json",
+      "response": "json",
+      "source": "api/admin/create-issue-type.md",
+      "summary": "Создать тип задачи"
+    },
+    {
+      "name": "UpdateIssueType",
+      "method": "PATCH",
+      "path": "/v3/issuetypes/{typeID}",
+      "request": "json",
+      "response": "json",
+      "source": "api/admin/patch-issue-type.md",
+      "summary": "Редактировать тип задачи"
+    },
+    {
+      "name": "ListStatuses",
+      "method": "GET",
+      "path": "/v3/statuses",
+      "request": "none",
+      "response": "json",
+      "source": "api/admin/get-statuses.md",
+      "summary": "Получить список статусов"
+    },
+    {
+      "name": "CreateStatus",
+      "method": "POST",
+      "path": "/v3/statuses",
+      "request": "json",
+      "response": "json",
+      "source": "api/admin/create-status.md",
+      "summary": "Создать статус задачи"
+    },
+    {
+      "name": "UpdateStatus",
+      "method": "PATCH",
+      "path": "/v3/statuses/{statusID}",
+      "request": "json",
+      "response": "json",
+      "source": "api/admin/patch-status.md",
+      "summary": "Редактировать статус задачи"
+    },
+    {
+      "name": "ListResolutions",
+      "method": "GET",
+      "path": "/v3/resolutions",
+      "request": "none",
+      "response": "json",
+      "source": "api/admin/get-resolutions.md",
+      "summary": "Получить список резолюций"
+    },
+    {
+      "name": "CreateResolution",
+      "method": "POST",
+      "path": "/v3/resolutions",
+      "request": "json",
+      "response": "json",
+      "source": "api/admin/create-resolution.md",
+      "summary": "Создать резолюцию"
+    },
+    {
+      "name": "UpdateResolution",
+      "method": "PATCH",
+      "path": "/v3/resolutions/{resolutionID}",
+      "request": "json",
+      "response": "json",
+      "source": "api/admin/patch-resolution.md",
+      "summary": "Редактировать резолюцию"
+    },
+    {
+      "name": "ListPriorities",
+      "method": "GET",
+      "path": "/v3/priorities",
+      "request": "none",
+      "response": "json",
+      "source": "api/admin/get-priorities.md",
+      "summary": "Получить список приоритетов"
+    },
+    {
+      "name": "CreatePriority",
+      "method": "POST",
+      "path": "/v3/priorities",
+      "request": "json",
+      "response": "json",
+      "source": "api/admin/create-priority.md",
+      "summary": "Создать приоритет"
+    },
+    {
+      "name": "UpdatePriority",
+      "method": "PATCH",
+      "path": "/v3/priorities/{priorityID}",
+      "request": "json",
+      "response": "json",
+      "source": "api/admin/patch-priority.md",
+      "summary": "Редактировать приоритет"
+    },
+    {
+      "name": "AddIssueWorklog",
+      "method": "POST",
+      "path": "/v3/issues/{issueID}/worklog",
+      "request": "json",
+      "response": "json",
+      "source": "api/issues/new-worklog.md",
+      "summary": "Добавить запись о затраченном времени"
+    },
+    {
+      "name": "UpdateIssueWorklog",
+      "method": "PATCH",
+      "path": "/v3/issues/{issueID}/worklog/{worklogID}",
+      "request": "json",
+      "response": "json",
+      "source": "api/issues/patch-worklog.md",
+      "summary": "Редактировать запись о затраченном времени"
+    },
+    {
+      "name": "DeleteIssueWorklog",
+      "method": "DELETE",
+      "path": "/v3/issues/{issueID}/worklog/{worklogID}",
+      "request": "none",
+      "response": "json",
+      "source": "api/issues/delete-worklog.md",
+      "summary": "Удалить запись о затраченном времени"
+    },
+    {
+      "name": "ListIssueWorklogs",
+      "method": "GET",
+      "path": "/v3/issues/{issueID}/worklog",
+      "request": "none",
+      "response": "json",
+      "source": "api/issues/issue-worklog.md",
+      "summary": "Получить все записи по задаче"
+    },
+    {
+      "name": "ListWorklogs",
+      "method": "GET",
+      "path": "/v3/worklog",
+      "request": "none",
+      "response": "json",
+      "source": "api/issues/get-worklog.md",
+      "summary": "Отобрать записи по параметрам"
+    },
+    {
+      "name": "SearchWorklogs",
+      "method": "POST",
+      "path": "/v3/worklog/_search",
+      "request": "json",
+      "response": "json",
+      "source": "api/issues/get-worklog.md",
+      "summary": "Отобрать записи по параметрам"
+    },
+    {
+      "name": "ImportIssue",
+      "method": "POST",
+      "path": "/v3/issues/_import",
+      "request": "json",
+      "response": "json",
+      "source": "api/import/import-ticket.md",
+      "summary": "Импортировать задачу"
+    },
+    {
+      "name": "ImportIssueAttachment",
+      "method": "POST",
+      "path": "/v3/issues/{issueID}/attachments/_import",
+      "request": "multipart",
+      "response": "json",
+      "source": "api/import/import-attachments.md",
+      "summary": "Импортировать файлы"
+    },
+    {
+      "name": "ImportCommentAttachment",
+      "method": "POST",
+      "path": "/v3/issues/{issueID}/comments/{commentID}/attachments/_import",
+      "request": "multipart",
+      "response": "json",
+      "source": "api/import/import-attachments.md",
+      "summary": "Импортировать файлы"
+    },
+    {
+      "name": "ImportIssueComment",
+      "method": "POST",
+      "path": "/v3/issues/{issueID}/comments/_import",
+      "request": "json",
+      "response": "json",
+      "source": "api/import/import-comments.md",
+      "summary": "Импортировать комментарии"
+    },
+    {
+      "name": "ImportIssueLink",
+      "method": "POST",
+      "path": "/v3/issues/{issueID}/links/_import",
+      "request": "json",
+      "response": "json",
+      "source": "api/import/import-links.md",
+      "summary": "Импортировать связи"
+    },
+    {
+      "name": "ImportIssueWorklog",
+      "method": "POST",
+      "path": "/v3/issues/{issueID}/worklogs/_import",
+      "request": "json",
+      "response": "json",
+      "source": "api/import/import-worklogs.md",
+      "summary": "Импортировать записи о затраченном времени"
+    },
+    {
+      "name": "ListApplications",
+      "method": "GET",
+      "path": "/v3/applications",
+      "request": "none",
+      "response": "json",
+      "source": "api/issues/get-applications.md",
+      "summary": "Получить список внешних приложений"
+    },
+    {
+      "name": "ListIssueExternalLinks",
+      "method": "GET",
+      "path": "/v3/issues/{issueID}/remotelinks",
+      "request": "none",
+      "response": "json",
+      "source": "api/issues/get-external-links.md",
+      "summary": "Получить список внешних связей задачи"
+    },
+    {
+      "name": "CreateIssueExternalLink",
+      "method": "POST",
+      "path": "/v3/issues/{issueID}/remotelinks",
+      "request": "json",
+      "response": "json",
+      "source": "api/issues/add-external-link.md",
+      "summary": "Добавить внешнюю связь"
+    },
+    {
+      "name": "DeleteIssueExternalLink",
+      "method": "DELETE",
+      "path": "/v3/issues/{issueID}/remotelinks/{linkID}",
+      "request": "none",
+      "response": "json",
+      "source": "api/issues/delete-external-link.md",
+      "summary": "Удалить внешнюю связь"
+    },
+    {
+      "name": "GetCurrentUser",
+      "method": "GET",
+      "path": "/v3/myself",
+      "request": "none",
+      "response": "json",
+      "source": "api/users/get-user-info.md",
+      "summary": "Получить информацию о текущем пользователе"
+    },
+    {
+      "name": "GetUser",
+      "method": "GET",
+      "path": "/v3/users/{userID}",
+      "request": "none",
+      "response": "json",
+      "source": "api/users/get-user.md",
+      "summary": "Получить информацию о заданном пользователе"
+    },
+    {
+      "name": "ListUsers",
+      "method": "GET",
+      "path": "/v3/users",
+      "request": "none",
+      "response": "json",
+      "source": "api/users/get-users.md",
+      "summary": "Получить информацию о пользователях"
+    },
+    {
+      "name": "ListUsersRelative",
+      "method": "GET",
+      "path": "/v3/users/_relative",
+      "request": "none",
+      "response": "json",
+      "source": "api/users/get-users-relative.md",
+      "summary": "Получить информацию о пользователях с относительной пагинацией"
+    },
+    {
+      "name": "CreateGaps",
+      "method": "POST",
+      "path": "/v3/gaps",
+      "request": "json",
+      "response": "json",
+      "source": "api/gaps/post-gaps.md",
+      "summary": "Создать отсутствия"
+    },
+    {
+      "name": "SearchGaps",
+      "method": "POST",
+      "path": "/v3/gaps/_search",
+      "request": "json",
+      "response": "json",
+      "source": "api/gaps/search-gaps.md",
+      "summary": "Найти отсутствия"
+    },
+    {
+      "name": "DeleteGaps",
+      "method": "DELETE",
+      "path": "/v3/gaps",
+      "request": "none",
+      "response": "json",
+      "source": "api/gaps/delete-gaps.md",
+      "summary": "Удалить отсутствия"
+    }
+  ]
+}

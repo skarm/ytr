@@ -1,0 +1,48 @@
+name: Check SDK and contracts
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+    inputs:
+      online:
+        description: Compare the official documentation and save an update report
+        type: boolean
+        default: false
+
+permissions:
+  contents: read
+
+jobs:
+  verify:
+    runs-on: ubuntu-26.04
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - uses: actions/setup-go@b7ad1dad31e06c5925ef5d2fc7ad053ef454303e # v7.0.0
+        with:
+          go-version-file: go.mod
+          cache: false
+      - run: go test -race ./...
+      - run: go vet ./...
+      - run: go -C examples/integration test -race ./...
+      - run: go -C examples/integration vet ./...
+      - run: go run ./cmd/checkdocs
+      - run: go generate ./...
+      - run: git diff --exit-code -- methods_gen.go typed/models_gen.go typed/client_gen.go
+
+  documentation:
+    if: github.event_name == 'workflow_dispatch' && inputs.online
+    runs-on: ubuntu-26.04
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - uses: actions/setup-go@b7ad1dad31e06c5925ef5d2fc7ad053ef454303e # v7.0.0
+        with:
+          go-version-file: go.mod
+          cache: false
+      - run: go run ./cmd/checkdocs -online -report api-review
+      - uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
+        if: always()
+        with:
+          name: tracker-documentation-review
+          path: api-review
+          if-no-files-found: error
