@@ -64,7 +64,7 @@ func LocalDocuments(ctx context.Context, sources Sources, directory string) (Doc
 	return CaptureDocuments(ctx, sources, func(_ context.Context, address string) ([]byte, error) {
 		for _, page := range sources.Pages {
 			if stripURLQuery(page.URL) == address {
-				if path.Clean(page.Path) != page.Path || !strings.HasPrefix(page.Path, "api/") {
+				if !safeDocumentPath(page.Path) {
 					return nil, errors.New("unsafe documentation path")
 				}
 
@@ -74,6 +74,10 @@ func LocalDocuments(ctx context.Context, sources Sources, directory string) (Doc
 
 		return nil, errors.New("unknown documentation URL")
 	})
+}
+
+func safeDocumentPath(value string) bool {
+	return path.Clean(value) == value && strings.HasPrefix(value, "api/") && !strings.Contains(value, `\`)
 }
 
 // CheckDocuments binds a source-derived snapshot to the reviewed source hashes.
@@ -90,7 +94,7 @@ func CheckDocuments(documents Documents, catalog Catalog, sources Sources) error
 	seen := make(map[string]bool)
 
 	for _, document := range documents.Pages {
-		if path.Clean(document.Path) != document.Path || !strings.HasPrefix(document.Path, "api/") {
+		if !safeDocumentPath(document.Path) {
 			return errors.New("unsafe documentation snapshot path")
 		}
 

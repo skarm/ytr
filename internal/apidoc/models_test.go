@@ -258,3 +258,93 @@ func TestEvidenceKeepsBindingAndSectionBoundaries(t *testing.T) {
 		delete(want, key)
 	}
 }
+
+func TestModelSourceLocationsKeepDocumentIdentity(t *testing.T) {
+	for _, test := range []struct{ name, source, want string }{
+		{"path", "api/example.md", "api/example.md"},
+		{"official URL", "https://yandex.ru/support/tracker/ru/api/example.md?revision=r1#query", "api/example.md"},
+		{"line", "api/example.md:42", "api/example.md"},
+		{"line in URL", "https://yandex.ru/support/tracker/ru/api/example.md:42?revision=r1#query", "api/example.md"},
+		{"named suffix", "api/example.md:appendix", "api/example.md:appendix"},
+		{"empty suffix", "api/example.md:", "api/example.md:"},
+		{"colon in path", "api/part:one/example.md:42", "api/part:one/example.md"},
+	} {
+		t.Run(test.name, func(t *testing.T) {
+			for _, fieldSource := range []bool{false, true} {
+				model := apidoc.ModelType{Name: "Body", Kind: "struct", Fields: []apidoc.ModelField{{Name: "Value", JSON: "value", Type: "string"}}}
+				if fieldSource {
+					model.Fields[0].Source = test.source
+				} else {
+					model.Source = test.source
+				}
+				models := apidoc.Models{Types: []apidoc.ModelType{model}, Operations: []apidoc.ModelOperation{{Name: "CreateItem", Source: "api/example.md", Body: "Body"}}}
+				targets := apidoc.ModelTargets(models)
+				if len(targets) != 1 || targets[0].Source != test.want {
+					t.Fatalf("fieldSource=%v: source identity lost: %+v", fieldSource, targets)
+				}
+			}
+		})
+	}
+}
+
+func TestChangedSourceFieldWithLineLocationKeepsModelOwner(t *testing.T) {
+	before := apidoc.Documents{Pages: []apidoc.Document{{Path: "api/example.md", Fields: []apidoc.DocumentField{{Section: "Параметры тела", Name: "value", Type: "Строка", Digest: "before"}}}}}
+	after := apidoc.Documents{Pages: []apidoc.Document{{Path: "api/example.md", Fields: []apidoc.DocumentField{{Section: "Параметры тела", Name: "value", Type: "Логический", Digest: "after"}}}}}
+	models := apidoc.Models{Types: []apidoc.ModelType{{Name: "Body", Kind: "struct", Source: "api/example.md:42", Fields: []apidoc.ModelField{{Name: "Value", JSON: "value", Type: "string"}}}}, Operations: []apidoc.ModelOperation{{Name: "CreateItem", Source: "api/example.md", Body: "Body"}}}
+	review := apidoc.CompareDocuments(before, after, models)
+	if len(review.Changes) != 1 || len(review.Changes[0].Targets) != 1 || len(review.Disagreements) != 1 {
+		t.Fatalf("line provenance hid a changed model field: %+v", review)
+	}
+	target := review.Changes[0].Targets[0]
+	if target.Pointer != "/types/0/fields/0/type" || len(target.Operations) != 1 || target.Operations[0] != "CreateItem" {
+		t.Fatalf("lost owner: %+v", target)
+	}
+}
+
+func TestRealRegistryLineSourcesKeepChangedFieldOwners(t *testing.T) {
+	catalog, err := apidoc.Load("../../api/catalog.json")
+	if err != nil {
+		t.Fatal(err)
+	}
+	models, err := apidoc.LoadModels("../../api/models.json", catalog)
+	if err != nil {
+		t.Fatal(err)
+	}
+	for _, test := range []struct{ page, field, container, model, operation string }{
+		{"api/queues/create-queue.md", "resolutions", "issueTypesConfig", "CreateQueueRequestBodyIssueTypesConfig", "CreateQueue"},
+		{"api/boards/patch-board.md", "statuses", "columns", "UpdateBoardRequestBodyColumns", "UpdateBoard"},
+	} {
+		t.Run(test.operation, func(t *testing.T) {
+			var before, after apidoc.Documents
+			for _, out := range []*apidoc.Documents{&before, &after} {
+				if err := apidoc.ReadJSON("../../api/documentation.json", out); err != nil {
+					t.Fatal(err)
+				}
+			}
+			changed := false
+			for i := range after.Pages {
+				if after.Pages[i].Path != test.page {
+					continue
+				}
+				for j := range after.Pages[i].Fields {
+					field := &after.Pages[i].Fields[j]
+					if field.Name == test.field && strings.Contains(field.Section, test.container) {
+						field.Type, field.Digest = "Логический", "changed-source-line"
+						changed = true
+					}
+				}
+			}
+			if !changed {
+				t.Fatal("independent source fixture is missing")
+			}
+			review := apidoc.CompareDocuments(before, after, models)
+			if len(review.Changes) != 1 || len(review.Changes[0].Targets) != 1 || len(review.Disagreements) != 1 {
+				t.Fatalf("changed source field was not bound to its model: %+v", review)
+			}
+			target := review.Changes[0].Targets[0]
+			if target.Model != test.model || target.JSON != test.field || !strings.HasPrefix(target.Pointer, "/types/") || len(target.Operations) != 1 || target.Operations[0] != test.operation {
+				t.Fatalf("wrong source owner: %+v", target)
+			}
+		})
+	}
+}

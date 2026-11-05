@@ -6,6 +6,7 @@ import (
 	"io"
 	"net/http"
 	"reflect"
+	"strings"
 	"testing"
 
 	"github.com/skarm/ytr"
@@ -241,5 +242,162 @@ func TestPaginationRejectsBodyForBodylessOperation(t *testing.T) {
 	err := client.Paginate(context.Background(), ytr.OpListQueues, nil, ytr.Fields{"unexpected": true}, func(*ytr.Response) error { return nil })
 	if !errors.Is(err, ytr.ErrOperationKind) || calls != 0 {
 		t.Fatalf("bodyless contract bypassed: error=%v HTTP calls=%d", err, calls)
+	}
+}
+
+func TestNextLinkParameterGrammarAndFirstRelation(t *testing.T) {
+	for _, test := range []struct {
+		name, parameters string
+		next, invalid    bool
+	}{
+		{"multiple languages", `; rel=next; hreflang=ru; hreflang=en`, true, false},
+		{"first relation next", `; rel=next; rel=prev`, true, false},
+		{"first relation previous", `; rel=prev; REL=next`, false, false},
+		{"bare extension", `; rel=next; downloadable`, true, false},
+		{"repeated extension", `; rel=next; foo=bar; foo=baz`, true, false},
+		{"quoted separators and escape", `; title="comma, semi; and \"quote"; rel="next last"; flag`, true, false},
+		{"escaped first letter", `; rel="n\ext"`, true, false},
+		{"escaped middle letter", `; rel="ne\xt"`, true, false},
+		{"escaped relation separator", `; rel="next\ last"`, true, false},
+		{"empty quoted extension", `; rel=next; foo=""`, true, false},
+		{"quoted high byte", "; rel=next; foo=\"\xff\"", true, false},
+		{"escaped high byte", "; rel=next; foo=\"\\\xff\"", true, false},
+		{"quoted title tab", "; rel=next; title=\"one\ttwo\"", true, false},
+		{"tab around value", "; rel\t=\t\"next\"\t", true, false},
+		{"tab is not relation separator", "; rel=\"next\tlast\"", false, false},
+		{"NBSP is not relation separator", "; rel=\"next\u00a0last\"", false, false},
+		{"extended relation is not rel", `; rel*=UTF-8''next`, false, false},
+		{"extended anchor is not anchor", `; rel=next; anchor*=UTF-8''elsewhere`, true, false},
+		{"bare anchor changes context", `; rel=next; anchor`, false, false},
+		{"empty parameter name", `; rel=next; =value`, false, true},
+		{"invalid extension name", `; rel=next; bad name=value`, false, true},
+		{"empty unquoted value", `; rel=next; foo=`, false, true},
+		{"malformed quoted value", `; rel=next; foo="unterminated`, false, true},
+		{"bytes after quoted value", `; rel=next; foo="value"extra`, false, true},
+		{"missing parameter separator", ` rel=next`, false, true},
+		{"unquoted control", "; rel=next; foo=value\v", false, true},
+		{"quoted control", "; rel=next; foo=\"bad\nvalue\"", false, true},
+		{"escaped control", "; rel=next; foo=\"bad\\\x01\"", false, true},
+		{"quoted DEL", "; rel=next; foo=\"bad\x7f\"", false, true},
+		{"escaped DEL", "; rel=next; foo=\"bad\\\x7f\"", false, true},
+		{"trailing quoted escape", `; rel=next; foo="bad\`, false, true},
+		{"unquoted high byte", "; rel=next; foo=\xff", false, true},
+		{"control around name", "; rel=next; foo\v=value", false, true},
+		{"NBSP around value", "; rel=\u00a0next", false, true},
+		{"NBSP around name", "; rel\u00a0=next", false, true},
+		{"braces are not tokens", `; rel=next; foo={value}`, false, true},
+	} {
+		t.Run(test.name, func(t *testing.T) {
+			const target = "/v3/queues?page=2"
+			response := &ytr.Response{Header: http.Header{"Link": {"<" + target + ">" + test.parameters}}}
+			link, err := response.NextLink()
+			want := ""
+			if test.next {
+				want = target
+			}
+			if (err != nil) != test.invalid || link != want {
+				t.Fatalf("parameters=%s link=%q error=%v; want link=%q invalid=%v", test.parameters, link, err, want, test.invalid)
+			}
+		})
+	}
+}
+
+func TestNextLinkIgnoresEmptyListElements(t *testing.T) {
+	const target = "/v3/queues?page=2"
+	const next = "<" + target + ">; rel=next"
+	for _, test := range []struct {
+		name    string
+		headers []string
+		want    string
+	}{
+		{"empty header", []string{""}, ""},
+		{"whitespace header", []string{" \t"}, ""},
+		{"only empty elements", []string{", ,\t,"}, ""},
+		{"leading empty", []string{", " + next}, target},
+		{"trailing empty", []string{next + ", "}, target},
+		{"repeated empty", []string{",, " + next + ",\t, ,"}, target},
+		{"multiple headers", []string{"", ", ,", next, "\t", ","}, target},
+		{"previous and empty elements", []string{", </v3/queues?page=1>; rel=prev,,", ", " + next + ","}, target},
+	} {
+		t.Run(test.name, func(t *testing.T) {
+			response := &ytr.Response{Header: http.Header{"Link": test.headers}}
+			link, err := response.NextLink()
+			if err != nil || link != test.want {
+				t.Fatalf("Link=%q next=%q error=%v; want %q", test.headers, link, err, test.want)
+			}
+		})
+	}
+}
+
+func FuzzNextLinkQuotedAttributes(f *testing.F) {
+	for _, seed := range []string{"", `title`, `semi; comma, <angle>`, `\"; rel=prev; anchor=/other`, "tab\tand\x00control", "Я\xff"} {
+		f.Add([]byte(seed))
+	}
+	f.Fuzz(func(t *testing.T, title []byte) {
+		if len(title) > 4096 {
+			t.Skip("keep Link attributes bounded")
+		}
+		var escaped strings.Builder
+		for _, ch := range title {
+			if ch != '\t' && (ch < 32 || ch == 127) {
+				ch = ' '
+			}
+			if ch == '"' || ch == '\\' {
+				escaped.WriteByte('\\')
+			}
+			escaped.WriteByte(ch)
+		}
+		const target = "/v3/queues?page=2"
+		header := "<" + target + ">; title=\"" + escaped.String() + `"; rel=next; hreflang=ru; hreflang=en; flag; rel=prev`
+		response := &ytr.Response{Header: http.Header{"Link": {header}}}
+		link, err := response.NextLink()
+		if err != nil || link != target {
+			t.Fatalf("quoted title changed Link semantics: title=%q link=%q error=%v", title, link, err)
+		}
+	})
+}
+
+func BenchmarkNextLink(b *testing.B) {
+	const target = "/v3/queues?page=2"
+	for _, test := range []struct{ name, parameters string }{
+		{"ordinary", `; rel=next`},
+		{"rich attributes", `; title="comma, semi; and \"quote"; hreflang=ru; hreflang=en; rel="n\ext last"; flag; rel=prev`},
+	} {
+		b.Run(test.name, func(b *testing.B) {
+			response := &ytr.Response{Header: http.Header{"Link": {"<" + target + ">" + test.parameters}}}
+			var link string
+			b.ReportAllocs()
+			for b.Loop() {
+				var err error
+				link, err = response.NextLink()
+				if err != nil {
+					b.Fatal(err)
+				}
+			}
+			if link != target {
+				b.Fatalf("link=%q, want %q", link, target)
+			}
+		})
+	}
+}
+
+func TestPaginationFollowsNextWithRepeatedAndBareParameters(t *testing.T) {
+	calls, visits := 0, 0
+	client := client(t, func(request *http.Request) (*http.Response, error) {
+		calls++
+		response := reply(200, `[]`)
+		if calls == 1 {
+			response.Header.Set("Link", `</v3/queues?page=2>; rel=next; hreflang=ru; hreflang=en; flag; rel=prev`)
+		} else if request.URL.Query().Get("page") != "2" {
+			t.Errorf("unexpected page: %s", request.URL)
+		}
+		return response, nil
+	})
+	err := client.Paginate(t.Context(), ytr.OpListQueues, nil, nil, func(*ytr.Response) error {
+		visits++
+		return nil
+	})
+	if err != nil || calls != 2 || visits != 2 {
+		t.Fatalf("calls=%d visits=%d error=%v; want two pages", calls, visits, err)
 	}
 }

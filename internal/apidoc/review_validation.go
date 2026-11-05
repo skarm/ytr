@@ -72,7 +72,7 @@ func CheckModelChanges(before, after Documents, models Models, sources Sources) 
 
 		unmapped := len(change.Targets) == 0
 
-		unknownType := change.Before != nil && change.Before.Type != field.Type && len(documentKinds(field.Type)) == 0
+		unknownType := len(documentKinds(field.Type)) == 0 && (change.Before == nil || change.Before.Type != field.Type)
 		if (unmapped || unknownType || field.Note != "") && !hasContextDecision(pages[change.Source], *field, change.Targets) {
 			problems = append(problems, fmt.Errorf("%s:%d: unresolved source context for field %s in %s; add a precise model/section binding or a justified field_decisions entry for row %s", change.Source, field.Line, field.Name, field.Section, field.Digest))
 		}

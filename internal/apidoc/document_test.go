@@ -6,6 +6,7 @@ import (
 	"encoding/json"
 	"errors"
 	"fmt"
+	"io/fs"
 	"os"
 	"path/filepath"
 	"slices"
@@ -414,6 +415,40 @@ func TestNewDocumentationPageCannotBypassFieldValidation(t *testing.T) {
 	}
 }
 
+func TestNewBoundFieldsWithUnknownTypesNeedAContextDecision(t *testing.T) {
+	for _, newPage := range []bool{false, true} {
+		name := "added row"
+		if newPage {
+			name = "new page"
+		}
+		t.Run(name, func(t *testing.T) {
+			before, after, models := scalarChangeFixture()
+			before.Pages[0].Fields = nil
+			if newPage {
+				before.Pages = nil
+			}
+			field := &after.Pages[0].Fields[0]
+			field.Type = "Unspecified source format"
+			if err := apidoc.CheckModelChanges(before, after, models, apidoc.Sources{}); err == nil || !strings.Contains(err.Error(), "unresolved source context") {
+				t.Fatalf("unreviewed new field with unknown wire type accepted: %v", err)
+			}
+			sources := apidoc.Sources{Pages: []apidoc.Page{{Path: after.Pages[0].Path, FieldDecisions: []apidoc.FieldDecision{{Section: field.Section, Digest: field.Digest, Model: "Body", Field: "Value", Type: "Optional[string]", Reason: "Source context was checked against the published example, which uses a string."}}}}}
+			if err := apidoc.CheckModelChanges(before, after, models, sources); err != nil {
+				t.Fatalf("explicitly reviewed new field rejected: %v", err)
+			}
+		})
+	}
+}
+
+func TestUnchangedUnknownTypeDoesNotRequireANewContextDecision(t *testing.T) {
+	before, after, models := scalarChangeFixture()
+	before.Pages[0].Fields[0].Type = "Unspecified source format"
+	after.Pages[0].Fields[0].Type = before.Pages[0].Fields[0].Type
+	if err := apidoc.CheckModelChanges(before, after, models, apidoc.Sources{}); err != nil {
+		t.Fatalf("a description-only change to an existing unknown type rejected: %v", err)
+	}
+}
+
 func TestRemovedSourceFieldCannotLeaveAnUnreviewedRequestField(t *testing.T) {
 	before, after, models := scalarChangeFixture()
 	after.Pages[0].Fields = nil
@@ -726,4 +761,56 @@ func scalarChangeFixture() (apidoc.Documents, apidoc.Documents, apidoc.Models) {
 	after := apidoc.Documents{Version: 1, Revision: "r2", Pages: []apidoc.Document{{Path: "api/create.md", Fields: []apidoc.DocumentField{field}}}}
 	models := apidoc.Models{Types: []apidoc.ModelType{{Name: "Body", Kind: "struct", Source: "api/create.md", Fields: []apidoc.ModelField{{Name: "Value", JSON: "value", Type: "Optional[string]", Optional: true}}}}, Operations: []apidoc.ModelOperation{{Name: "CreateItem", Body: "Body", Source: "api/create.md"}}}
 	return before, after, models
+}
+
+func TestLocalDocumentsReadsSelectedSnapshot(t *testing.T) {
+	directory := t.TempDir()
+	if err := os.MkdirAll(filepath.Join(directory, "api", "issues"), 0o700); err != nil {
+		t.Fatal(err)
+	}
+	body := []byte("GET /v3/issues/{issueID}\n\n## Параметры ответа\n| Параметр | Тип |\n| --- | --- |\n| key | Строка |\n")
+	if err := os.WriteFile(filepath.Join(directory, "api", "issues", "get.md"), body, 0o600); err != nil {
+		t.Fatal(err)
+	}
+	sources := apidoc.Sources{Pages: []apidoc.Page{{Path: "api/issues/get.md", URL: "https://fixture.test/api/issues/get.md?revision=r1"}}}
+	documents, err := apidoc.LocalDocuments(t.Context(), sources, directory)
+	if err != nil {
+		t.Fatal(err)
+	}
+	if documents.Version != 1 || len(documents.Pages) != 1 {
+		t.Fatalf("unexpected snapshot: %+v", documents)
+	}
+	page := documents.Pages[0]
+	if page.Path != sources.Pages[0].Path || page.Digest != apidoc.ContentDigest(body) || len(page.SHA256) != 64 || len(page.Signatures) != 1 || page.Signatures[0] != "GET /v3/issues/{issueID}" || len(page.Fields) != 1 || page.Fields[0].Name != "key" || page.Fields[0].Type != "Строка" {
+		t.Fatalf("local snapshot lost source facts: %+v", page)
+	}
+}
+
+func TestLocalDocumentsReportsMissingFiles(t *testing.T) {
+	sources := apidoc.Sources{Pages: []apidoc.Page{{Path: "api/missing.md", URL: "https://fixture.test/api/missing.md"}}}
+	_, err := apidoc.LocalDocuments(t.Context(), sources, t.TempDir())
+	if !errors.Is(err, fs.ErrNotExist) || !strings.Contains(err.Error(), "api/missing.md") {
+		t.Fatalf("missing file identity or source path lost: %v", err)
+	}
+}
+
+func TestLocalDocumentsRejectsUnsafePaths(t *testing.T) {
+	for _, path := range []string{"../outside.md", "api/../../outside.md", "api/../outside.md", "/api/outside.md", "api/./outside.md", `api/..\..\outside.md`} {
+		t.Run(path, func(t *testing.T) {
+			sources := apidoc.Sources{Pages: []apidoc.Page{{Path: path, URL: "https://fixture.test/outside.md"}}}
+			_, err := apidoc.LocalDocuments(t.Context(), sources, t.TempDir())
+			if err == nil || !strings.Contains(err.Error(), "unsafe documentation path") {
+				t.Fatalf("unsafe path accepted or file read attempted: %v", err)
+			}
+		})
+	}
+}
+
+func TestDocumentationSnapshotRejectsWindowsPathSeparators(t *testing.T) {
+	page := apidoc.Page{Path: `api/..\..\outside.md`, ContentSHA256: "canonical"}
+	sources := apidoc.Sources{Pages: []apidoc.Page{page}}
+	snapshot := apidoc.Documents{Version: 1, Revision: "r1", Pages: []apidoc.Document{{Path: page.Path, Digest: page.ContentSHA256, SHA256: strings.Repeat("a", 64)}}}
+	if err := apidoc.CheckDocuments(snapshot, apidoc.Catalog{Revision: "r1"}, sources); err == nil || !strings.Contains(err.Error(), "unsafe documentation snapshot path") {
+		t.Fatalf("platform-dependent snapshot path accepted: %v", err)
+	}
 }

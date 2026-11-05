@@ -3,7 +3,11 @@ package main
 import (
 	"bytes"
 	"context"
+	"crypto/sha256"
 	"errors"
+	"fmt"
+	"io"
+	"net/http"
 	"os"
 	"path/filepath"
 	"strings"
@@ -421,4 +425,84 @@ func TestAcceptCanceledBeforeCommitKeepsSources(t *testing.T) {
 	if err != nil || !bytes.Equal(current, previous) {
 		t.Fatalf("sources changed after cancellation: %v", err)
 	}
+}
+
+func TestVerifyCandidateChecksPinnedFactsBeforeRunningGo(t *testing.T) {
+	stage := verificationFixture(t, "GET https://api.tracker.yandex.net/v3/items\n")
+	stubPinnedDocumentation(t, "GET https://api.tracker.yandex.net/v3/other\n")
+	if err := verifyCandidate(t.Context(), stage); err == nil || !strings.Contains(err.Error(), "differ from the pinned official source") {
+		t.Fatalf("changed official facts accepted: %v", err)
+	}
+	if _, err := os.Stat(filepath.Join(stage, "generated.txt")); !os.IsNotExist(err) {
+		t.Fatalf("generation ran before source validation: %v", err)
+	}
+}
+
+func TestVerifyCandidateRunsIsolatedGoChecks(t *testing.T) {
+	body := "GET https://api.tracker.yandex.net/v3/items\n"
+	stage := verificationFixture(t, body)
+	stubPinnedDocumentation(t, body)
+	if err := verifyCandidate(t.Context(), stage); err != nil {
+		t.Fatal(err)
+	}
+	generated, err := os.ReadFile(filepath.Join(stage, "generated.txt"))
+	if err != nil || string(generated) != "generated" {
+		t.Fatalf("generation was skipped: %s (%v)", generated, err)
+	}
+	if _, err := os.Stat(filepath.Join(stage, "examples/integration/checked.txt")); err != nil {
+		t.Fatalf("nested-module tests were skipped: %v", err)
+	}
+	// Real failing Go tests must prevent installation and preserve their diagnostics.
+	if err := os.WriteFile(filepath.Join(stage, "candidate_test.go"), []byte("package candidate\nimport \"testing\"\nfunc TestFailure(t *testing.T) { t.Fatal(\"candidate regression\") }\n"), 0o600); err != nil {
+		t.Fatal(err)
+	}
+	if err := verifyCandidate(t.Context(), stage); err == nil || !strings.Contains(err.Error(), "candidate rejected by go test ./...") || !strings.Contains(err.Error(), "candidate regression") {
+		t.Fatalf("failing candidate checks accepted or diagnostics lost: %v", err)
+	}
+}
+
+func verificationFixture(t *testing.T, body string) string {
+	t.Helper()
+	stage := t.TempDir()
+	for _, directory := range []string{"api", "generator", "examples/integration"} {
+		if err := os.MkdirAll(filepath.Join(stage, directory), 0o750); err != nil {
+			t.Fatal(err)
+		}
+	}
+	document, err := apidoc.ExtractDocument("api/items.md", []byte(body))
+	if err != nil {
+		t.Fatal(err)
+	}
+	document.SHA256 = fmt.Sprintf("%x", sha256.Sum256([]byte(body)))
+	if err := apidoc.WriteJSON(filepath.Join(stage, "api/documentation.json"), apidoc.Documents{Version: 1, Revision: "r1", Pages: []apidoc.Document{document}}); err != nil {
+		t.Fatal(err)
+	}
+	if err := apidoc.WriteJSON(filepath.Join(stage, "api/sources.json"), apidoc.Sources{Pages: []apidoc.Page{{Path: "api/items.md", URL: "https://yandex.ru/support/tracker/ru/api/items.md?revision=r1"}}}); err != nil {
+		t.Fatal(err)
+	}
+	for name, data := range map[string]string{
+		"go.mod":                               "module example.com/candidate\n\ngo 1.27.0\n",
+		"candidate.go":                         "package candidate\n//go:generate go run ./generator\n",
+		"generator/main.go":                    "package main\nimport \"os\"\nfunc main() { if err := os.WriteFile(\"generated.txt\", []byte(\"generated\"), 0600); err != nil { panic(err) } }\n",
+		"candidate_test.go":                    "package candidate\nimport (\"os\"; \"testing\")\nfunc TestGenerated(t *testing.T) { if b, err := os.ReadFile(\"generated.txt\"); err != nil || string(b) != \"generated\" { t.Fatal(\"generation missing\", err) } }\n",
+		"examples/integration/go.mod":          "module example.com/integration\n\ngo 1.27.0\n",
+		"examples/integration/fixture_test.go": "package integration\nimport (\"os\"; \"testing\")\nfunc TestGenerated(t *testing.T) { if b, err := os.ReadFile(\"../../generated.txt\"); err != nil || string(b) != \"generated\" { t.Fatal(\"generation missing\", err) }; if err := os.WriteFile(\"checked.txt\", []byte(\"checked\"), 0600); err != nil { t.Fatal(err) } }\n",
+	} {
+		if err := os.WriteFile(filepath.Join(stage, name), []byte(data), 0o600); err != nil {
+			t.Fatal(err)
+		}
+	}
+	return stage
+}
+
+func stubPinnedDocumentation(t *testing.T, body string) {
+	t.Helper()
+	original := http.DefaultTransport
+	t.Cleanup(func() { http.DefaultTransport = original })
+	http.DefaultTransport = localTransport(func(request *http.Request) (*http.Response, error) {
+		if request.URL.String() != "https://yandex.ru/support/tracker/ru/api/items.md?revision=r1" {
+			t.Errorf("source replay did not pin its revision: %s", request.URL)
+		}
+		return &http.Response{StatusCode: http.StatusOK, Header: make(http.Header), Body: io.NopCloser(strings.NewReader(body))}, nil
+	})
 }

@@ -3,9 +3,11 @@ package main
 
 import (
 	"bytes"
+	"errors"
 	"fmt"
 	"go/format"
 	"os"
+	"path/filepath"
 	"strings"
 
 	"github.com/skarm/ytr/internal/apidoc"
@@ -52,20 +54,54 @@ func generate() error {
 		return err
 	}
 
-	for _, output := range []struct {
+	outputs := []struct {
 		path string
 		data []byte
 	}{
 		{"methods_gen.go", methods},
 		{"typed/models_gen.go", modelSource},
 		{"typed/client_gen.go", clientSource},
-	} {
-		if err := os.WriteFile(output.path, output.data, 0o644); err != nil { // #nosec G306 -- Generated public API source must be readable by build tools.
+	}
+	for _, output := range outputs {
+		info, err := os.Lstat(output.path)
+		if err != nil && !errors.Is(err, os.ErrNotExist) {
+			return err
+		}
+
+		if err == nil && !info.Mode().IsRegular() {
+			return &os.PathError{Op: "generate", Path: output.path, Err: errors.New("output must be a regular file")}
+		}
+	}
+
+	for _, output := range outputs {
+		if err := writeGeneratedFile(output.path, output.data); err != nil {
 			return err
 		}
 	}
 
 	return nil
+}
+
+// writeGeneratedFile keeps the previous source intact until its replacement is complete.
+func writeGeneratedFile(path string, data []byte) error {
+	file, err := os.CreateTemp(filepath.Dir(path), ".ytr-generated-*")
+	if err != nil {
+		return err
+	}
+
+	name := file.Name()
+	defer func() { _ = os.Remove(name) }()
+
+	if err := file.Chmod(0o644); err != nil { // #nosec G302 -- Generated public API source must be readable by build tools.
+		return errors.Join(err, file.Close())
+	}
+
+	_, writeErr := file.Write(data)
+	if err := errors.Join(writeErr, file.Close()); err != nil {
+		return err
+	}
+
+	return os.Rename(name, path)
 }
 
 func renderMethods(catalog apidoc.Catalog) ([]byte, error) {

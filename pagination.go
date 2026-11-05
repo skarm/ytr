@@ -4,7 +4,6 @@ import (
 	"context"
 	"errors"
 	"fmt"
-	"mime"
 	"net/url"
 	"strconv"
 	"strings"
@@ -25,6 +24,10 @@ func (r *Response) NextLink() (string, error) {
 		}
 
 		for _, link := range links {
+			if strings.Trim(link, " \t") == "" {
+				continue
+			}
+
 			target, err := parseNextLink(link)
 			if err != nil {
 				return "", err
@@ -197,14 +200,14 @@ func (s *linkState) inQuote(ch byte) bool {
 }
 
 func parseNextLink(link string) (string, error) {
-	link = strings.TrimSpace(link)
+	link = strings.Trim(link, " \t")
 
 	end := strings.IndexByte(link, '>')
 	if !strings.HasPrefix(link, "<") || end < 2 {
 		return "", errors.New("ytr: malformed Link header")
 	}
 
-	_, params, err := mime.ParseMediaType("link" + link[end+1:])
+	params, err := parseLinkParameters(link[end+1:])
 	if err != nil {
 		return "", fmt.Errorf("ytr: malformed Link parameters: %w", err)
 	}
@@ -213,13 +216,132 @@ func parseNextLink(link string) (string, error) {
 		return "", nil
 	}
 
-	for relation := range strings.FieldsSeq(params["rel"]) {
+	for relation := range strings.SplitSeq(params["rel"], " ") {
 		if strings.EqualFold(relation, "next") {
 			return link[1:end], nil
 		}
 	}
 
 	return "", nil
+}
+
+func parseLinkParameters(raw string) (map[string]string, error) {
+	parameters, err := splitLinkParameters(raw)
+	if err != nil {
+		return nil, err
+	}
+
+	values := make(map[string]string, len(parameters))
+	for _, parameter := range parameters {
+		name, rawValue, hasValue := strings.Cut(parameter, "=")
+
+		name = strings.ToLower(strings.Trim(name, " \t"))
+		if !validHeaderName(name) {
+			return nil, errors.New("invalid Link parameter name")
+		}
+
+		value := ""
+
+		if hasValue {
+			var err error
+
+			value, err = parseLinkParameterValue(rawValue)
+			if err != nil {
+				return nil, err
+			}
+		}
+
+		if _, exists := values[name]; !exists {
+			values[name] = value
+		}
+	}
+
+	return values, nil
+}
+
+// Link uses HTTP token/quoted-string syntax, including quoted-pair escapes.
+// Extended attribute names remain distinct; rel* and anchor* are unsupported.
+func parseLinkParameterValue(raw string) (string, error) {
+	raw = strings.Trim(raw, " \t")
+	if raw == "" {
+		return "", errors.New("empty Link parameter value")
+	}
+
+	if raw[0] != '"' {
+		if !validHeaderName(raw) {
+			return "", errors.New("invalid Link parameter token")
+		}
+
+		return raw, nil
+	}
+
+	var value strings.Builder
+
+	for index := 1; index < len(raw); index++ {
+		ch := raw[index]
+		if ch == '"' {
+			if index != len(raw)-1 {
+				return "", errors.New("bytes after quoted Link parameter")
+			}
+
+			return value.String(), nil
+		}
+
+		if ch == '\\' {
+			index++
+			if index == len(raw) {
+				return "", errors.New("incomplete Link quoted pair")
+			}
+
+			ch = raw[index]
+		}
+
+		// Both qdtext and quoted-pair permit HTAB, SP, visible bytes and
+		// obs-text. Quotes and backslashes were already handled above.
+		if ch != '\t' && (ch < 32 || ch == 127) {
+			return "", errors.New("invalid quoted Link parameter byte")
+		}
+
+		value.WriteByte(ch)
+	}
+
+	return "", errors.New("unterminated quoted Link parameter")
+}
+
+func splitLinkParameters(raw string) ([]string, error) {
+	raw = strings.Trim(raw, " \t")
+	if raw == "" {
+		return nil, nil
+	}
+
+	if raw[0] != ';' {
+		return nil, errors.New("missing Link parameter separator")
+	}
+
+	var parameters []string
+
+	start := 1
+	quoted, escaped := false, false
+
+	for index := 1; index < len(raw); index++ {
+		switch {
+		case escaped:
+			escaped = false
+		case quoted && raw[index] == '\\':
+			escaped = true
+		case raw[index] == '"':
+			quoted = !quoted
+		case !quoted && raw[index] == ';':
+			parameters = append(parameters, strings.Trim(raw[start:index], " \t"))
+			start = index + 1
+		}
+	}
+
+	if quoted {
+		return nil, errors.New("unterminated Link parameter")
+	}
+
+	return append(parameters, strings.Trim(raw[start:], " \t")), nil
 }
 
 func splitLinks(header string) ([]string, error) {

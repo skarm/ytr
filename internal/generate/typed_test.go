@@ -11,6 +11,7 @@ import (
 	"io/fs"
 	"os"
 	"path/filepath"
+	"runtime"
 	"strings"
 	"testing"
 	"text/template"
@@ -191,6 +192,19 @@ func TestGenerateReportsBlockedOutputPaths(t *testing.T) {
 			if err := os.WriteFile(blocker, []byte("keep existing output"), 0o600); err != nil {
 				t.Fatal(err)
 			}
+			previous := make(map[string][]byte)
+			for _, output := range []string{"methods_gen.go", "typed/models_gen.go", "typed/client_gen.go"} {
+				if output == path || path == "typed" {
+					continue
+				}
+				if err := os.MkdirAll(filepath.Dir(output), 0o750); err != nil {
+					t.Fatal(err)
+				}
+				previous[output] = []byte("// previous " + output + "\n")
+				if err := os.WriteFile(output, previous[output], 0o600); err != nil {
+					t.Fatal(err)
+				}
+			}
 			err := generate()
 			var pathError *os.PathError
 			if !errors.As(err, &pathError) || pathError.Path != path {
@@ -198,6 +212,11 @@ func TestGenerateReportsBlockedOutputPaths(t *testing.T) {
 			}
 			if got := string(readTypedTestFile(t, blocker)); got != "keep existing output" {
 				t.Fatalf("blocker changed: %q", got)
+			}
+			for output, want := range previous {
+				if got := readTypedTestFile(t, output); !bytes.Equal(got, want) {
+					t.Errorf("%s changed before a known blocked output was rejected", output)
+				}
 			}
 		})
 	}
@@ -233,6 +252,54 @@ func TestRenderTypedFileReturnsNoOutputOnTemplateAndFormatErrors(t *testing.T) {
 				t.Fatalf("failed render returned output: %s", data)
 			}
 		})
+	}
+}
+
+func TestWriteGeneratedFileReplacesCompleteSource(t *testing.T) {
+	directory := t.TempDir()
+	path := filepath.Join(directory, "generated.go")
+	if err := os.WriteFile(path, []byte("old source"), 0o600); err != nil {
+		t.Fatal(err)
+	}
+	want := []byte("package generated\n")
+	if err := writeGeneratedFile(path, want); err != nil {
+		t.Fatal(err)
+	}
+	if got := readTypedTestFile(t, path); !bytes.Equal(got, want) {
+		t.Fatalf("wrong source: %s", got)
+	}
+	info, err := os.Stat(path)
+	if err != nil {
+		t.Fatal(err)
+	}
+	if runtime.GOOS != "windows" && info.Mode().Perm() != 0o644 {
+		t.Fatalf("generated source permissions: %o", info.Mode().Perm())
+	}
+	entries, err := os.ReadDir(directory)
+	if err != nil || len(entries) != 1 {
+		t.Fatalf("temporary output not removed: %v, %v", entries, err)
+	}
+}
+
+func TestWriteGeneratedFileCleansUpAfterRenameFailure(t *testing.T) {
+	directory := t.TempDir()
+	path := filepath.Join(directory, "blocked.go")
+	if err := os.Mkdir(path, 0o750); err != nil {
+		t.Fatal(err)
+	}
+	marker := filepath.Join(path, "keep.txt")
+	if err := os.WriteFile(marker, []byte("keep"), 0o600); err != nil {
+		t.Fatal(err)
+	}
+	if err := writeGeneratedFile(path, []byte("package generated\n")); err == nil {
+		t.Fatal("directory output was replaced")
+	}
+	if got := readTypedTestFile(t, marker); string(got) != "keep" {
+		t.Fatalf("blocked output changed: %s", got)
+	}
+	entries, err := os.ReadDir(directory)
+	if err != nil || len(entries) != 1 {
+		t.Fatalf("temporary output not removed after failure: %v, %v", entries, err)
 	}
 }
 

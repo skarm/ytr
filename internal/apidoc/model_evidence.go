@@ -223,6 +223,10 @@ func sourcePath(source string) string {
 	source, _, _ = strings.Cut(source, "#")
 	source, _, _ = strings.Cut(source, "?")
 
+	if index := strings.LastIndexByte(source, ':'); index >= 0 && index+1 < len(source) && strings.IndexFunc(source[index+1:], func(ch rune) bool { return ch < '0' || ch > '9' }) < 0 {
+		source = source[:index]
+	}
+
 	return source
 }
 

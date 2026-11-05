@@ -7,6 +7,7 @@ import (
 	"fmt"
 	"reflect"
 	"slices"
+	"strings"
 )
 
 type unionChoice struct {
@@ -98,8 +99,8 @@ func selectUnion(data []byte, discriminator string, candidates []unionChoice) (u
 }
 
 func selectTaggedUnion(object map[string]json.RawMessage, discriminator string, candidates []unionChoice) (unionChoice, error) {
-	var tag string
-	if err := json.Unmarshal(object[discriminator], &tag); err != nil {
+	tag, err := readDiscriminator(object, discriminator)
+	if err != nil {
 		return unionChoice{}, err
 	}
 
@@ -110,6 +111,23 @@ func selectTaggedUnion(object map[string]json.RawMessage, discriminator string, 
 	}
 
 	return unionChoice{}, fmt.Errorf("ytr/typed: unknown %s discriminator %q", discriminator, tag)
+}
+
+func readDiscriminator(object map[string]json.RawMessage, discriminator string) (string, error) {
+	for key := range object {
+		// encoding/json also matches struct fields case-insensitively. Reject
+		// aliases that could override the exact key used to select a variant.
+		if key != discriminator && strings.EqualFold(key, discriminator) {
+			return "", fmt.Errorf("ytr/typed: ambiguous %s discriminator field %q", discriminator, key)
+		}
+	}
+
+	var tag string
+	if err := json.Unmarshal(object[discriminator], &tag); err != nil {
+		return "", err
+	}
+
+	return tag, nil
 }
 
 func selectObjectUnion(object map[string]json.RawMessage, candidates []unionChoice) (unionChoice, error) {
@@ -148,8 +166,8 @@ func checkDiscriminator(data []byte, discriminator string, tags []string) error 
 		return err
 	}
 
-	var tag string
-	if err := json.Unmarshal(object[discriminator], &tag); err != nil {
+	tag, err := readDiscriminator(object, discriminator)
+	if err != nil {
 		return err
 	}
 

@@ -1,6 +1,7 @@
 package typed_test
 
 import (
+	"bytes"
 	"encoding/json"
 	"reflect"
 	"testing"
@@ -185,4 +186,129 @@ func TestTypedProjectUnionRecognizesSingleKeyObject(t *testing.T) {
 			}
 		})
 	}
+}
+
+func TestTaggedUnionRejectsCaseFoldedDiscriminatorWithoutMutation(t *testing.T) {
+	for _, input := range []string{
+		`{"type":"note","Type":"security","description":"changed"}`,
+		`{"Type":"security","type":"note","description":"changed"}`,
+		`{"type":"note","TYPE":"note","description":"changed"}`,
+		`{"TYPE":"note","type":"note","description":"changed"}`,
+		`{"type":"note","\u0054ype":"security","description":"changed"}`,
+	} {
+		t.Run(input, func(t *testing.T) {
+			original := &typed.CreateDashboardWidgetNote{Type: "note", Description: "retained", Text: "text", MarkupType: "plain"}
+			value := typed.CreateDashboardWidgetRequestBody{CreateDashboardWidgetNote: original}
+			if err := json.Unmarshal([]byte(input), &value); err == nil {
+				t.Fatal("case-folded discriminator alias accepted")
+			}
+			if value.CreateDashboardWidgetNote != original || original.Type != "note" || original.Description != "retained" || value.CreateDashboardWidgetSecurity != nil {
+				t.Fatalf("failed decode changed the retained variant: %+v", value)
+			}
+		})
+	}
+}
+
+func TestTaggedUnionKeepsExactDiscriminatorLastWinsAndUnknownFields(t *testing.T) {
+	for _, test := range []struct{ input, want string }{
+		{`{"type":"security","type":"note","description":"d","text":"t","markupType":"plain","unknown":false}`, "note"},
+		{`{"type":"note","type":"security","description":"d","unknown":false}`, "security"},
+	} {
+		t.Run(test.want, func(t *testing.T) {
+			var value typed.CreateDashboardWidgetRequestBody
+			if err := json.Unmarshal([]byte(test.input), &value); err != nil {
+				t.Fatal(err)
+			}
+			data, err := value.MarshalJSON()
+			if err != nil {
+				t.Fatal(err)
+			}
+			var object map[string]json.RawMessage
+			if err := json.Unmarshal(data, &object); err != nil || string(object["type"]) != `"`+test.want+`"` {
+				t.Fatalf("exact repeated discriminator changed: %s, error=%v", data, err)
+			}
+		})
+	}
+}
+
+func TestUntaggedUnionKeepsCaseInsensitiveObjectFields(t *testing.T) {
+	var value typed.Reference
+	if err := json.Unmarshal([]byte(`{"KEY":"SDK","unknown":false}`), &value); err != nil {
+		t.Fatal(err)
+	}
+	if value.IDKeyReference == nil {
+		t.Fatal("untagged object variant was not selected")
+	}
+	if key, present := value.IDKeyReference.Key.Get(); !present || key != "SDK" {
+		t.Fatalf("untagged object field changed: key=%q present=%v", key, present)
+	}
+}
+
+func BenchmarkTaggedWidgetJSON(b *testing.B) {
+	data := []byte(`{"type":"note","description":"Example","text":"Text","markupType":"plain"}`)
+	b.ReportAllocs()
+	var value typed.CreateDashboardWidgetRequestBody
+	for b.Loop() {
+		if err := json.Unmarshal(data, &value); err != nil {
+			b.Fatal(err)
+		}
+	}
+	if value.CreateDashboardWidgetNote == nil || value.CreateDashboardWidgetNote.Type != "note" || value.CreateDashboardWidgetNote.Text != "Text" {
+		b.Fatalf("tagged widget changed: %+v", value)
+	}
+}
+
+// The codecs promise to replace their previous value only after a successful
+// decode. Exercise that boundary with populated composite values, so failed
+// decoding cannot silently mutate a retained map, slice or pointed-to model.
+func FuzzTypedJSONCodecs(f *testing.F) {
+	for _, seed := range []string{
+		`null`, `{}`, `[]`, `false`, `0`, `""`,
+		`{"id":9007199254740993,"key":"SDK"}`,
+		`{"set":{"id":9007199254740993}}`,
+		`{"add":[{"id":9007199254740993}],"remove":null}`,
+		`{"parent":{"key":"SDK-1"},"parent":{"display":"Parent"},"custom":{"flag":false}}`,
+		`{"summary":"changed","parent":{"key":"new"},"tags":42}`,
+		`{"type":"note","description":"d","text":"t","markupType":"plain"}`,
+		`{"type":"note","Type":"security","description":"d"}`,
+		`{"Type":"security","type":"note","description":"d"}`,
+		`{"type":"note","TYPE":"note"}`,
+		`{"type":"note","\u0054ype":"security"}`,
+		`{"id":true}`, `{"new":`, `null false`, " \t\n", "",
+	} {
+		f.Add([]byte(seed))
+	}
+	f.Fuzz(func(t *testing.T, data []byte) {
+		if len(data) > 1<<20 {
+			t.Skip("keep individual codec inputs bounded")
+		}
+		for _, codec := range []interface {
+			json.Marshaler
+			json.Unmarshaler
+		}{
+			typed.Ptr(typed.Value(map[string]any{"retained": json.Number("9007199254740993")})),
+			typed.Ptr(typed.Set(map[string]any{"retained": true})),
+			typed.Ptr(typed.Collection([]map[string]any{{"retained": true}})),
+			typed.Ptr(typed.One(map[string]any{"retained": true})),
+			typed.Ptr(typed.Reference{IDKeyReference: &typed.IDKeyReference{Key: typed.Value("retained")}}),
+			&typed.Issue{Summary: "retained", Parent: &typed.IssueParent{Key: "SDK-1"}, AdditionalFields: map[string]json.RawMessage{"retained": json.RawMessage(`false`)}},
+			&typed.CreateDashboardWidgetRequestBody{CreateDashboardWidgetNote: &typed.CreateDashboardWidgetNote{Type: "note", Description: "retained", Text: "text", MarkupType: "plain"}},
+		} {
+			before, err := codec.MarshalJSON()
+			if err != nil {
+				t.Fatal(err)
+			}
+			decodeErr := json.Unmarshal(data, codec)
+			after, err := codec.MarshalJSON()
+			if err != nil {
+				t.Fatalf("%T cannot marshal after decode (error %v): %v", codec, decodeErr, err)
+			}
+			if !json.Valid(after) {
+				t.Fatalf("%T produced invalid JSON: %s", codec, after)
+			}
+			if decodeErr != nil && !bytes.Equal(before, after) {
+				t.Fatalf("%T changed after failed decode: before=%s after=%s error=%v", codec, before, after, decodeErr)
+			}
+		}
+	})
 }
